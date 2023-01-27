@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 /**
  * This is 'AudibleTest' class.
  */
-public class AudibleTest extends SampleTest {
+public class AudibleTest extends AudibleAndroidTestBase {
 
     /**
      * Test to launch application.
