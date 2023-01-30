@@ -2,7 +2,6 @@ package src.main.appium.tests;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.BeforeClass;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -10,10 +9,6 @@ import java.net.URL;
  * This is 'AudibleAndroidTestBase' class.
  */
 public class AudibleAndroidTestBase extends AudibleMobileTestBase {
-
-    public AndroidDriver driver = null;
-
-    public AndroidDriver androidDriver;
 
     /**
      * Gets the desired capabilities for android.
@@ -50,27 +45,8 @@ public class AudibleAndroidTestBase extends AudibleMobileTestBase {
      *
      * @return driver
      */
-    @BeforeClass
     @Override
-    public AndroidDriver createDriver() {
+    protected AndroidDriver createDriver() {
         return new AndroidDriver(getEndPoint(), getCapabilities());
-    }
-
-    /**
-     * Gets the driver.
-     *
-     * @return driver / null
-     */
-    @Override
-    public AndroidDriver getDriver() {
-        try {
-            if (driver != null) {
-                driver.quit();
-            } else {
-                return androidDriver = (AndroidDriver) driver;
-            }
-        } catch (Exception ignored) {
-        }
-        return null;
     }
 }
