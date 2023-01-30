@@ -1,4 +1,4 @@
-package src.main.appium.tests;
+package tests;
 
 import io.appium.java_client.AppiumDriver;
 import org.testng.annotations.BeforeClass;

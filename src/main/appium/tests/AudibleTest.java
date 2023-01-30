@@ -1,4 +1,4 @@
-package src.main.appium.tests;
+package tests;
 
 import org.testng.annotations.Test;
 
