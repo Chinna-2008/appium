@@ -1,6 +1,7 @@
 package tests;
 
 import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.IOSElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -8,7 +9,7 @@ import java.net.URL;
 /**
  * This is 'AudibleIOSTestBase' class.
  */
-public class AudibleIOSTestBase extends AudibleMobileTestBase {
+public class AudibleIOSTestBase extends AudibleMobileTestBase<IOSDriver<IOSElement>> {
 
     /**
      * Creates a driver.
@@ -16,8 +17,8 @@ public class AudibleIOSTestBase extends AudibleMobileTestBase {
      * @return driver
      */
     @Override
-    protected IOSDriver createDriver() {
-        return new IOSDriver(getEndPoint(), getCapabilities());
+    protected IOSDriver<IOSElement> createDriver() {
+        return new IOSDriver<>(getEndPoint(), getCapabilities());
     }
 
     /**
