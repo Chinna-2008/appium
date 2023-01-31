@@ -1,24 +1,24 @@
 package tests;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 
 /**
  * This is 'AudibleMobileTestBase' abstract class.
  */
-public abstract class AudibleMobileTestBase {
+public abstract class AudibleMobileTestBase<AD extends AppiumDriver<? extends MobileElement>> {
 
-    private AppiumDriver driver = null;
+    private AD driver = null;
 
-    protected abstract AppiumDriver createDriver();
+    protected abstract AD createDriver();
 
     /**
      * Gets the driver.
      *
      * @return driver
      */
-    public AppiumDriver getDriver() {
+    public AD getDriver() {
         return driver;
     }
 
@@ -27,14 +27,6 @@ public abstract class AudibleMobileTestBase {
      */
     @BeforeClass
     public final void setUpSessionBeforeClass() {
-        setUpDriver();
-    }
-
-    /**
-     * Set up the session before method.
-     */
-    @BeforeMethod
-    public final void setUpSessionBeforeMethod() {
         setUpDriver();
     }
 

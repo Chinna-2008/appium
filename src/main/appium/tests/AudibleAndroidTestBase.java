@@ -1,6 +1,7 @@
 package tests;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -8,7 +9,7 @@ import java.net.URL;
 /**
  * This is 'AudibleAndroidTestBase' class.
  */
-public class AudibleAndroidTestBase extends AudibleMobileTestBase {
+public class AudibleAndroidTestBase extends AudibleMobileTestBase<AndroidDriver<AndroidElement>> {
 
     /**
      * Gets the desired capabilities for android.
@@ -46,7 +47,7 @@ public class AudibleAndroidTestBase extends AudibleMobileTestBase {
      * @return driver
      */
     @Override
-    protected AndroidDriver createDriver() {
-        return new AndroidDriver(getEndPoint(), getCapabilities());
+    protected AndroidDriver<AndroidElement> createDriver() {
+        return new AndroidDriver<>(getEndPoint(), getCapabilities());
     }
 }

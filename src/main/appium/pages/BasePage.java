@@ -1,4 +1,4 @@
-package src.main.appium.pages;
+package pages;
 
 /**
  * This is 'BasePage' class.
