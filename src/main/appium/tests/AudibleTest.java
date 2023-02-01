@@ -12,6 +12,10 @@ public class AudibleTest extends AudibleAndroidTestBase {
      */
     @Test
     public void testLaunchApplication() {
-        System.out.println("Application is started..");
+        getWelcomePage().waitForGetStartedElementToDisplay();
+        getWelcomePage().clickGetStarted();
+        getWelcomePage().waitForAudibleLogoToDisplay();
+        String text = getWelcomePage().getAudibleLogoText();
+        System.out.println(text);
     }
 }
