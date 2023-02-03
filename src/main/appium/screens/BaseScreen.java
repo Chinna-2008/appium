@@ -1,4 +1,4 @@
-package pages;
+package screens;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -7,20 +7,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static tests.AudibleMobileTestBase.driver;
 
 /**
- * This is 'BasePage' class.
+ * This is 'BaseScreen' class.
  */
-public abstract class BasePage {
+public abstract class BaseScreen {
 
     public AppiumDriver appiumDriver;
 
-    public BasePage() {
+    public BaseScreen() {
         this.appiumDriver = driver;
     }
 
     /**
-     * Waits for page to load.
+     * Waits for screen to load.
      */
-    public abstract void waitForPageToLoad();
+    public abstract void waitForScreenToLoad();
 
     /**
      * Waits for element to load.

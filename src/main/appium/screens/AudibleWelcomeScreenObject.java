@@ -1,4 +1,4 @@
-package pages;
+package screens;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -8,20 +8,20 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * This is 'AudibleWelcomePageObject' class.
+ * This is 'AudibleWelcomeScreenObject' class.
  */
 @Data
-public class AudibleWelcomePageObject {
+public class AudibleWelcomeScreenObject {
 
     private final AppiumDriver driver;
 
-    public AudibleWelcomePageObject(final AppiumDriver driver) {
+    public AudibleWelcomeScreenObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
     @FindBy(id = "com.audible.application:id/get_started_button")
-    private MobileElement getStartedButton;
+    private MobileElement getStarted;
 
     @FindBy(id = "com.audible.application:id/logo_themed")
     private MobileElement audibleLogo;

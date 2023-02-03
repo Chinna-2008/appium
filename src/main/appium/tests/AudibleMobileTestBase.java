@@ -1,10 +1,10 @@
 package tests;
 
-import common.PageRegistry;
+import common.ScreenRegistry;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.testng.annotations.BeforeClass;
-import pages.BasePage;
+import screens.BaseScreen;
 
 /**
  * This is 'AudibleMobileTestBase' abstract class.
@@ -13,7 +13,7 @@ public abstract class AudibleMobileTestBase<AD extends AppiumDriver<? extends Mo
 
     private AD myDriver = null;
 
-    private PageRegistry pageRegistry;
+    private ScreenRegistry screenRegistry;
 
     public static AppiumDriver driver;
 
@@ -35,7 +35,7 @@ public abstract class AudibleMobileTestBase<AD extends AppiumDriver<? extends Mo
     public final void setUpSessionBeforeClass() {
         setUpDriver();
         driver = getDriver();
-        pageRegistry = new PageRegistry();
+        screenRegistry = new ScreenRegistry();
     }
 
     /**
@@ -54,14 +54,14 @@ public abstract class AudibleMobileTestBase<AD extends AppiumDriver<? extends Mo
     }
 
     /**
-     * Gets the page.
+     * Gets the screen.
      *
-     * @param pageClass of a page class
+     * @param screenClass of a screen class
      * @param <T> type of class
-     * @return page
+     * @return screen
      */
-    protected <T extends BasePage> T getPage(Class<T> pageClass) {
-        T page = pageRegistry.get(pageClass);
-        return page;
+    protected <T extends BaseScreen> T getScreen(Class<T> screenClass) {
+        T screen = screenRegistry.get(screenClass);
+        return screen;
     }
 }
