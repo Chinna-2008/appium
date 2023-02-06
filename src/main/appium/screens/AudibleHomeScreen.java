@@ -24,4 +24,11 @@ public class AudibleHomeScreen extends BaseScreen {
     public boolean isAudibleLogoIsDisplayed() {
         return audibleHomeScreenObject.getAudibleLogo().isDisplayed();
     }
+
+    /**
+     * Taps on profile.
+     */
+    public void tapProfile() {
+        audibleHomeScreenObject.getProfile().click();
+    }
 }
