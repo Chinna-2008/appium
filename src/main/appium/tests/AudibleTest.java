@@ -32,5 +32,8 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getSignInScreen().tapSignInButton();
         getHomeScreen().waitForScreenToLoad();
         Assert.assertTrue(getHomeScreen().isAudibleLogoIsDisplayed(), "Home page is not displayed.");
+        getHomeScreen().tapProfile();
+        getProfileScreen().waitForProfileTextToDisplay();
+        Assert.assertEquals(getProfileScreen().getProfileNameText(), "Reddeppap ", "Profile name is not matched");
     }
 }
