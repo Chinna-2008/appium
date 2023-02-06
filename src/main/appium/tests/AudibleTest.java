@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
@@ -15,7 +16,21 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getWelcomeScreen().waitForGetStartedButtonToDisplay();
         getWelcomeScreen().tapGetStarted();
         getWelcomeScreen().waitForAudibleLogoToDisplay();
-        String text = getWelcomeScreen().getAudibleLogoText();
-        System.out.println(text);
+        Assert.assertTrue(getWelcomeScreen().isAudibleLogoDisplayed(), "Audible logo is not displayed.");
+    }
+
+    /**
+     * Test the sign in.
+     */
+    @Test
+    public void testSignIn() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().enterEmailId("reddeppapc1@gmail.com");
+        getSignInScreen().enterPassword("Reddeppa@3");
+        getSignInScreen().tapSignInButton();
+        getHomeScreen().waitForScreenToLoad();
+        Assert.assertTrue(getHomeScreen().isAudibleLogoIsDisplayed(), "Home page is not displayed.");
     }
 }
