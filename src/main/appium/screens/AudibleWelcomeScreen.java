@@ -13,6 +13,7 @@ public class AudibleWelcomeScreen extends BaseScreen {
 
     @Override
     public void waitForScreenToLoad() {
+        waitForMobileElement(audibleWelcomeScreenObject.getGetStarted());
     }
 
     /**
@@ -37,11 +38,18 @@ public class AudibleWelcomeScreen extends BaseScreen {
     }
 
     /**
-     * Gets the audible logo text.
+     * Verify is audible logo displayed or not.
      *
-     * @return audible text
+     * @return true / false
      */
-    public String getAudibleLogoText() {
-        return audibleWelcomeScreenObject.getAudibleLogo().getText();
+    public boolean isAudibleLogoDisplayed() {
+        return audibleWelcomeScreenObject.getAudibleLogo().isDisplayed();
+    }
+
+    /**
+     * Taps on sign in button.
+     */
+    public void tapSignIn() {
+        audibleWelcomeScreenObject.getSignIn().click();
     }
 }

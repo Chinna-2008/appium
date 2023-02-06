@@ -3,6 +3,8 @@ package tests;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import screens.AudibleHomeScreen;
+import screens.AudibleSignInScreen;
 import screens.AudibleWelcomeScreen;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -59,5 +61,23 @@ public class AudibleAndroidTestBase extends AudibleMobileTestBase<AndroidDriver<
      */
     public AudibleWelcomeScreen getWelcomeScreen() {
         return getScreen(AudibleWelcomeScreen.class);
+    }
+
+    /**
+     * Gets the sign in screen.
+     *
+     * @return sign in screen object
+     */
+    public AudibleSignInScreen getSignInScreen() {
+        return getScreen(AudibleSignInScreen.class);
+    }
+
+    /**
+     * Gets the Home screen.
+     *
+     * @return home screen object
+     */
+    public AudibleHomeScreen getHomeScreen() {
+        return getScreen(AudibleHomeScreen.class);
     }
 }

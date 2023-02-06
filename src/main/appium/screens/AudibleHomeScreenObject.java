@@ -8,23 +8,21 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * This is 'AudibleWelcomeScreenObject' class.
+ * This is 'AudibleHomeScreenObject' class.
  */
 @Data
-public class AudibleWelcomeScreenObject {
+public class AudibleHomeScreenObject {
+
     private final AppiumDriver driver;
 
-    public AudibleWelcomeScreenObject(final AppiumDriver driver) {
+    public AudibleHomeScreenObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @FindBy(id = "com.audible.application:id/get_started_button")
-    private MobileElement getStarted;
-
     @FindBy(id = "com.audible.application:id/logo_themed")
     private MobileElement audibleLogo;
 
-    @FindBy(id = "com.audible.application:id/sign_in_button")
-    private MobileElement signIn;
+    @FindBy(xpath = "//android.widget.FrameLayout[@content-desc=\"Profile\"]/android.widget.ImageView")
+    private MobileElement profile;
 }
