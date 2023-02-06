@@ -23,6 +23,18 @@ public class AudibleHomeScreenObject {
     @FindBy(id = "com.audible.application:id/logo_themed")
     private MobileElement audibleLogo;
 
-    @FindBy(xpath = "//android.widget.FrameLayout[@content-desc=\"Profile\"]/android.widget.ImageView")
+    @FindBy(xpath = "//android.widget.FrameLayout[@content-desc='Profile']/android.widget.ImageView")
     private MobileElement profile;
+
+    @FindBy(xpath = "//android.widget.FrameLayout[@content-desc='Library']/android.view.ViewGroup/android.widget.TextView")
+    private MobileElement library;
+
+    @FindBy(xpath = "//android.widget.FrameLayout[@content-desc='Discover']/android.view.ViewGroup/android.widget.TextView")
+    private MobileElement discover;
+
+    @FindBy(xpath = "//android.widget.FrameLayout[@content-desc='Debug panel']/android.view.ViewGroup/android.widget.TextView")
+    private MobileElement debugPanel;
+
+    @FindBy(id = "com.audible.application:id/ic_opaque")
+    private MobileElement search;
 }

@@ -26,7 +26,7 @@ public class AudibleHomeScreen extends BaseScreen {
     }
 
     /**
-     * Taps on profile.
+     * Taps on the profile.
      */
     public void tapProfile() {
         audibleHomeScreenObject.getProfile().click();
