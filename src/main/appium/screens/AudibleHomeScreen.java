@@ -31,4 +31,11 @@ public class AudibleHomeScreen extends BaseScreen {
     public void tapProfile() {
         audibleHomeScreenObject.getProfile().click();
     }
+
+    /**
+     * Taps on the search button.
+     */
+    public void tapSearchButton() {
+        audibleHomeScreenObject.getSearch().click();
+    }
 }
