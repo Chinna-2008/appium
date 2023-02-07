@@ -36,4 +36,22 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getProfileScreen().waitForProfileTextToDisplay();
         Assert.assertEquals(getProfileScreen().getProfileNameText(), "Reddeppap ", "Profile name is not matched.");
     }
+
+    /**
+     * Test the search book.
+     */
+    @Test
+    public void testSearchBook() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().enterEmailId("reddeppapc1@gmail.com");
+        getSignInScreen().enterPassword("Reddeppa@3");
+        getSignInScreen().tapSignInButton();
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapSearchButton();
+        getSearchScreen().enterSearchText("Story of Buddha");
+        getSearchScreen().tapBook();
+        Assert.assertTrue(getBookDetailsScreen().isBookImageDisplayed(), "Book details is displayed.");
+    }
 }
