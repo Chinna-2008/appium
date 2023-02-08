@@ -15,7 +15,12 @@ public class BookDetailsScreen extends BaseScreen {
     public void waitForScreenToLoad() {
     }
 
-    public boolean isBookImageDisplayed() {
-        return bookDetailsScreenObject.getLeftImage().isDisplayed();
+    /**
+     * Gets the book title.
+     *
+     * @return book title
+     */
+    public String getBookTitle() {
+        return bookDetailsScreenObject.getBookTitle().getText();
     }
 }

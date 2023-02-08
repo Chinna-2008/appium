@@ -41,4 +41,18 @@ public class LibraryScreen extends BaseScreen {
         return OptionsList;
     }
 
+    /**
+     * Taps on option.
+     *
+     * @param optionName option name
+     */
+    public void tapOption(final String optionName) {
+        for (final MobileElement oneOption : libraryScreenObject.getShowMoreOptions()) {
+            String option = oneOption.getText();
+            if (option.equals(optionName)) {
+                oneOption.click();
+                break;
+            }
+        }
+    }
 }
