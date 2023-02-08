@@ -2,6 +2,8 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * This is 'AudibleTest' class.
@@ -53,5 +55,23 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getSearchScreen().enterSearchText("Story of Buddha");
         getSearchScreen().tapBook();
         Assert.assertTrue(getBookDetailsScreen().isBookImageDisplayed(), "Book details is displayed.");
+    }
+
+    /**
+     * Test the library tab.
+     */
+    @Test
+    public void testLibrary() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().enterEmailId("reddeppapc1@gmail.com");
+        getSignInScreen().enterPassword("Reddeppa@3");
+        getSignInScreen().tapSignInButton();
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapLibrary();
+        getLibraryScreen().tapBookShowMoreButton();
+        List<String> moreOptionsList = Arrays.asList("Title details", "Donald Katz", "Download", "Share", "Mark as finished", "Rate and Review & related content", "Add to favourites", "Add to…", "Archive this title", "Remove from library");
+        Assert.assertEquals(getLibraryScreen().getListOfMoreOptions(), moreOptionsList, "More options for book is not matched.");
     }
 }

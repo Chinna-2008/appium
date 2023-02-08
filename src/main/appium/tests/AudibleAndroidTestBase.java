@@ -4,7 +4,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import screens.*;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -105,5 +104,14 @@ public class AudibleAndroidTestBase extends AudibleMobileTestBase<AndroidDriver<
      */
     public BookDetailsScreen getBookDetailsScreen() {
         return getScreen(BookDetailsScreen.class);
+    }
+
+    /**
+     * Gets the library screen.
+     *
+     * @return library screen object
+     */
+    public LibraryScreen getLibraryScreen() {
+        return getScreen(LibraryScreen.class);
     }
 }
