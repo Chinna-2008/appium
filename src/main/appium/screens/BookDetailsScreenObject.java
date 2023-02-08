@@ -22,4 +22,7 @@ public class BookDetailsScreenObject {
 
     @FindBy(id = "com.audible.application:id/glow_top_left")
     private MobileElement leftImage;
+
+    @FindBy(id = "com.audible.application:id/title")
+    private MobileElement bookTitle;
 }

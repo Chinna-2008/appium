@@ -54,7 +54,8 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getHomeScreen().tapSearchButton();
         getSearchScreen().enterSearchText("Story of Buddha");
         getSearchScreen().tapBook();
-        Assert.assertTrue(getBookDetailsScreen().isBookImageDisplayed(), "Book details is displayed.");
+        Assert.assertEquals(getBookDetailsScreen().getBookTitle(), "Story of Buddha", "Book title is not matched.");
+
     }
 
     /**
@@ -73,5 +74,23 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getLibraryScreen().tapBookShowMoreButton();
         List<String> moreOptionsList = Arrays.asList("Title details", "Donald Katz", "Download", "Share", "Mark as finished", "Rate and Review & related content", "Add to favourites", "Add to…", "Archive this title", "Remove from library");
         Assert.assertEquals(getLibraryScreen().getListOfMoreOptions(), moreOptionsList, "More options for book is not matched.");
+    }
+
+    /**
+     * Test the book details.
+     */
+    @Test
+    public void testBookTitleDetails() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().enterEmailId("reddeppapc1@gmail.com");
+        getSignInScreen().enterPassword("Reddeppa@3");
+        getSignInScreen().tapSignInButton();
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapLibrary();
+        getLibraryScreen().tapBookShowMoreButton();
+        getLibraryScreen().tapOption("Title details");
+        Assert.assertEquals(getBookDetailsScreen().getBookTitle(), "Just Do It", "Book title is not matched.");
     }
 }
