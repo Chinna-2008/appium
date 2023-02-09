@@ -23,6 +23,18 @@ public class BookDetailsScreenObject {
     @FindBy(id = "com.audible.application:id/glow_top_left")
     private MobileElement leftImage;
 
+    @FindBy(id = "com.audible.application:id/root_recycler_view")
+    private MobileElement bookDetailsScreen;
+
     @FindBy(id = "com.audible.application:id/title")
     private MobileElement bookTitle;
+
+    @FindBy(id = "com.audible.application:id/subtitle")
+    private MobileElement subTitle;
+
+    @FindBy(id = "com.audible.application:id/enhanced_author_text")
+    private MobileElement author;
+
+    @FindBy(id = "com.audible.application:id/format_text_view")
+    private MobileElement duration;
 }

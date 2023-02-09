@@ -1,5 +1,7 @@
 package screens;
 
+import java.util.HashMap;
+
 /**
  * This is 'BookDetailsScreen' class.
  */
@@ -13,6 +15,7 @@ public class BookDetailsScreen extends BaseScreen {
 
     @Override
     public void waitForScreenToLoad() {
+        waitForMobileElement(bookDetailsScreenObject.getBookDetailsScreen());
     }
 
     /**
@@ -22,5 +25,55 @@ public class BookDetailsScreen extends BaseScreen {
      */
     public String getBookTitle() {
         return bookDetailsScreenObject.getBookTitle().getText();
+    }
+
+    /**
+     * Gets book subtitle.
+     *
+     * @return subtitle
+     */
+    public String getBookSubtitle() {
+        return bookDetailsScreenObject.getSubTitle().getText();
+    }
+
+    /**
+     * Gets the author name.
+     *
+     * @return author name
+     */
+    public String getAuthorName() {
+        return bookDetailsScreenObject.getAuthor().getText();
+    }
+
+    /**
+     * Gets the book duration.
+     *
+     * @return book duration
+     */
+    public String getBookDuration() {
+        return bookDetailsScreenObject.getDuration().getText();
+    }
+
+    /**
+     * Gets the book details.
+     *
+     * @return book details
+     */
+    public HashMap<String,String> getBookDetails() {
+        HashMap<String,String> details = new HashMap<>();
+        details.put("BookTitle ", getBookTitle());
+        details.put("BookSubtitle ", getBookSubtitle());
+        details.put("Author name ", getAuthorName());
+        details.put("Book duration ", getBookDuration());
+        return details;
+    }
+
+    /**
+     * Checks the book details are contains subtitle.
+     *
+     * @return true / false
+     */
+    public boolean isBookDetailsContainsSubtitle() {
+        return getBookDetails().containsValue(getBookSubtitle());
     }
 }

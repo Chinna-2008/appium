@@ -77,10 +77,10 @@ public class AudibleTest extends AudibleAndroidTestBase {
     }
 
     /**
-     * Test the book details.
+     * Test the book title.
      */
     @Test
-    public void testBookTitleDetails() {
+    public void testBookTitle() {
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         getSignInScreen().waitForScreenToLoad();
@@ -91,6 +91,27 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getHomeScreen().tapLibrary();
         getLibraryScreen().tapBookShowMoreButton();
         getLibraryScreen().tapOption("Title details");
+        getBookDetailsScreen().waitForScreenToLoad();
         Assert.assertEquals(getBookDetailsScreen().getBookTitle(), "Just Do It", "Book title is not matched.");
+    }
+
+    /**
+     * Test the book details.
+     */
+    @Test
+    public void testBookDetails() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().enterEmailId("reddeppapc1@gmail.com");
+        getSignInScreen().enterPassword("Reddeppa@3");
+        getSignInScreen().tapSignInButton();
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapLibrary();
+        getLibraryScreen().tapBookShowMoreButton();
+        getLibraryScreen().tapOption("Title details");
+        getBookDetailsScreen().waitForScreenToLoad();
+        System.out.println(String.format("Book details are: \n%s", getBookDetailsScreen().getBookDetails()));
+        Assert.assertTrue(getBookDetailsScreen().isBookDetailsContainsSubtitle(), "Book details is not contain subtitle.");
     }
 }
