@@ -17,7 +17,7 @@ public class AudibleHomeScreen extends BaseScreen {
     }
 
     /**
-     * Verify the audible logo is displayed or not.
+     * Checks the audible logo is displayed or not.
      *
      * @return true / false
      */

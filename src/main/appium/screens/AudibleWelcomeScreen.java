@@ -38,7 +38,7 @@ public class AudibleWelcomeScreen extends BaseScreen {
     }
 
     /**
-     * Verify is audible logo displayed or not.
+     * Checks is audible logo displayed or not.
      *
      * @return true / false
      */
