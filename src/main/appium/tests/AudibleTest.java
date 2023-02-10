@@ -114,4 +114,25 @@ public class AudibleTest extends AudibleAndroidTestBase {
         System.out.println(String.format("Book details are: \n%s", getBookDetailsScreen().getBookDetails()));
         Assert.assertTrue(getBookDetailsScreen().isBookDetailsContainsSubtitle(), "Book details is not contain subtitle.");
     }
+
+    /**
+     * Test the download book option.
+     */
+    @Test
+    public void testDownloadBook() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().enterEmailId("reddeppapc1@gmail.com");
+        getSignInScreen().enterPassword("Reddeppa@3");
+        getSignInScreen().tapSignInButton();
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapLibrary();
+        getLibraryScreen().tapBookShowMoreButton();
+        getLibraryScreen().tapOption("Title details");
+        getBookDetailsScreen().waitForScreenToLoad();
+        getBookDetailsScreen().tapDownloadButton();
+        getBookDetailsScreen().waitForRemoveFromDeviceButtonToLoad();
+        Assert.assertTrue(getBookDetailsScreen().isRemoveFromDeviceButtonDisplayed(), "Book is not downloaded.");
+    }
 }

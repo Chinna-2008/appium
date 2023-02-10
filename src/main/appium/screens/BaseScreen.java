@@ -28,7 +28,7 @@ public abstract class BaseScreen {
      * @param element web element
      */
     public void waitForMobileElement(final MobileElement element) {
-        WebDriverWait wait = new WebDriverWait(appiumDriver, 20);
+        WebDriverWait wait = new WebDriverWait(appiumDriver, 50);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 }
