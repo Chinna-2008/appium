@@ -37,4 +37,10 @@ public class BookDetailsScreenObject {
 
     @FindBy(id = "com.audible.application:id/format_text_view")
     private MobileElement duration;
+
+    @FindBy(xpath = "//android.widget.Button[@content-desc='Download']")
+    private MobileElement downloadButton;
+
+    @FindBy(xpath = "//android.widget.Button[@content-desc='Remove From Device']")
+    private MobileElement removeFromDevice;
 }

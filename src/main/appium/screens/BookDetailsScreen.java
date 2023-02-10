@@ -76,4 +76,27 @@ public class BookDetailsScreen extends BaseScreen {
     public boolean isBookDetailsContainsSubtitle() {
         return getBookDetails().containsValue(getBookSubtitle());
     }
+
+    /**
+     * Taps on download button.
+     */
+    public void tapDownloadButton() {
+        bookDetailsScreenObject.getDownloadButton().click();
+    }
+
+    /**
+     * Waits for remove from device button to load.
+     */
+    public void waitForRemoveFromDeviceButtonToLoad() {
+        waitForMobileElement(bookDetailsScreenObject.getRemoveFromDevice());
+    }
+
+    /**
+     * Checks the remove from device button is displayed or not.
+     *
+     * @return true / false
+     */
+    public boolean isRemoveFromDeviceButtonDisplayed() {
+        return bookDetailsScreenObject.getRemoveFromDevice().isDisplayed();
+    }
 }
