@@ -12,7 +12,7 @@ public class AudibleHomeScreen extends BaseScreen {
     }
 
     @Override
-    public void waitForScreenToLoad() {
+    public void waitForScreenToLoad() { // TODO : Add java docs.
         waitForMobileElement(audibleHomeScreenObject.getAudibleLogo());
     }
 
@@ -21,8 +21,8 @@ public class AudibleHomeScreen extends BaseScreen {
      *
      * @return true / false
      */
-    public boolean isAudibleLogoIsDisplayed() {
-        return audibleHomeScreenObject.getAudibleLogo().isDisplayed();
+    public boolean isAudibleLogoIsDisplayed() { // TODO : Update the method name as 'isAudibleLogoDisplayed'.
+        return audibleHomeScreenObject.getAudibleLogo().isDisplayed(); // TODO : Create common method for 'isDisplayed' in base screen class.
     }
 
     /**

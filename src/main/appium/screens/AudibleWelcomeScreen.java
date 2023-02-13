@@ -19,7 +19,7 @@ public class AudibleWelcomeScreen extends BaseScreen {
     /**
      * Waits for get started button to display.
      */
-    public void waitForGetStartedButtonToDisplay() {
+    public void waitForGetStartedButtonToDisplay() { // TODO : Remove this method it is  duplicate of waitForScreenToLoad method.
         waitForMobileElement(audibleWelcomeScreenObject.getGetStarted());
     }
 
@@ -42,7 +42,7 @@ public class AudibleWelcomeScreen extends BaseScreen {
      *
      * @return true / false
      */
-    public boolean isAudibleLogoDisplayed() {
+    public boolean isAudibleLogoDisplayed() { // TODO : This method should goes to audible home screen.
         return audibleWelcomeScreenObject.getAudibleLogo().isDisplayed();
     }
 

@@ -11,6 +11,9 @@ public class AudibleSignInScreen extends BaseScreen {
         audibleSignInScreenObject = new AudibleSignInScreenObject(appiumDriver);
     }
 
+    /**
+     * Add java docs.
+     */
     @Override
     public void waitForScreenToLoad() {
         waitForMobileElement(audibleSignInScreenObject.getSignInScreen());
@@ -21,7 +24,7 @@ public class AudibleSignInScreen extends BaseScreen {
      *
      * @param emailId email id
      */
-    public void enterEmailId(final String emailId) {
+    public void enterEmailId(final String emailId) { // TODO : Update parameter as 'emailID'.
         audibleSignInScreenObject.getEnterEmailID().sendKeys(emailId);
     }
 
