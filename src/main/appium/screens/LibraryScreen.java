@@ -2,7 +2,7 @@ package screens;
 
 import io.appium.java_client.MobileElement;
 
-import java.util.ArrayList;
+import java.util.ArrayList; // TODO : Remove extra space.
 import java.util.List;
 
 /**

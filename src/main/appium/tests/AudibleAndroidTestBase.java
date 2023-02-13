@@ -71,7 +71,7 @@ public class AudibleAndroidTestBase extends AudibleMobileTestBase<AndroidDriver<
     }
 
     /**
-     * Gets the Home screen.
+     * Gets the Home screen. // TODO : Avoid using caps in java docs.
      *
      * @return home screen object
      */

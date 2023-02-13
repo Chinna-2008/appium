@@ -25,7 +25,7 @@ public abstract class BaseScreen {
     /**
      * Waits for element to load.
      *
-     * @param element web element
+     * @param element web element // TODO : It is mobile element.
      */
     public void waitForMobileElement(final MobileElement element) {
         WebDriverWait wait = new WebDriverWait(appiumDriver, 50);

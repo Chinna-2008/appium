@@ -12,7 +12,7 @@ public class AudibleProfileScreen extends BaseScreen {
     }
 
     @Override
-    public void waitForScreenToLoad() {
+    public void waitForScreenToLoad() { // TODO : Remove extra line.
 
     }
 
@@ -28,7 +28,7 @@ public class AudibleProfileScreen extends BaseScreen {
     /**
      * Waits for profile name text to display.
      */
-    public void waitForProfileTextToDisplay() {
+    public void waitForProfileTextToDisplay() { // TODO : Instead of creating this method use override 'waitForScreenToLoad' method.
         waitForMobileElement(audibleProfileScreenObject.getProfileName());
     }
 }
