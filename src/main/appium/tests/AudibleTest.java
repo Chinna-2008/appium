@@ -135,4 +135,26 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getBookDetailsScreen().waitForRemoveFromDeviceButtonToLoad();
         Assert.assertTrue(getBookDetailsScreen().isRemoveFromDeviceButtonDisplayed(), "Book is not downloaded.");
     }
+
+    /**
+     * Test the play book.
+     */
+    @Test
+    public void testPlayBook() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().enterEmailId("reddeppapc1@gmail.com");
+        getSignInScreen().enterPassword("Reddeppa@3");
+        getSignInScreen().tapSignInButton();
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapLibrary();
+        getLibraryScreen().tapBookShowMoreButton();
+        getLibraryScreen().tapOption("Title details");
+        getBookDetailsScreen().waitForScreenToLoad();
+        getBookDetailsScreen().tapPlayButton();
+        getBookDetailsScreen().waitForPauseButton();
+        Assert.assertTrue(getBookDetailsScreen().isPauseButtonDisplayed(), "Pause button is not displayed.");
+        getBookDetailsScreen().tapPauseButton();
+    }
 }

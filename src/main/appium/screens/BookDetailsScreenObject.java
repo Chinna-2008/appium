@@ -43,4 +43,10 @@ public class BookDetailsScreenObject {
 
     @FindBy(xpath = "//android.widget.Button[@content-desc='Remove From Device']")
     private MobileElement removeFromDevice;
+
+    @FindBy(xpath = "//android.widget.Button[@content-desc='Play']")
+    private MobileElement playButton;
+
+    @FindBy(xpath = "//android.widget.Button[@content-desc='Pause']")
+    private MobileElement pauseButton;
 }

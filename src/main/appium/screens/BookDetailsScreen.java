@@ -99,4 +99,34 @@ public class BookDetailsScreen extends BaseScreen {
     public boolean isRemoveFromDeviceButtonDisplayed() {
         return bookDetailsScreenObject.getRemoveFromDevice().isDisplayed();
     }
+
+    /**
+     * Taps on play button.
+     */
+    public void tapPlayButton() {
+        bookDetailsScreenObject.getPlayButton().click();
+    }
+
+    /**
+     * Waits for pause button to display.
+     */
+    public void waitForPauseButton() {
+        waitForMobileElement(bookDetailsScreenObject.getPauseButton());
+    }
+
+    /**
+     * Checks the pause button is displayed or not.
+     *
+     * @return true / false
+     */
+    public boolean isPauseButtonDisplayed() {
+        return bookDetailsScreenObject.getPauseButton().isDisplayed();
+    }
+
+    /**
+     * Taps on pause button.
+     */
+    public void tapPauseButton() {
+        bookDetailsScreenObject.getPauseButton().click();
+    }
 }
