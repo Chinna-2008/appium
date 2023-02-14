@@ -22,8 +22,7 @@ public class AudibleWelcomeScreenObject {
     @FindBy(id = "com.audible.application:id/get_started_button")
     private MobileElement getStarted;
 
-    @FindBy(id = "com.audible.application:id/logo_themed")
-    private MobileElement audibleLogo;
+
 
     @FindBy(id = "com.audible.application:id/sign_in_button")
     private MobileElement signIn;

@@ -11,9 +11,12 @@ public class AudibleProfileScreen extends BaseScreen {
         audibleProfileScreenObject = new AudibleProfileScreenObject(appiumDriver);
     }
 
+    /**
+     * Waits for screen to load.
+     */
     @Override
-    public void waitForScreenToLoad() { // TODO : Remove extra line.
-
+    public void waitForScreenToLoad() {
+        waitForElementToDisplay(audibleProfileScreenObject.getProfileName());
     }
 
     /**
@@ -23,12 +26,5 @@ public class AudibleProfileScreen extends BaseScreen {
      */
     public String getProfileNameText() {
         return audibleProfileScreenObject.getProfileName().getText();
-    }
-
-    /**
-     * Waits for profile name text to display.
-     */
-    public void waitForProfileTextToDisplay() { // TODO : Instead of creating this method use override 'waitForScreenToLoad' method.
-        waitForMobileElement(audibleProfileScreenObject.getProfileName());
     }
 }

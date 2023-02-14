@@ -22,7 +22,7 @@ public class LibraryScreenObject {
     }
 
     @FindBy(id = "com.audible.application:id/overflow_btn")
-    private MobileElement bookShowMore;
+    private MobileElement kebabButton;
 
     @FindBy(id = "com.audible.application:id/action_text")
     private List<MobileElement> showMoreOptions;

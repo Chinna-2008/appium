@@ -40,7 +40,7 @@ public class AudibleIOSTestBase extends AudibleMobileTestBase<IOSDriver<IOSEleme
      * @return IOS desired capabilities
      */
     public DesiredCapabilities getCapabilities() {
-        DesiredCapabilities dc = new DesiredCapabilities();
-        return dc;
+        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+        return desiredCapabilities;
     }
 }

@@ -36,7 +36,7 @@ public class BookDetailsScreenObject {
     private MobileElement author;
 
     @FindBy(id = "com.audible.application:id/format_text_view")
-    private MobileElement duration; // TODO : Update as audiobookDuration.
+    private MobileElement audioBookDuration;
 
     @FindBy(xpath = "//android.widget.Button[@content-desc='Download']")
     private MobileElement downloadButton;

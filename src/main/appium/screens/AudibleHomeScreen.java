@@ -1,5 +1,7 @@
 package screens;
 
+import io.appium.java_client.MobileElement;
+
 /**
  * This is 'AudibleHomeScreen' class.
  */
@@ -11,25 +13,12 @@ public class AudibleHomeScreen extends BaseScreen {
         audibleHomeScreenObject = new AudibleHomeScreenObject(appiumDriver);
     }
 
+    /**
+     * Waits for screen to load.
+     */
     @Override
-    public void waitForScreenToLoad() { // TODO : Add java docs.
+    public void waitForScreenToLoad() {
         waitForMobileElement(audibleHomeScreenObject.getAudibleLogo());
-    }
-
-    /**
-     * Checks the audible logo is displayed or not.
-     *
-     * @return true / false
-     */
-    public boolean isAudibleLogoIsDisplayed() { // TODO : Update the method name as 'isAudibleLogoDisplayed'.
-        return audibleHomeScreenObject.getAudibleLogo().isDisplayed(); // TODO : Create common method for 'isDisplayed' in base screen class.
-    }
-
-    /**
-     * Taps on the profile.
-     */
-    public void tapProfile() {
-        audibleHomeScreenObject.getProfile().click();
     }
 
     /**
@@ -40,9 +29,33 @@ public class AudibleHomeScreen extends BaseScreen {
     }
 
     /**
-     * Taps on the library tab.
+     * Checks is audible logo displayed or not.
+     *
+     * @return true / false
      */
-    public void tapLibrary() {
-        audibleHomeScreenObject.getLibrary().click();
+    public boolean isAudibleLogoDisplayed() {
+        return audibleHomeScreenObject.getAudibleLogo().isDisplayed();
+    }
+
+    /**
+     * Taps menu tab.
+     *
+     * @param tabName tab name
+     */
+    public void tapMenuTab(final String tabName) {
+        for (final MobileElement tab : audibleHomeScreenObject.getMenuTabs()) {
+            String nameOfTab = tab.getText();
+            if (nameOfTab.equals(tabName)) {
+                tab.click();
+                break;
+            }
+        }
+    }
+
+    /**
+     * Waits for audible logo to display.
+     */
+    public void waitForAudibleLogoToDisplay() {
+        waitForMobileElement(audibleHomeScreenObject.getAudibleLogo());
     }
 }
