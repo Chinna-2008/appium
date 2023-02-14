@@ -1,8 +1,7 @@
 package screens;
 
 import io.appium.java_client.MobileElement;
-
-import java.util.ArrayList; // TODO : Remove extra space.
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,7 +23,7 @@ public class LibraryScreen extends BaseScreen {
      * Taps on book show more button.
      */
     public void tapBookShowMoreButton() {
-        libraryScreenObject.getBookShowMore().click();
+        libraryScreenObject.getKebabButton().click();
     }
 
     /**
@@ -34,9 +33,9 @@ public class LibraryScreen extends BaseScreen {
      */
     public List<String> getListOfMoreOptions() {
         List<String> OptionsList = new ArrayList<>();
-        for (final MobileElement list : libraryScreenObject.getShowMoreOptions()) {
-            String actualList = list.getText();
-            OptionsList.add(actualList);
+        for (final MobileElement option : libraryScreenObject.getShowMoreOptions()) {
+            String optionText = option.getText();
+            OptionsList.add(optionText);
         }
         return OptionsList;
     }

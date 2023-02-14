@@ -13,6 +13,9 @@ public class BookDetailsScreen extends BaseScreen {
         bookDetailsScreenObject = new BookDetailsScreenObject(appiumDriver);
     }
 
+    /**
+     * Waits for screen to load.
+     */
     @Override
     public void waitForScreenToLoad() {
         waitForMobileElement(bookDetailsScreenObject.getBookDetailsScreen());
@@ -51,7 +54,7 @@ public class BookDetailsScreen extends BaseScreen {
      * @return book duration
      */
     public String getBookDuration() {
-        return bookDetailsScreenObject.getDuration().getText();
+        return bookDetailsScreenObject.getAudioBookDuration().getText();
     }
 
     /**
@@ -88,7 +91,7 @@ public class BookDetailsScreen extends BaseScreen {
      * Waits for remove from device button to load.
      */
     public void waitForRemoveFromDeviceButtonToLoad() {
-        waitForMobileElement(bookDetailsScreenObject.getRemoveFromDevice());
+        waitForElementToDisplay(bookDetailsScreenObject.getRemoveFromDevice());
     }
 
     /**
@@ -97,7 +100,7 @@ public class BookDetailsScreen extends BaseScreen {
      * @return true / false
      */
     public boolean isRemoveFromDeviceButtonDisplayed() {
-        return bookDetailsScreenObject.getRemoveFromDevice().isDisplayed();
+        return isDisplayed(bookDetailsScreenObject.getRemoveFromDevice());
     }
 
     /**
@@ -111,7 +114,7 @@ public class BookDetailsScreen extends BaseScreen {
      * Waits for pause button to display.
      */
     public void waitForPauseButton() {
-        waitForMobileElement(bookDetailsScreenObject.getPauseButton());
+        waitForElementToDisplay(bookDetailsScreenObject.getPauseButton());
     }
 
     /**
@@ -120,7 +123,7 @@ public class BookDetailsScreen extends BaseScreen {
      * @return true / false
      */
     public boolean isPauseButtonDisplayed() {
-        return bookDetailsScreenObject.getPauseButton().isDisplayed();
+        return isDisplayed(bookDetailsScreenObject.getPauseButton());
     }
 
     /**

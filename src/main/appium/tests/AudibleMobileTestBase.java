@@ -56,7 +56,7 @@ public abstract class AudibleMobileTestBase<AD extends AppiumDriver<? extends Mo
     /**
      * Gets the screen.
      *
-     * @param screenClass of a screen class
+     * @param screenClass screen class
      * @param <T> type of class
      * @return screen
      */

@@ -12,7 +12,7 @@ public class AudibleSignInScreen extends BaseScreen {
     }
 
     /**
-     * Add java docs.
+     * Waits for screen to load.
      */
     @Override
     public void waitForScreenToLoad() {
@@ -22,10 +22,10 @@ public class AudibleSignInScreen extends BaseScreen {
     /**
      * Enters email id.
      *
-     * @param emailId email id
+     * @param emailID email id
      */
-    public void enterEmailId(final String emailId) { // TODO : Update parameter as 'emailID'.
-        audibleSignInScreenObject.getEnterEmailID().sendKeys(emailId);
+    public void enterEmailId(final String emailID) {
+        audibleSignInScreenObject.getEnterEmailID().sendKeys(emailID);
     }
 
     /**

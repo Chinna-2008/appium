@@ -25,7 +25,7 @@ public class AudibleSearchScreen extends BaseScreen {
     }
 
     /**
-     * Taps on book. // TODO : Mention audiobook.
+     * Taps on audiobook.
      */
     public void tapBook() {
         audibleSearchScreenObject.getStoryOfBuddha().click();

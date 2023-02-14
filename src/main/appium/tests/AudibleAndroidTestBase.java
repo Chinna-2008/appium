@@ -18,15 +18,15 @@ public class AudibleAndroidTestBase extends AudibleMobileTestBase<AndroidDriver<
      * @return android desired capabilities
      */
     public DesiredCapabilities getCapabilities() {
-        DesiredCapabilities dc = new DesiredCapabilities();
-        dc.setCapability("appium:automationName", "UiAutomator2");
-        dc.setCapability("platformName", "Android");
-        dc.setCapability("appium:platformVersion", "11");
-        dc.setCapability("appium:deviceName", "Pixel 4a");
-        dc.setCapability("appium:app", "/Users/pcreddeppa/Desktop/latest.apk");
-        dc.setCapability("appium:appPackage", "com.audible.application");
-        dc.setCapability("appium:appActivity", "com.audible.application.SplashScreen");
-        return dc;
+        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+        desiredCapabilities.setCapability("appium:automationName", "UiAutomator2");
+        desiredCapabilities.setCapability("platformName", "Android");
+        desiredCapabilities.setCapability("appium:platformVersion", "11");
+        desiredCapabilities.setCapability("appium:deviceName", "Pixel 4a");
+        desiredCapabilities.setCapability("appium:app", "/Users/pcreddeppa/Desktop/latest.apk");
+        desiredCapabilities.setCapability("appium:appPackage", "com.audible.application");
+        desiredCapabilities.setCapability("appium:appActivity", "com.audible.application.SplashScreen");
+        return desiredCapabilities;
     }
 
     /**
@@ -71,7 +71,7 @@ public class AudibleAndroidTestBase extends AudibleMobileTestBase<AndroidDriver<
     }
 
     /**
-     * Gets the Home screen. // TODO : Avoid using caps in java docs.
+     * Gets the home screen.
      *
      * @return home screen object
      */

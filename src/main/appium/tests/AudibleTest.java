@@ -15,10 +15,10 @@ public class AudibleTest extends AudibleAndroidTestBase {
      */
     @Test
     public void testLaunchApplication() {
-        getWelcomeScreen().waitForGetStartedButtonToDisplay();
+        getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapGetStarted();
-        getWelcomeScreen().waitForAudibleLogoToDisplay();
-        Assert.assertTrue(getWelcomeScreen().isAudibleLogoDisplayed(), "Audible logo is not displayed.");
+        getHomeScreen().waitForAudibleLogoToDisplay();
+        Assert.assertTrue(getHomeScreen().isAudibleLogoDisplayed(), "Audible logo is not displayed.");
     }
 
     /**
@@ -33,9 +33,9 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getSignInScreen().enterPassword("Reddeppa@3");
         getSignInScreen().tapSignInButton();
         getHomeScreen().waitForScreenToLoad();
-        Assert.assertTrue(getHomeScreen().isAudibleLogoIsDisplayed(), "Home page is not displayed.");
-        getHomeScreen().tapProfile();
-        getProfileScreen().waitForProfileTextToDisplay();
+        Assert.assertTrue(getHomeScreen().isAudibleLogoDisplayed(), "Home page is not displayed.");
+        getHomeScreen().tapMenuTab("Profile");
+        getProfileScreen().waitForScreenToLoad();
         Assert.assertEquals(getProfileScreen().getProfileNameText(), "Reddeppap ", "Profile name is not matched.");
     }
 
@@ -70,7 +70,7 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getSignInScreen().enterPassword("Reddeppa@3");
         getSignInScreen().tapSignInButton();
         getHomeScreen().waitForScreenToLoad();
-        getHomeScreen().tapLibrary();
+        getHomeScreen().tapMenuTab("Library");
         getLibraryScreen().tapBookShowMoreButton();
         List<String> moreOptionsList = Arrays.asList("Title details", "Donald Katz", "Download", "Share", "Mark as finished", "Rate and Review & related content", "Add to favourites", "Add to…", "Archive this title", "Remove from library");
         Assert.assertEquals(getLibraryScreen().getListOfMoreOptions(), moreOptionsList, "More options for book is not matched.");
@@ -88,7 +88,7 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getSignInScreen().enterPassword("Reddeppa@3");
         getSignInScreen().tapSignInButton();
         getHomeScreen().waitForScreenToLoad();
-        getHomeScreen().tapLibrary();
+        getHomeScreen().tapMenuTab("Library");
         getLibraryScreen().tapBookShowMoreButton();
         getLibraryScreen().tapOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();
@@ -107,11 +107,11 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getSignInScreen().enterPassword("Reddeppa@3");
         getSignInScreen().tapSignInButton();
         getHomeScreen().waitForScreenToLoad();
-        getHomeScreen().tapLibrary();
+        getHomeScreen().tapMenuTab("Library");
         getLibraryScreen().tapBookShowMoreButton();
         getLibraryScreen().tapOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();
-        System.out.println(String.format("Book details are: \n%s", getBookDetailsScreen().getBookDetails()));
+        System.out.println(String.format("Book details are: \n%s.", getBookDetailsScreen().getBookDetails()));
         Assert.assertTrue(getBookDetailsScreen().isBookDetailsContainsSubtitle(), "Book details is not contain subtitle.");
     }
 
@@ -127,7 +127,7 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getSignInScreen().enterPassword("Reddeppa@3");
         getSignInScreen().tapSignInButton();
         getHomeScreen().waitForScreenToLoad();
-        getHomeScreen().tapLibrary();
+        getHomeScreen().tapMenuTab("Library");
         getLibraryScreen().tapBookShowMoreButton();
         getLibraryScreen().tapOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();
@@ -148,7 +148,7 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getSignInScreen().enterPassword("Reddeppa@3");
         getSignInScreen().tapSignInButton();
         getHomeScreen().waitForScreenToLoad();
-        getHomeScreen().tapLibrary();
+        getHomeScreen().tapMenuTab("Library");
         getLibraryScreen().tapBookShowMoreButton();
         getLibraryScreen().tapOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();
