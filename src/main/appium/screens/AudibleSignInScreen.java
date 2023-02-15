@@ -16,7 +16,7 @@ public class AudibleSignInScreen extends BaseScreen {
      */
     @Override
     public void waitForScreenToLoad() {
-        waitForMobileElement(audibleSignInScreenObject.getSignInScreen());
+        waitForElementToDisplay(audibleSignInScreenObject.getSignInScreen());
     }
 
     /**
