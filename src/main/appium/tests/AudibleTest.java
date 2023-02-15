@@ -170,9 +170,9 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getSignInScreen().tapSignInButton();
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab("Library");
-        List<String> bookListSortedByRecent = Arrays.asList("Don Katz Interviews Jane Fonda", "The King of the Ferret Leggers and Other True Stories", "The Big Store", "Murder", "We Spoke", "Just Do It");
+        List<String> bookListSortedByRecent = Arrays.asList("Don Katz Interviews Jane Fonda", "The King of the Ferret Leggers and Other True Stories", "The Big Store", "Murder", "We Spoke", "Just Do It"); // TODO : Don't hardcode audiobook list, it will not work if audiobooks are changed.
         getLibraryScreen().tapSortingHeaderButton();
-        getLibraryScreen().tapSortOption("Title");
+        getLibraryScreen().tapSortOption("Title"); //TODO : Create 2 variables to store the audiobook list before and after sorting.
         Assert.assertNotEquals(getLibraryScreen().getAudioBooks(), bookListSortedByRecent, "Audio books are not sorted by title.");
     }
 }

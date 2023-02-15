@@ -32,7 +32,7 @@ public class LibraryScreen extends BaseScreen {
      * @return list of options
      */
     public List<String> getListOfMoreOptions() {
-        List<String> OptionsList = new ArrayList<>();
+        List<String> OptionsList = new ArrayList<>(); // TODO : Object variable name starts with small letter.
         for (final MobileElement option : libraryScreenObject.getShowMoreOptions()) {
             String optionText = option.getText();
             OptionsList.add(optionText);
@@ -45,8 +45,8 @@ public class LibraryScreen extends BaseScreen {
      *
      * @param optionName option name
      */
-    public void tapOption(final String optionName) {
-        for (final MobileElement oneOption : libraryScreenObject.getShowMoreOptions()) {
+    public void tapOption(final String optionName) { // TODO : Write proper method name. Mention which option.
+        for (final MobileElement oneOption : libraryScreenObject.getShowMoreOptions()) { // TODO : It is option not oneOption.
             String option = oneOption.getText();
             if (option.equals(optionName)) {
                 oneOption.click();
@@ -82,8 +82,8 @@ public class LibraryScreen extends BaseScreen {
      *
      * @return list of books
      */
-    public List<String> getAudioBooks() {
-        List<String> bookList = new ArrayList<>();
+    public List<String> getAudioBooks() { // TODO : Update method name as 'getAudiobooks'.
+        List<String> bookList = new ArrayList<>(); // TODO : Mention audiobookList.
         for (final MobileElement book : libraryScreenObject.getAudioBooks()) {
             String bookName = book.getText();
             bookList.add(bookName);

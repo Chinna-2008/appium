@@ -55,7 +55,7 @@ public class AudibleHomeScreen extends BaseScreen {
     /**
      * Waits for audible logo to display.
      */
-    public void waitForAudibleLogoToDisplay() {
+    public void waitForAudibleLogoToDisplay() { // TODO : This is duplicate of 'waitForScreenToLoad()'.
         waitForMobileElement(audibleHomeScreenObject.getAudibleLogo());
     }
 }
