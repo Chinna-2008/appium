@@ -18,7 +18,7 @@ public class AudibleHomeScreen extends BaseScreen {
      */
     @Override
     public void waitForScreenToLoad() {
-        waitForMobileElement(audibleHomeScreenObject.getAudibleLogo());
+        waitForElementToDisplay(audibleHomeScreenObject.getAudibleLogo());
     }
 
     /**
@@ -34,7 +34,7 @@ public class AudibleHomeScreen extends BaseScreen {
      * @return true / false
      */
     public boolean isAudibleLogoDisplayed() {
-        return audibleHomeScreenObject.getAudibleLogo().isDisplayed();
+        return isDisplayed(audibleHomeScreenObject.getAudibleLogo());
     }
 
     /**
@@ -50,12 +50,5 @@ public class AudibleHomeScreen extends BaseScreen {
                 break;
             }
         }
-    }
-
-    /**
-     * Waits for audible logo to display.
-     */
-    public void waitForAudibleLogoToDisplay() { // TODO : This is duplicate of 'waitForScreenToLoad()'.
-        waitForMobileElement(audibleHomeScreenObject.getAudibleLogo());
     }
 }

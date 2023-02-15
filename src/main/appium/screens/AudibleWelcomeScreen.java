@@ -16,7 +16,7 @@ public class AudibleWelcomeScreen extends BaseScreen {
      */
     @Override
     public void waitForScreenToLoad() {
-        waitForMobileElement(audibleWelcomeScreenObject.getGetStarted());
+        waitForElementToDisplay(audibleWelcomeScreenObject.getGetStarted());
     }
 
     /**

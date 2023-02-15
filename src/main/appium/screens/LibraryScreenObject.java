@@ -25,7 +25,7 @@ public class LibraryScreenObject {
     private MobileElement kebabButton;
 
     @FindBy(id = "com.audible.application:id/action_text")
-    private List<MobileElement> showMoreOptions;
+    private List<MobileElement> kebabOptions;
 
     @FindBy(id = "com.audible.application:id/header_button")
     private MobileElement sortingHeaderButton;

@@ -18,7 +18,7 @@ public class BookDetailsScreen extends BaseScreen {
      */
     @Override
     public void waitForScreenToLoad() {
-        waitForMobileElement(bookDetailsScreenObject.getBookDetailsScreen());
+        waitForElementToDisplay(bookDetailsScreenObject.getBookDetailsScreen());
     }
 
     /**
@@ -124,12 +124,5 @@ public class BookDetailsScreen extends BaseScreen {
      */
     public boolean isPauseButtonDisplayed() {
         return isDisplayed(bookDetailsScreenObject.getPauseButton());
-    }
-
-    /**
-     * Taps on pause button.
-     */
-    public void tapPauseButton() {
-        bookDetailsScreenObject.getPauseButton().click();
     }
 }

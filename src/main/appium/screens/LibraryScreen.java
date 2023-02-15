@@ -15,8 +15,12 @@ public class LibraryScreen extends BaseScreen {
         libraryScreenObject = new LibraryScreenObject(appiumDriver);
     }
 
+    /**
+     * Waits for screen to load.
+     */
     @Override
     public void waitForScreenToLoad() {
+        waitForElementToDisplay(libraryScreenObject.getKebabButton());
     }
 
     /**
@@ -27,29 +31,28 @@ public class LibraryScreen extends BaseScreen {
     }
 
     /**
-     * Gets the more options of book.
+     * Gets the kebab options of book.
      *
-     * @return list of options
+     * @return list of kebab options
      */
-    public List<String> getListOfMoreOptions() {
-        List<String> OptionsList = new ArrayList<>(); // TODO : Object variable name starts with small letter.
-        for (final MobileElement option : libraryScreenObject.getShowMoreOptions()) {
-            String optionText = option.getText();
-            OptionsList.add(optionText);
+    public List<String> getListOfKebabOptions() {
+        List<String> kebabOptionsList = new ArrayList<>();
+        for (final MobileElement option : libraryScreenObject.getKebabOptions()) {
+            kebabOptionsList.add(option.getText());
         }
-        return OptionsList;
+        return kebabOptionsList;
     }
 
     /**
-     * Taps on option.
+     * Taps audiobook kebab option.
      *
-     * @param optionName option name
+     * @param kebabOptionName option name
      */
-    public void tapOption(final String optionName) { // TODO : Write proper method name. Mention which option.
-        for (final MobileElement oneOption : libraryScreenObject.getShowMoreOptions()) { // TODO : It is option not oneOption.
-            String option = oneOption.getText();
-            if (option.equals(optionName)) {
-                oneOption.click();
+    public void tapAudiobookKebabOption(final String kebabOptionName) {
+        for (final MobileElement kebabOption : libraryScreenObject.getKebabOptions()) {
+            String optionName = kebabOption.getText();
+            if (optionName.equals(kebabOptionName)) {
+                kebabOption.click();
                 break;
             }
         }
@@ -82,12 +85,13 @@ public class LibraryScreen extends BaseScreen {
      *
      * @return list of books
      */
-    public List<String> getAudioBooks() { // TODO : Update method name as 'getAudiobooks'.
-        List<String> bookList = new ArrayList<>(); // TODO : Mention audiobookList.
+    public List<String> getAudiobooks() {
+        List<String> audioBookList = new ArrayList<>();
         for (final MobileElement book : libraryScreenObject.getAudioBooks()) {
             String bookName = book.getText();
-            bookList.add(bookName);
+            audioBookList.add(bookName);
         }
-        return bookList;
+        System.out.println(String.format("Audiobook list: %s", audioBookList));
+        return audioBookList;
     }
 }
