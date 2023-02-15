@@ -27,4 +27,12 @@ public class LibraryScreenObject {
     @FindBy(id = "com.audible.application:id/action_text")
     private List<MobileElement> showMoreOptions;
 
+    @FindBy(id = "com.audible.application:id/header_button")
+    private MobileElement sortingHeaderButton;
+
+    @FindBy(className = "android.widget.TextView")
+    public List<MobileElement> sortOptions;
+
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='com.audible.application:id/title']")
+    private List<MobileElement> audioBooks;
 }

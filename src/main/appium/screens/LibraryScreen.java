@@ -20,9 +20,9 @@ public class LibraryScreen extends BaseScreen {
     }
 
     /**
-     * Taps on book show more button.
+     * Taps on book kebab button.
      */
-    public void tapBookShowMoreButton() {
+    public void tapBookKebabButton() {
         libraryScreenObject.getKebabButton().click();
     }
 
@@ -53,5 +53,41 @@ public class LibraryScreen extends BaseScreen {
                 break;
             }
         }
+    }
+
+    /**
+     * Taps sorting header button.
+     */
+    public void tapSortingHeaderButton() {
+        libraryScreenObject.getSortingHeaderButton().click();
+    }
+
+    /**
+     * Taps sort option.
+     *
+     * @param sortOptionName sort option name
+     */
+    public void tapSortOption(final String sortOptionName) {
+        for (final MobileElement option : libraryScreenObject.getSortOptions()) {
+            String sortOption = option.getText();
+            if(sortOption.equals(sortOptionName)) {
+                option.click();
+                break;
+            }
+        }
+    }
+
+    /**
+     * Gets list of audiobooks.
+     *
+     * @return list of books
+     */
+    public List<String> getAudioBooks() {
+        List<String> bookList = new ArrayList<>();
+        for (final MobileElement book : libraryScreenObject.getAudioBooks()) {
+            String bookName = book.getText();
+            bookList.add(bookName);
+        }
+        return bookList;
     }
 }
