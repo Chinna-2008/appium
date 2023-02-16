@@ -7,15 +7,15 @@ import org.testng.annotations.BeforeClass;
 import screens.BaseScreen;
 
 /**
- * This is 'AudibleMobileTestBase' abstract class.
+ * This is 'MobileTestBase' abstract class.
  */
-public abstract class AudibleMobileTestBase<AD extends AppiumDriver<? extends MobileElement>> {
+public abstract class MobileTestBase<AD extends AppiumDriver<? extends MobileElement>> {
 
     private AD myDriver = null;
 
     private ScreenRegistry screenRegistry;
 
-    public static AppiumDriver driver;
+    public static AppiumDriver appiumDriver;
 
     protected abstract AD createDriver();
 
@@ -34,7 +34,7 @@ public abstract class AudibleMobileTestBase<AD extends AppiumDriver<? extends Mo
     @BeforeClass
     public final void setUpSessionBeforeClass() {
         setUpDriver();
-        driver = getDriver();
+        appiumDriver = getDriver();
         screenRegistry = new ScreenRegistry();
     }
 
@@ -48,8 +48,8 @@ public abstract class AudibleMobileTestBase<AD extends AppiumDriver<? extends Mo
             } else {
                 myDriver = createDriver();
             }
-        } catch (final Exception ex) {
-            throw ex;
+        } catch (final Exception exception) {
+            throw exception;
         }
     }
 

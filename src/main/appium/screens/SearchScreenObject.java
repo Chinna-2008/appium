@@ -8,14 +8,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- *  This is 'AudibleSearchScreenObject' class.
+ *  This is 'SearchScreenObject' class.
  */
 @Data
-public class AudibleSearchScreenObject {
+public class SearchScreenObject {
 
     private final AppiumDriver driver;
 
-    public AudibleSearchScreenObject(final AppiumDriver driver) {
+    public SearchScreenObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }

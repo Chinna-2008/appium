@@ -7,9 +7,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * This is 'AudibleIOSTestBase' class.
+ * This is 'IOSTestBase' class.
  */
-public class AudibleIOSTestBase extends AudibleMobileTestBase<IOSDriver<IOSElement>> {
+public class IOSTestBase extends MobileTestBase<IOSDriver<IOSElement>> {
 
     /**
      * Creates a driver.
