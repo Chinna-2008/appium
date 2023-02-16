@@ -3,19 +3,18 @@ package screens;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.NotFoundException;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import static tests.AudibleMobileTestBase.driver;
+import tests.MobileTestBase;
 
 /**
  * This is 'BaseScreen' class.
  */
 public abstract class BaseScreen {
 
-    public AppiumDriver appiumDriver;
+    public AppiumDriver driver;
 
     public BaseScreen() {
-        this.appiumDriver = driver;
+        this.driver = MobileTestBase.appiumDriver;
     }
 
     /**
@@ -52,6 +51,6 @@ public abstract class BaseScreen {
      * @return duration in seconds
      */
     public WebDriverWait getWait() {
-        return new WebDriverWait(driver, 40);
+        return new WebDriverWait(MobileTestBase.appiumDriver, 40);
     }
 }

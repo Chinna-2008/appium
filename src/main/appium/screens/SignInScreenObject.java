@@ -11,11 +11,11 @@ import org.openqa.selenium.support.PageFactory;
  * This is 'AudibleSignInScreenObject' class.
  */
 @Data
-public class AudibleSignInScreenObject {
+public class SignInScreenObject {
 
     private final AppiumDriver driver;
 
-    public AudibleSignInScreenObject(final AppiumDriver driver) {
+    public SignInScreenObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }

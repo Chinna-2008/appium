@@ -1,6 +1,8 @@
 package screens;
 
 import io.appium.java_client.MobileElement;
+import org.openqa.selenium.By;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public class LibraryScreen extends BaseScreen {
     private final LibraryScreenObject libraryScreenObject;
 
     public LibraryScreen() {
-        libraryScreenObject = new LibraryScreenObject(appiumDriver);
+        libraryScreenObject = new LibraryScreenObject(driver);
     }
 
     /**
@@ -20,39 +22,48 @@ public class LibraryScreen extends BaseScreen {
      */
     @Override
     public void waitForScreenToLoad() {
-        waitForElementToDisplay(libraryScreenObject.getKebabButton());
+        waitForElementToDisplay(libraryScreenObject.getHamburgerButton());
     }
 
     /**
-     * Taps on book kebab button.
-     */
-    public void tapBookKebabButton() {
-        libraryScreenObject.getKebabButton().click();
-    }
-
-    /**
-     * Gets the kebab options of book.
+     * Taps on hamburger button.
      *
-     * @return list of kebab options
+     * @param audiobookName audiobook name
      */
-    public List<String> getListOfKebabOptions() {
-        List<String> kebabOptionsList = new ArrayList<>();
-        for (final MobileElement option : libraryScreenObject.getKebabOptions()) {
-            kebabOptionsList.add(option.getText());
+    public void tapAudiobookHamburgerButton(final String audiobookName) {
+        for (final MobileElement book : libraryScreenObject.getAudioBooks()) {
+            String bookName = book.getText();
+            if (bookName.equals(audiobookName)) {
+                By hamburgerButton = By.xpath(String.format("//android.widget.TextView[@text= '%s']/../../../../../../following-sibling::android.view.ViewGroup/android.view.ViewGroup/android.widget.Button", audiobookName));
+                driver.findElement(hamburgerButton).click();
+                break;
+            }
         }
-        return kebabOptionsList;
     }
 
     /**
-     * Taps audiobook kebab option.
+     * Gets the hamburger options of book.
      *
-     * @param kebabOptionName option name
+     * @return list of hamburger options
      */
-    public void tapAudiobookKebabOption(final String kebabOptionName) {
-        for (final MobileElement kebabOption : libraryScreenObject.getKebabOptions()) {
-            String optionName = kebabOption.getText();
-            if (optionName.equals(kebabOptionName)) {
-                kebabOption.click();
+    public List<String> getListOfHamburgerOptions() {
+        List<String> hamburgerOptionsList = new ArrayList<>();
+        for (final MobileElement option : libraryScreenObject.getHamburgerOptions()) {
+            hamburgerOptionsList.add(option.getText());
+        }
+        return hamburgerOptionsList;
+    }
+
+    /**
+     * Taps audiobook hamburger option.
+     *
+     * @param hamburgerOptionName hamburger option name
+     */
+    public void tapAudiobookHamburgerOption(final String hamburgerOptionName) {
+        for (final MobileElement hamburgerOption : libraryScreenObject.getHamburgerOptions()) {
+            String optionName = hamburgerOption.getText();
+            if (optionName.equals(hamburgerOptionName)) {
+                hamburgerOption.click();
                 break;
             }
         }

@@ -8,9 +8,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * This is 'AudibleAndroidTestBase' class.
+ * This is 'AndroidTestBase' class.
  */
-public class AudibleAndroidTestBase extends AudibleMobileTestBase<AndroidDriver<AndroidElement>> {
+public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement>> {
 
     /**
      * Gets the desired capabilities for android.
@@ -57,8 +57,8 @@ public class AudibleAndroidTestBase extends AudibleMobileTestBase<AndroidDriver<
      *
      * @return welcome screen object
      */
-    public AudibleWelcomeScreen getWelcomeScreen() {
-        return getScreen(AudibleWelcomeScreen.class);
+    public WelcomeScreen getWelcomeScreen() {
+        return getScreen(WelcomeScreen.class);
     }
 
     /**
@@ -66,8 +66,8 @@ public class AudibleAndroidTestBase extends AudibleMobileTestBase<AndroidDriver<
      *
      * @return sign in screen object
      */
-    public AudibleSignInScreen getSignInScreen() {
-        return getScreen(AudibleSignInScreen.class);
+    public SignInScreen getSignInScreen() {
+        return getScreen(SignInScreen.class);
     }
 
     /**
@@ -75,8 +75,8 @@ public class AudibleAndroidTestBase extends AudibleMobileTestBase<AndroidDriver<
      *
      * @return home screen object
      */
-    public AudibleHomeScreen getHomeScreen() {
-        return getScreen(AudibleHomeScreen.class);
+    public HomeScreen getHomeScreen() {
+        return getScreen(HomeScreen.class);
     }
 
     /**
@@ -84,8 +84,8 @@ public class AudibleAndroidTestBase extends AudibleMobileTestBase<AndroidDriver<
      *
      * @return profile screen object
      */
-    public AudibleProfileScreen getProfileScreen() {
-        return getScreen(AudibleProfileScreen.class);
+    public ProfileScreen getProfileScreen() {
+        return getScreen(ProfileScreen.class);
     }
 
     /**
@@ -93,8 +93,8 @@ public class AudibleAndroidTestBase extends AudibleMobileTestBase<AndroidDriver<
      *
      * @return search screen object
      */
-    public AudibleSearchScreen getSearchScreen() {
-        return getScreen(AudibleSearchScreen.class);
+    public SearchScreen getSearchScreen() {
+        return getScreen(SearchScreen.class);
     }
 
     /**

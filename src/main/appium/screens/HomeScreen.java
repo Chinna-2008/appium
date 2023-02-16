@@ -3,14 +3,14 @@ package screens;
 import io.appium.java_client.MobileElement;
 
 /**
- * This is 'AudibleHomeScreen' class.
+ * This is 'HomeScreen' class.
  */
-public class AudibleHomeScreen extends BaseScreen {
+public class HomeScreen extends BaseScreen {
 
-    private final AudibleHomeScreenObject audibleHomeScreenObject;
+    private final HomeScreenObject homeScreenObject;
 
-    public AudibleHomeScreen() {
-        audibleHomeScreenObject = new AudibleHomeScreenObject(appiumDriver);
+    public HomeScreen() {
+        homeScreenObject = new HomeScreenObject(driver);
     }
 
     /**
@@ -18,14 +18,14 @@ public class AudibleHomeScreen extends BaseScreen {
      */
     @Override
     public void waitForScreenToLoad() {
-        waitForElementToDisplay(audibleHomeScreenObject.getAudibleLogo());
+        waitForElementToDisplay(homeScreenObject.getAudibleLogo());
     }
 
     /**
      * Taps on the search button.
      */
     public void tapSearchButton() {
-        audibleHomeScreenObject.getSearch().click();
+        homeScreenObject.getSearch().click();
     }
 
     /**
@@ -34,7 +34,7 @@ public class AudibleHomeScreen extends BaseScreen {
      * @return true / false
      */
     public boolean isAudibleLogoDisplayed() {
-        return isDisplayed(audibleHomeScreenObject.getAudibleLogo());
+        return isDisplayed(homeScreenObject.getAudibleLogo());
     }
 
     /**
@@ -43,7 +43,7 @@ public class AudibleHomeScreen extends BaseScreen {
      * @param tabName tab name
      */
     public void tapMenuTab(final String tabName) {
-        for (final MobileElement tab : audibleHomeScreenObject.getMenuTabs()) {
+        for (final MobileElement tab : homeScreenObject.getMenuTabs()) {
             String nameOfTab = tab.getText();
             if (nameOfTab.equals(tabName)) {
                 tab.click();

@@ -10,7 +10,7 @@ public class BookDetailsScreen extends BaseScreen {
     private final BookDetailsScreenObject bookDetailsScreenObject;
 
     public BookDetailsScreen() {
-        bookDetailsScreenObject = new BookDetailsScreenObject(appiumDriver);
+        bookDetailsScreenObject = new BookDetailsScreenObject(driver);
     }
 
     /**

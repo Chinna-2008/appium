@@ -8,13 +8,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * This is 'AudibleWelcomeScreenObject' class.
+ * This is 'WelcomeScreenObject' class.
  */
 @Data
-public class AudibleWelcomeScreenObject {
+public class WelcomeScreenObject {
     private final AppiumDriver driver;
 
-    public AudibleWelcomeScreenObject(final AppiumDriver driver) {
+    public WelcomeScreenObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }

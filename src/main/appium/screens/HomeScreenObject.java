@@ -10,14 +10,14 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 /**
- * This is 'AudibleHomeScreenObject' class.
+ * This is 'HomeScreenObject' class.
  */
 @Data
-public class AudibleHomeScreenObject {
+public class HomeScreenObject {
 
     private final AppiumDriver driver;
 
-    public AudibleHomeScreenObject(final AppiumDriver driver) {
+    public HomeScreenObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }

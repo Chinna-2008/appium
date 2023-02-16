@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * This is 'AudibleTest' class.
  */
-public class AudibleTest extends AudibleAndroidTestBase {
+public class AudibleTest extends AndroidTestBase {
 
     /**
      * Test to launch application.
@@ -71,9 +71,9 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getSignInScreen().tapSignInButton();
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab("Library");
-        getLibraryScreen().tapBookKebabButton();
+        getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
         List<String> moreOptionsList = Arrays.asList("Title details", "Donald Katz", "Download", "Share", "Mark as finished", "Rate and Review & related content", "Add to favourites", "Add to…", "Archive this title", "Remove from library");
-        Assert.assertEquals(getLibraryScreen().getListOfKebabOptions(), moreOptionsList, "More options for book is not matched.");
+        Assert.assertEquals(getLibraryScreen().getListOfHamburgerOptions(), moreOptionsList, "More options for book is not matched.");
     }
 
     /**
@@ -89,8 +89,8 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getSignInScreen().tapSignInButton();
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab("Library");
-        getLibraryScreen().tapBookKebabButton();
-        getLibraryScreen().tapAudiobookKebabOption("Title details");
+        getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
+        getLibraryScreen().tapAudiobookHamburgerOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();
         Assert.assertEquals(getBookDetailsScreen().getBookTitle(), "Just Do It", "Book title is not matched.");
     }
@@ -108,8 +108,8 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getSignInScreen().tapSignInButton();
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab("Library");
-        getLibraryScreen().tapBookKebabButton();
-        getLibraryScreen().tapAudiobookKebabOption("Title details");
+        getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
+        getLibraryScreen().tapAudiobookHamburgerOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();
         System.out.println(String.format("Book details are: \n %s.", getBookDetailsScreen().getBookDetails()));
         Assert.assertTrue(getBookDetailsScreen().isBookDetailsContainsSubtitle(), "Book details is not contain subtitle.");
@@ -128,8 +128,8 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getSignInScreen().tapSignInButton();
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab("Library");
-        getLibraryScreen().tapBookKebabButton();
-        getLibraryScreen().tapAudiobookKebabOption("Title details");
+        getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
+        getLibraryScreen().tapAudiobookHamburgerOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();
         getBookDetailsScreen().tapDownloadButton();
         getBookDetailsScreen().waitForRemoveFromDeviceButtonToLoad();
@@ -149,8 +149,8 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getSignInScreen().tapSignInButton();
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab("Library");
-        getLibraryScreen().tapBookKebabButton();
-        getLibraryScreen().tapAudiobookKebabOption("Title details");
+        getLibraryScreen().tapAudiobookHamburgerButton("Don Katz Interviews Jane Fonda");
+        getLibraryScreen().tapAudiobookHamburgerOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();
         getBookDetailsScreen().tapPlayButton();
         getBookDetailsScreen().waitForPauseButton();
@@ -175,6 +175,6 @@ public class AudibleTest extends AudibleAndroidTestBase {
         getLibraryScreen().tapSortingHeaderButton();
         getLibraryScreen().tapSortOption("Title");
         List<String> afterSortingAudiobookList = getLibraryScreen().getAudiobooks();
-        Assert.assertNotEquals(beforeSortingAudiobookList, afterSortingAudiobookList,  "Audio books are not sorted.");
+        Assert.assertNotEquals(beforeSortingAudiobookList, afterSortingAudiobookList, "Audio books are not sorted.");
     }
 }

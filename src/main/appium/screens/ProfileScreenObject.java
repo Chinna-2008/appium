@@ -8,14 +8,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * This is 'AudibleProfileScreenObject' class.
+ * This is 'ProfileScreenObject' class.
  */
 @Data
-public class AudibleProfileScreenObject {
+public class ProfileScreenObject {
 
     private final AppiumDriver driver;
 
-    public AudibleProfileScreenObject(final AppiumDriver driver) {
+    public ProfileScreenObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
