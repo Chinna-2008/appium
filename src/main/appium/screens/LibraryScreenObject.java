@@ -35,4 +35,7 @@ public class LibraryScreenObject {
 
     @FindBy(xpath = "//android.widget.TextView[@resource-id='com.audible.application:id/title']")
     private List<MobileElement> audioBooks;
+
+    @FindBy(xpath = "//android.widget.FrameLayout[@resource-id= 'com.audible.application:id/metadata_view']")
+    private List<MobileElement> audiobookCells;
 }

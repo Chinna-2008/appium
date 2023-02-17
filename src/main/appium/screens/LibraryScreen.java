@@ -92,17 +92,34 @@ public class LibraryScreen extends BaseScreen {
     }
 
     /**
-     * Gets list of audiobooks.
+     * Gets list of audiobook titles.
      *
-     * @return list of books
+     * @return list of audiobook titles
      */
-    public List<String> getAudiobooks() {
-        List<String> audioBookList = new ArrayList<>();
+    public List<String> getAudiobookTitles() {
+        List<String> audioBookTitles = new ArrayList<>();
         for (final MobileElement book : libraryScreenObject.getAudioBooks()) {
             String bookName = book.getText();
-            audioBookList.add(bookName);
+            audioBookTitles.add(bookName);
         }
-        System.out.println(String.format("Audiobook list: %s", audioBookList));
-        return audioBookList;
+        System.out.println(String.format("Audiobook titles : %s", audioBookTitles));
+        return audioBookTitles;
+    }
+
+    /**
+     * Gets audiobooks details.
+     *
+     * @return audiobooks details
+     */
+    public List<String> getAudiobooksDetails() {
+        ArrayList<String> audiobooksDetails = new ArrayList<>();
+        for (final MobileElement mobileElement : libraryScreenObject.getAudiobookCells()) {
+            MobileElement bookTitles = mobileElement.findElement(By.xpath("//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id='com.audible.application:id/title']"));
+            String bookTitle = bookTitles.getText();
+            MobileElement author = mobileElement.findElement(By.xpath("//android.widget.LinearLayout/android.widget.TextView[@resource-id = 'com.audible.application:id/author_text_view']"));
+            String authorName = author.getText();
+            audiobooksDetails.add(String.format("\nBook title: %s, Author: %s",  bookTitle, authorName));
+        }
+        return audiobooksDetails;
     }
 }

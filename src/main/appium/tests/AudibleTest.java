@@ -171,10 +171,29 @@ public class AudibleTest extends AndroidTestBase {
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab("Library");
         getLibraryScreen().waitForScreenToLoad();
-        List<String> beforeSortingAudiobookList = getLibraryScreen().getAudiobooks();
+        List<String> beforeSortingAudiobookList = getLibraryScreen().getAudiobookTitles();
         getLibraryScreen().tapSortingHeaderButton();
         getLibraryScreen().tapSortOption("Title");
-        List<String> afterSortingAudiobookList = getLibraryScreen().getAudiobooks();
+        List<String> afterSortingAudiobookList = getLibraryScreen().getAudiobookTitles();
         Assert.assertNotEquals(beforeSortingAudiobookList, afterSortingAudiobookList, "Audio books are not sorted.");
+    }
+
+    /**
+     * Test gets the books details in library.
+     */
+    @Test
+    public void testGetBooksDetailsInLibrary() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().enterEmailId("reddeppapc1@gmail.com");
+        getSignInScreen().enterPassword("Reddeppa@3");
+        getSignInScreen().tapSignInButton();
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapMenuTab("Library");
+        getLibraryScreen().waitForScreenToLoad();
+        System.out.println(String.format("Audiobooks detail in library: %s", getLibraryScreen().getAudiobooksDetails()));
+        List<String> expectedBooksDetails = getLibraryScreen().getAudiobooksDetails();
+        Assert.assertEquals(getLibraryScreen().getAudiobooksDetails(), expectedBooksDetails,"Books details are not matched.");
     }
 }
