@@ -107,6 +107,36 @@ public class LibraryScreen extends BaseScreen {
     }
 
     /**
+     * Gets all audiobook titles.
+     *
+     * @return audiobook titles
+     */
+    public List<String> getAllAudiobookTitles() {
+        ArrayList<String> allAudiobookTitles = new ArrayList<>();
+        for (final MobileElement mobileElement : libraryScreenObject.getAudiobookCells()) {
+            MobileElement bookTitles = mobileElement.findElement(By.xpath("//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id='com.audible.application:id/title']"));
+            String bookTitle = bookTitles.getText();
+            allAudiobookTitles.add(bookTitle);
+        }
+        return allAudiobookTitles;
+    }
+
+    /**
+     * Gets all audiobook author names.
+     *
+     * @return audiobook author names
+     */
+    public List<String> getAllAudiobookAuthors() {
+        ArrayList<String> allAudiobookAuthorNames = new ArrayList<>();
+        for (final MobileElement mobileElement : libraryScreenObject.getAudiobookCells()) {
+            MobileElement author = mobileElement.findElement(By.xpath("//android.widget.LinearLayout/android.widget.TextView[@resource-id = 'com.audible.application:id/author_text_view']"));
+            String authorName = author.getText();
+            allAudiobookAuthorNames.add(authorName);
+        }
+        return allAudiobookAuthorNames;
+    }
+
+    /**
      * Gets audiobooks details.
      *
      * @return audiobooks details
