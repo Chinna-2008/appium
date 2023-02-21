@@ -1,13 +1,18 @@
-package screens;
+package screens.WelcomeScreen;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import screens.BaseScreen;
 
 /**
  * This is 'WelcomeScreen' class.
  */
-public class WelcomeScreen extends BaseScreen {
+public class WelcomeScreenAndroid extends BaseScreen {
 
     private final WelcomeScreenObject welcomeScreenObject;
 
-    public WelcomeScreen() {
+    public WelcomeScreenAndroid(AndroidDriver<AndroidElement> driver) {
+        super(driver);
         welcomeScreenObject = new WelcomeScreenObject(driver);
     }
 

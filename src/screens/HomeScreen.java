@@ -1,6 +1,8 @@
 package screens;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 
 /**
  * This is 'HomeScreen' class.
@@ -9,7 +11,8 @@ public class HomeScreen extends BaseScreen {
 
     private final HomeScreenObject homeScreenObject;
 
-    public HomeScreen() {
+    public HomeScreen(AndroidDriver<AndroidElement> driver) {
+        super(driver);
         homeScreenObject = new HomeScreenObject(driver);
     }
 

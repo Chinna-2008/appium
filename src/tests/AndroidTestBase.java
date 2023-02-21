@@ -4,8 +4,13 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import screens.*;
+import screens.WelcomeScreen.WelcomeScreenAndroid;
+import tests.ScreenFactory.AndroidScreenFactory;
+import tests.ScreenFactory.IScreenFactory;
+
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Properties;
 
 /**
  * This is 'AndroidTestBase' class.
@@ -19,13 +24,13 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
      */
     public DesiredCapabilities getCapabilities() {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability("appium:automationName", "UiAutomator2");
-        desiredCapabilities.setCapability("platformName", "Android");
-        desiredCapabilities.setCapability("appium:platformVersion", "11");
-        desiredCapabilities.setCapability("appium:deviceName", "Pixel 4a");
-        desiredCapabilities.setCapability("appium:app", "/Users/pcreddeppa/Desktop/latest.apk");
-        desiredCapabilities.setCapability("appium:appPackage", "com.audible.application");
-        desiredCapabilities.setCapability("appium:appActivity", "com.audible.application.SplashScreen");
+
+        Properties properties = System.getProperties();
+        for (String propertyName: properties.stringPropertyNames()) {
+            if(propertyName.startsWith("appium:")) {
+                desiredCapabilities.setCapability(propertyName, System.getProperty(propertyName));
+            }
+        }
         return desiredCapabilities;
     }
 
@@ -52,13 +57,17 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
         return new AndroidDriver<>(getEndPoint(), getCapabilities());
     }
 
+    public IScreenFactory getScreenFactory(AndroidDriver<AndroidElement> driver) {
+        return new AndroidScreenFactory(driver);
+    }
+
     /**
      * Gets the welcome screen.
      *
      * @return welcome screen object
      */
-    public WelcomeScreen getWelcomeScreen() {
-        return getScreen(WelcomeScreen.class);
+    public WelcomeScreenAndroid getWelcomeScreen() {
+        return getScreenRegistry().get(WelcomeScreenAndroid.class);
     }
 
     /**
@@ -67,7 +76,7 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
      * @return sign in screen object
      */
     public SignInScreen getSignInScreen() {
-        return getScreen(SignInScreen.class);
+        return getScreenRegistry().get(SignInScreen.class);
     }
 
     /**
@@ -76,7 +85,7 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
      * @return home screen object
      */
     public HomeScreen getHomeScreen() {
-        return getScreen(HomeScreen.class);
+        return getScreenRegistry().get(HomeScreen.class);
     }
 
     /**
@@ -85,7 +94,7 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
      * @return profile screen object
      */
     public ProfileScreen getProfileScreen() {
-        return getScreen(ProfileScreen.class);
+        return getScreenRegistry().get(ProfileScreen.class);
     }
 
     /**
@@ -94,7 +103,7 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
      * @return search screen object
      */
     public SearchScreen getSearchScreen() {
-        return getScreen(SearchScreen.class);
+        return getScreenRegistry().get(SearchScreen.class);
     }
 
     /**
@@ -103,7 +112,7 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
      * @return book details screen object
      */
     public BookDetailsScreen getBookDetailsScreen() {
-        return getScreen(BookDetailsScreen.class);
+        return getScreenRegistry().get(BookDetailsScreen.class);
     }
 
     /**
@@ -112,6 +121,6 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
      * @return library screen object
      */
     public LibraryScreen getLibraryScreen() {
-        return getScreen(LibraryScreen.class);
+        return getScreenRegistry().get(LibraryScreen.class);
     }
 }
