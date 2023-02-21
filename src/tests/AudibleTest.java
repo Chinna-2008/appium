@@ -196,4 +196,24 @@ public class AudibleTest extends AndroidTestBase {
         List<String> expectedBooksDetails = getLibraryScreen().getAudiobooksDetails();
         Assert.assertEquals(getLibraryScreen().getAudiobooksDetails(), expectedBooksDetails,"Books details are not matched.");
     }
+
+    /**
+     * Test gets the audiobook titles and author names in library screen
+     */
+    @Test
+    public void testAudiobookTitlesAndAuthorNamesInLibraryScreen() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().enterEmailId("reddeppapc1@gmail.com");
+        getSignInScreen().enterPassword("Reddeppa@3");
+        getSignInScreen().tapSignInButton();
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapMenuTab("Library");
+        getLibraryScreen().waitForScreenToLoad();
+        List<String> expectedBookTitles = Arrays.asList("Don Katz Interviews Jane Fonda", "The King of the Ferret Leggers and Other True Stories", "The Big Store", "Murder, We Spoke", "Just Do It");
+        Assert.assertEquals(getLibraryScreen().getAllAudiobookTitles(), expectedBookTitles, "Audiobooks title are not matched.");
+        List<String> expectedBookAuthorNames = Arrays.asList("By Jane Fonda", "By Donald Katz", "By Donald Katz", "By Kat Johnson", "By Donald Katz");
+        Assert.assertEquals(getLibraryScreen().getAllAudiobookAuthors(), expectedBookAuthorNames, "Audiobooks author name are not matched.");
+    }
 }
