@@ -1,5 +1,8 @@
 package screens;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+
 /**
  * This is 'ProfileScreen' class.
  */
@@ -7,7 +10,8 @@ public class ProfileScreen extends BaseScreen {
 
     private final ProfileScreenObject profileScreenObject;
 
-    public ProfileScreen() {
+    public ProfileScreen(AndroidDriver<AndroidElement> driver) {
+        super(driver);
         profileScreenObject = new ProfileScreenObject(driver);
     }
 

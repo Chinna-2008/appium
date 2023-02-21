@@ -1,5 +1,8 @@
 package screens;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+
 import java.util.HashMap;
 
 /**
@@ -9,7 +12,8 @@ public class BookDetailsScreen extends BaseScreen {
 
     private final BookDetailsScreenObject bookDetailsScreenObject;
 
-    public BookDetailsScreen() {
+    public BookDetailsScreen(AndroidDriver<AndroidElement> driver) {
+        super(driver);
         bookDetailsScreenObject = new BookDetailsScreenObject(driver);
     }
 

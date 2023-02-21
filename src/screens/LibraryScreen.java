@@ -1,6 +1,8 @@
 package screens;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.By;
 
 import java.util.ArrayList;
@@ -13,7 +15,8 @@ public class LibraryScreen extends BaseScreen {
 
     private final LibraryScreenObject libraryScreenObject;
 
-    public LibraryScreen() {
+    public LibraryScreen(AndroidDriver<AndroidElement> driver) {
+        super(driver);
         libraryScreenObject = new LibraryScreenObject(driver);
     }
 

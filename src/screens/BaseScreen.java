@@ -2,9 +2,10 @@ package screens;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.NotFoundException;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import tests.MobileTestBase;
 
 /**
  * This is 'BaseScreen' class.
@@ -13,8 +14,9 @@ public abstract class BaseScreen {
 
     public AppiumDriver driver;
 
-    public BaseScreen() {
-        this.driver = MobileTestBase.appiumDriver;
+    public BaseScreen(AppiumDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
     /**
@@ -51,6 +53,6 @@ public abstract class BaseScreen {
      * @return duration in seconds
      */
     public WebDriverWait getWait() {
-        return new WebDriverWait(MobileTestBase.appiumDriver, 40);
+        return new WebDriverWait(driver, 40);
     }
 }

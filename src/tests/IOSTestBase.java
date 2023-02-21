@@ -3,6 +3,9 @@ package tests;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import tests.ScreenFactory.IOSScreenFactory;
+import tests.ScreenFactory.IScreenFactory;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -32,6 +35,10 @@ public class IOSTestBase extends MobileTestBase<IOSDriver<IOSElement>> {
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public IScreenFactory getScreenFactory(IOSDriver<IOSElement> driver) {
+        return new IOSScreenFactory(driver);
     }
 
     /**

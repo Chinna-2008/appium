@@ -1,5 +1,8 @@
 package screens;
 
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+
 /**
  * This is 'SearchScreen' class.
  */
@@ -7,7 +10,8 @@ public class SearchScreen extends BaseScreen {
 
     private final SearchScreenObject searchScreenObject;
 
-    public SearchScreen() {
+    public SearchScreen(AndroidDriver<AndroidElement> driver) {
+        super(driver);
         searchScreenObject = new SearchScreenObject(driver);
     }
 
