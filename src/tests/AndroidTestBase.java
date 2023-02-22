@@ -4,10 +4,9 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import screens.*;
-import screens.WelcomeScreen.WelcomeScreenAndroid;
+import screens.welcomescreen.WelcomeScreenAndroid;
 import tests.ScreenFactory.AndroidScreenFactory;
 import tests.ScreenFactory.IScreenFactory;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;

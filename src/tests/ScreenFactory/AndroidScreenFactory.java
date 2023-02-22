@@ -3,7 +3,7 @@ package tests.ScreenFactory;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import screens.*;
-import screens.WelcomeScreen.WelcomeScreenAndroid;
+import screens.welcomescreen.WelcomeScreenAndroid;
 
 public class AndroidScreenFactory extends IScreenFactory {
 
