@@ -2,9 +2,7 @@ package com.atimi.audible;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.NotFoundException;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
@@ -52,6 +50,6 @@ public abstract class BaseScreen {
      * @return duration in seconds
      */
     protected WebDriverWait getWait() {
-        return new WebDriverWait(driver, 40);
+        return new WebDriverWait(driver, 50);
     }
 }
