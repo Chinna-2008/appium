@@ -20,7 +20,7 @@ public class SignInScreenTest extends AndroidTestBase {
         getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         Assert.assertTrue(getHomeScreen().isAudibleLogoDisplayed(), "Home page is not displayed.");
-        getHomeScreen().tapMenuTab("Profile");
+        getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
         getProfileScreen().waitForScreenToLoad();
         Assert.assertEquals(getProfileScreen().getProfileNameText(), "Reddeppap ", "Profile name is not matched.");
     }

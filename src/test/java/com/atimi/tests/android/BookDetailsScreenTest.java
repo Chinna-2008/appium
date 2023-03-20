@@ -19,7 +19,7 @@ public class BookDetailsScreenTest extends AndroidTestBase {
         getSignInScreen().waitForScreenToLoad();
         getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
-        getHomeScreen().tapMenuTab("Library");
+        getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
         getLibraryScreen().tapAudiobookHamburgerOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();
@@ -36,7 +36,7 @@ public class BookDetailsScreenTest extends AndroidTestBase {
         getSignInScreen().waitForScreenToLoad();
         getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
-        getHomeScreen().tapMenuTab("Library");
+        getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
         getLibraryScreen().tapAudiobookHamburgerOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();
@@ -54,7 +54,7 @@ public class BookDetailsScreenTest extends AndroidTestBase {
         getSignInScreen().waitForScreenToLoad();
         getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
-        getHomeScreen().tapMenuTab("Library");
+        getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
         getLibraryScreen().tapAudiobookHamburgerOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();
@@ -73,7 +73,7 @@ public class BookDetailsScreenTest extends AndroidTestBase {
         getSignInScreen().waitForScreenToLoad();
         getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
-        getHomeScreen().tapMenuTab("Library");
+        getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().tapAudiobookHamburgerButton("Don Katz Interviews Jane Fonda");
         getLibraryScreen().tapAudiobookHamburgerOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();

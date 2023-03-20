@@ -21,7 +21,7 @@ public class LibraryScreenTest extends AndroidTestBase {
         getSignInScreen().waitForScreenToLoad();
         getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
-        getHomeScreen().tapMenuTab("Library");
+        getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
         List<String> moreOptionsList = Arrays.asList("Title details", "Donald Katz", "Download", "Share", "Mark as finished", "Rate and Review & related content", "Add to favourites", "Add to…", "Archive this title", "Remove from library");
         Assert.assertEquals(getLibraryScreen().getListOfHamburgerOptions(), moreOptionsList, "More options for book is not matched.");
@@ -37,7 +37,7 @@ public class LibraryScreenTest extends AndroidTestBase {
         getSignInScreen().waitForScreenToLoad();
         getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
-        getHomeScreen().tapMenuTab("Library");
+        getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
         List<String> beforeSortingAudiobookList = getLibraryScreen().getAudiobookTitles();
         getLibraryScreen().tapSortingHeaderButton();
@@ -56,7 +56,7 @@ public class LibraryScreenTest extends AndroidTestBase {
         getSignInScreen().waitForScreenToLoad();
         getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
-        getHomeScreen().tapMenuTab("Library");
+        getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
         System.out.println(String.format("Audiobooks detail in library: %s", getLibraryScreen().getAudiobooksDetails()));
         List<String> expectedBooksDetails = getLibraryScreen().getAudiobooksDetails();
@@ -73,7 +73,7 @@ public class LibraryScreenTest extends AndroidTestBase {
         getSignInScreen().waitForScreenToLoad();
         getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
-        getHomeScreen().tapMenuTab("Library");
+        getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
         List<String> expectedBookTitles = Arrays.asList("Don Katz Interviews Jane Fonda", "The King of the Ferret Leggers and Other True Stories", "The Big Store", "Murder, We Spoke", "Just Do It");
         Assert.assertEquals(getLibraryScreen().getAllAudiobookTitles(), expectedBookTitles, "Audiobooks title are not matched.");
