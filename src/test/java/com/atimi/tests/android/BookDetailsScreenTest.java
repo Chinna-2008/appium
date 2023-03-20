@@ -17,9 +17,7 @@ public class BookDetailsScreenTest extends AndroidTestBase {
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().enterEmailId("reddeppapc1@gmail.com");
-        getSignInScreen().enterPassword("Reddeppa@3");
-        getSignInScreen().tapSignInButton();
+        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab("Library");
         getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
@@ -36,9 +34,7 @@ public class BookDetailsScreenTest extends AndroidTestBase {
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().enterEmailId("reddeppapc1@gmail.com");
-        getSignInScreen().enterPassword("Reddeppa@3");
-        getSignInScreen().tapSignInButton();
+        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab("Library");
         getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
@@ -56,9 +52,7 @@ public class BookDetailsScreenTest extends AndroidTestBase {
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().enterEmailId("reddeppapc1@gmail.com");
-        getSignInScreen().enterPassword("Reddeppa@3");
-        getSignInScreen().tapSignInButton();
+        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab("Library");
         getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
@@ -77,9 +71,7 @@ public class BookDetailsScreenTest extends AndroidTestBase {
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().enterEmailId("reddeppapc1@gmail.com");
-        getSignInScreen().enterPassword("Reddeppa@3");
-        getSignInScreen().tapSignInButton();
+        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab("Library");
         getLibraryScreen().tapAudiobookHamburgerButton("Don Katz Interviews Jane Fonda");

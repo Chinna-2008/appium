@@ -15,11 +15,6 @@ public class SignInScreenObject {
 
     private final AppiumDriver driver;
 
-    public SignInScreenObject(final AppiumDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-    }
-
     @FindBy(xpath = "//android.widget.TextView[@text='Sign in using your Amazon Account']")
     private MobileElement signInScreen;
 
@@ -34,4 +29,9 @@ public class SignInScreenObject {
 
     @FindBy(xpath = "//android.view.View[@text='Your password is incorrect']")
     private MobileElement errorMessage;
+
+    public SignInScreenObject(final AppiumDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+    }
 }

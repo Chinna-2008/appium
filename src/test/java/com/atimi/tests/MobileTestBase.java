@@ -5,7 +5,6 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.testng.annotations.BeforeClass;
 import com.atimi.tests.ScreenFactory.IScreenFactory;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -57,10 +56,14 @@ public abstract class MobileTestBase<AD extends AppiumDriver<? extends MobileEle
         getScreenRegistry().setScreenFactory(getScreenFactory(myDriver));
     }
 
+    /**
+     * Gets screen registry.
+     *
+     * @return screen registry
+     */
     protected ScreenRegistry getScreenRegistry() {
         return screenRegistry;
     }
-
 
     public abstract IScreenFactory getScreenFactory(AD myDriver);
 
@@ -95,6 +98,11 @@ public abstract class MobileTestBase<AD extends AppiumDriver<? extends MobileEle
             return (T) screenObjects.get(screenClass);
         }
 
+        /**
+         * Sets screen factory.
+         *
+         * @param screenFactory screen factory
+         */
         private void setScreenFactory(IScreenFactory screenFactory) {
             this.screenFactory = screenFactory;
             screenObjects.clear();

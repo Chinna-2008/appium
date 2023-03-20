@@ -14,16 +14,14 @@ import org.openqa.selenium.support.PageFactory;
 public class WelcomeScreenObject {
     private final AppiumDriver driver;
 
+    @FindBy(id = "com.audible.application:id/get_started_button")
+    private MobileElement getStarted;
+
+    @FindBy(id = "com.audible.application:id/sign_in_button")
+    private MobileElement signIn;
+
     public WelcomeScreenObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
-
-    @FindBy(id = "com.audible.application:id/get_started_button")
-    private MobileElement getStarted;
-
-
-
-    @FindBy(id = "com.audible.application:id/sign_in_button")
-    private MobileElement signIn;
 }

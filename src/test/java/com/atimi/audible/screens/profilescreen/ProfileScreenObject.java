@@ -15,11 +15,11 @@ public class ProfileScreenObject {
 
     private final AppiumDriver driver;
 
+    @FindBy(id = "com.audible.application:id/profileNameTextView")
+    private MobileElement profileName;
+
     public ProfileScreenObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
-
-    @FindBy(id = "com.audible.application:id/profileNameTextView")
-    private MobileElement profileName;
 }

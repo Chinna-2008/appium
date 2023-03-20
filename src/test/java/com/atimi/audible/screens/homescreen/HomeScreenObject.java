@@ -17,11 +17,6 @@ public class HomeScreenObject {
 
     private final AppiumDriver driver;
 
-    public HomeScreenObject(final AppiumDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-    }
-
     @FindBy(id = "com.audible.application:id/logo_themed")
     private MobileElement audibleLogo;
 
@@ -30,4 +25,11 @@ public class HomeScreenObject {
 
     @FindBy(className = "android.widget.TextView")
     private List<MobileElement> menuTabs;
+
+    public HomeScreenObject(final AppiumDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+    }
+
+
 }

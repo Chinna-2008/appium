@@ -16,8 +16,6 @@ public class WelcomeScreenAndroid extends BaseScreen {
         welcomeScreenObject = new WelcomeScreenObject(driver);
     }
 
-
-
     /**
      * Waits for screen to load.
      */

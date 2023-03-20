@@ -16,11 +16,6 @@ public class LibraryScreenObject {
 
     private final AppiumDriver driver;
 
-    public LibraryScreenObject(final AppiumDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-    }
-
     @FindBy(id = "com.audible.application:id/overflow_btn")
     private MobileElement hamburgerButton;
 
@@ -38,4 +33,9 @@ public class LibraryScreenObject {
 
     @FindBy(xpath = "//android.widget.FrameLayout[@resource-id= 'com.audible.application:id/metadata_view']")
     private List<MobileElement> audiobookCells;
+
+    public LibraryScreenObject(final AppiumDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+    }
 }

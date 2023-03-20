@@ -15,14 +15,14 @@ public class SearchScreenObject {
 
     private final AppiumDriver driver;
 
-    public SearchScreenObject(final AppiumDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-    }
-
     @FindBy(id = "com.audible.application:id/search_src_text")
     private MobileElement searchBox;
 
     @FindBy(id = "com.audible.application:id/title")
     private MobileElement storyOfBuddha;
+
+    public SearchScreenObject(final AppiumDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+    }
 }

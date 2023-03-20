@@ -15,11 +15,6 @@ public class BookDetailsScreenObject {
 
     private final AppiumDriver driver;
 
-    public BookDetailsScreenObject(final AppiumDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-    }
-
     @FindBy(id = "com.audible.application:id/glow_top_left")
     private MobileElement leftImage;
 
@@ -49,4 +44,9 @@ public class BookDetailsScreenObject {
 
     @FindBy(xpath = "//android.widget.Button[@content-desc='Pause']")
     private MobileElement pauseButton;
+
+    public BookDetailsScreenObject(final AppiumDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+    }
 }

@@ -25,27 +25,14 @@ public class SignInScreen extends BaseScreen {
     }
 
     /**
-     * Enters email id.
+     * Sign in.
      *
      * @param emailID email id
-     */
-    public void enterEmailId(final String emailID) {
-        signInScreenObject.getEnterEmailID().sendKeys(emailID);
-    }
-
-    /**
-     * Enters the password.
-     *
      * @param password password
      */
-    public void enterPassword(final String password) {
+    public void signIn(final String emailID, final String password) {
+        signInScreenObject.getEnterEmailID().sendKeys(emailID);
         signInScreenObject.getEnterPassword().sendKeys(password);
-    }
-
-    /**
-     * Taps on sign in button.
-     */
-    public void tapSignInButton() {
         signInScreenObject.getSignInButton().click();
     }
 }
