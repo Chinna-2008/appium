@@ -156,4 +156,13 @@ public class LibraryScreen extends BaseScreen {
         }
         return audiobooksDetails;
     }
+
+    /**
+     * Gets book titles count.
+     *
+     * @return book titles count with text
+     */
+    public String getBookTitlesCount() {
+        return libraryScreenObject.getTitles().getText();
+    }
 }

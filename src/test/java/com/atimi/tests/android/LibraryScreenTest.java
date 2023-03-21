@@ -80,4 +80,19 @@ public class LibraryScreenTest extends AndroidTestBase {
         List<String> expectedBookAuthorNames = Arrays.asList("By Jane Fonda", "By Donald Katz", "By Donald Katz", "By Kat Johnson", "By Donald Katz");
         Assert.assertEquals(getLibraryScreen().getAllAudiobookAuthors(), expectedBookAuthorNames, "Audiobooks author name are not matched.");
     }
+
+    /**
+     * Test the book titles count.
+     */
+    @Test
+    public void testBookTitlesCount() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
+        getLibraryScreen().waitForScreenToLoad();
+        Assert.assertEquals(getLibraryScreen().getBookTitlesCount(), "5 titles", "Book titles are not matched.");
+    }
 }

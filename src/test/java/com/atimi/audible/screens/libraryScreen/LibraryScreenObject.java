@@ -34,6 +34,9 @@ public class LibraryScreenObject {
     @FindBy(xpath = "//android.widget.FrameLayout[@resource-id= 'com.audible.application:id/metadata_view']")
     private List<MobileElement> audiobookCells;
 
+    @FindBy(id = "com.audible.application:id/header_text")
+    private MobileElement titles;
+
     public LibraryScreenObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
