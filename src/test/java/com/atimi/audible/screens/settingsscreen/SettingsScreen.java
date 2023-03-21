@@ -16,12 +16,8 @@ public class SettingsScreen extends BaseScreen {
         settingsScreenObject = new SettingsScreenObject(driver);
     }
 
-    /**
-     * Waits for screen to load.
-     */
     @Override
     public void waitForScreenToLoad() {
-        waitForElementToDisplay(settingsScreenObject.getSettingsScreen());
     }
 
     /**
@@ -31,12 +27,5 @@ public class SettingsScreen extends BaseScreen {
      */
     public boolean isSettingsScreenDisplayed() {
         return isDisplayed(settingsScreenObject.getSettingsScreen());
-    }
-
-    /**
-     * Taps data and storage option.
-     */
-    public void tapDataAndStorageOption() {
-        settingsScreenObject.getDataAndStorageOption().click();
     }
 }

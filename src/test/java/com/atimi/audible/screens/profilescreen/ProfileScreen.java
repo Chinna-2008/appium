@@ -37,6 +37,6 @@ public class ProfileScreen extends BaseScreen {
      * Taps on settings.
      */
     public void tapSettings() {
-        profileScreenObject.getSettings().click();
+        profileScreenObject.getSettingsButton().click();
     }
 }
