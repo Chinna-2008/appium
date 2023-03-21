@@ -5,13 +5,15 @@ import com.atimi.audible.screens.homescreen.HomeScreen;
 import com.atimi.audible.screens.libraryScreen.LibraryScreen;
 import com.atimi.audible.screens.profilescreen.ProfileScreen;
 import com.atimi.audible.screens.searchscreen.SearchScreen;
+import com.atimi.audible.screens.settingsscreen.SettingsScreen;
 import com.atimi.audible.screens.signinscreen.SignInScreen;
 import com.atimi.audible.screens.welcomescreen.WelcomeScreenAndroid;
+import com.atimi.tests.ScreenFactory.AndroidScreenFactory;
+import com.atimi.tests.ScreenFactory.IScreenFactory;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import com.atimi.tests.ScreenFactory.AndroidScreenFactory;
-import com.atimi.tests.ScreenFactory.IScreenFactory;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
@@ -126,5 +128,14 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
      */
     public LibraryScreen getLibraryScreen() {
         return getScreenRegistry().get(LibraryScreen.class);
+    }
+
+    /**
+     * Gets settings screen.
+     *
+     * @return settings screen object
+     */
+    public SettingsScreen getSettingsScreen() {
+        return getScreenRegistry().get(SettingsScreen.class);
     }
 }
