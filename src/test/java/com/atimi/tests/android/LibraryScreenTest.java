@@ -47,10 +47,10 @@ public class LibraryScreenTest extends AndroidTestBase {
     }
 
     /**
-     * Test gets the books details in library.
+     * Test gets the visible books details in library.
      */
     @Test
-    public void testGetBooksDetailsInLibrary() {
+    public void testGetVisibleBooksDetailsInLibrary() {
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         getSignInScreen().waitForScreenToLoad();
@@ -64,10 +64,10 @@ public class LibraryScreenTest extends AndroidTestBase {
     }
 
     /**
-     * Test gets the audiobook titles and author names in library screen
+     * Test gets the visible audiobook titles and author names in library screen.
      */
     @Test
-    public void testAudiobookTitlesAndAuthorNamesInLibraryScreen() {
+    public void testVisibleAudiobookTitlesAndAuthorNamesInLibraryScreen() {
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         getSignInScreen().waitForScreenToLoad();
@@ -75,17 +75,17 @@ public class LibraryScreenTest extends AndroidTestBase {
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
-        List<String> expectedBookTitles = Arrays.asList("Don Katz Interviews Jane Fonda", "The King of the Ferret Leggers and Other True Stories", "The Big Store", "Murder, We Spoke", "Just Do It");
+        List<String> expectedBookTitles = Arrays.asList("Canada Is Awesome", "Tomato Can Blues", "FIRST THREE FREE CHAPTERS: Amok", "Christmas in the Kitchen", "Don Katz Interviews Jane Fonda", "The King of the Ferret Leggers and Other True Stories");
         Assert.assertEquals(getLibraryScreen().getAllAudiobookTitles(), expectedBookTitles, "Audiobooks title are not matched.");
-        List<String> expectedBookAuthorNames = Arrays.asList("By Jane Fonda", "By Donald Katz", "By Donald Katz", "By Kat Johnson", "By Donald Katz");
+        List<String> expectedBookAuthorNames = Arrays.asList("By Neil Pasricha", "By Mary Pilon", "By Sebastian Fitzek", "By Nalini Singh", "By Jane Fonda", "By Donald Katz");
         Assert.assertEquals(getLibraryScreen().getAllAudiobookAuthors(), expectedBookAuthorNames, "Audiobooks author name are not matched.");
     }
 
     /**
-     * Test the book titles count.
+     * Test the all book titles count.
      */
     @Test
-    public void testBookTitlesCount() {
+    public void testGetAllBookTitlesCount() {
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         getSignInScreen().waitForScreenToLoad();
@@ -94,5 +94,20 @@ public class LibraryScreenTest extends AndroidTestBase {
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
         Assert.assertEquals(getLibraryScreen().getBookTitlesCount(), "5 titles", "Book titles are not matched.");
+    }
+
+    /**
+     * Test get all the book titles.
+     */
+    @Test
+    public void testGetAllBookTitles() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
+        getLibraryScreen().waitForScreenToLoad();
+        getLibraryScreen().scrollUpToLastAudiobook();
     }
 }

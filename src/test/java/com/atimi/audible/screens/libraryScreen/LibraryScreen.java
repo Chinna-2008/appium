@@ -165,4 +165,11 @@ public class LibraryScreen extends BaseScreen {
     public String getBookTitlesCount() {
         return libraryScreenObject.getTitles().getText();
     }
+
+    /**
+     * Scroll up to last audiobook.
+     */
+    public void scrollUpToLastAudiobook() {
+        scrollToText((AndroidDriver<MobileElement>) driver, "Just Do It");
+    }
 }
