@@ -3,8 +3,8 @@ package com.atimi.tests.android;
 import com.atimi.tests.AndroidTestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import java.util.Arrays;
-import java.util.List;
+
+import java.util.*;
 
 /**
  * This is 'LibraryScreenTest'
@@ -58,9 +58,9 @@ public class LibraryScreenTest extends AndroidTestBase {
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
-        System.out.println(String.format("Audiobooks detail in library: %s", getLibraryScreen().getAudiobooksDetails()));
-        List<String> expectedBooksDetails = getLibraryScreen().getAudiobooksDetails();
-        Assert.assertEquals(getLibraryScreen().getAudiobooksDetails(), expectedBooksDetails,"Books details are not matched.");
+        System.out.println(String.format("Audiobooks detail in library: %s", getLibraryScreen().getVisibleAudiobooksDetails()));
+        List<String> expectedBooksDetails = getLibraryScreen().getVisibleAudiobooksDetails();
+        Assert.assertEquals(getLibraryScreen().getVisibleAudiobooksDetails(), expectedBooksDetails,"Books details are not matched.");
     }
 
     /**
@@ -76,9 +76,9 @@ public class LibraryScreenTest extends AndroidTestBase {
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
         List<String> expectedBookTitles = Arrays.asList("Canada Is Awesome", "Tomato Can Blues", "FIRST THREE FREE CHAPTERS: Amok", "Christmas in the Kitchen", "Don Katz Interviews Jane Fonda", "The King of the Ferret Leggers and Other True Stories");
-        Assert.assertEquals(getLibraryScreen().getAllAudiobookTitles(), expectedBookTitles, "Audiobooks title are not matched.");
+        Assert.assertEquals(getLibraryScreen().getAllVisibleAudiobookTitles(), expectedBookTitles, "Audiobooks title are not matched.");
         List<String> expectedBookAuthorNames = Arrays.asList("By Neil Pasricha", "By Mary Pilon", "By Sebastian Fitzek", "By Nalini Singh", "By Jane Fonda", "By Donald Katz");
-        Assert.assertEquals(getLibraryScreen().getAllAudiobookAuthors(), expectedBookAuthorNames, "Audiobooks author name are not matched.");
+        Assert.assertEquals(getLibraryScreen().getAllVisibleAudiobookAuthors(), expectedBookAuthorNames, "Audiobooks author name are not matched.");
     }
 
     /**
@@ -97,10 +97,10 @@ public class LibraryScreenTest extends AndroidTestBase {
     }
 
     /**
-     * Test get all the book titles.
+     * Test get all the books authors.
      */
     @Test
-    public void testGetAllBookTitles() {
+    public void testGetAllBooksAuthors() {
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         getSignInScreen().waitForScreenToLoad();
@@ -108,6 +108,14 @@ public class LibraryScreenTest extends AndroidTestBase {
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
+        List<String> visibleBooksAuthorNames = getLibraryScreen().getAllVisibleAudiobookAuthors();
         getLibraryScreen().scrollUpToLastAudiobook();
+        getLibraryScreen().waitForScreenToLoad();
+        List<String> visibleBooksAuthorNamesAfterScroll = getLibraryScreen().getAllVisibleAudiobookAuthors();
+        Set<String> totalBooksAuthors = new HashSet<>();
+        totalBooksAuthors.addAll(visibleBooksAuthorNames);
+        totalBooksAuthors.addAll(visibleBooksAuthorNamesAfterScroll);
+        List<String> expectedBooksAuthors = Arrays.asList("By Mary Pilon", "By Neil Pasricha", "By Donald Katz", "By Nalini Singh", "By Jane Fonda", "By Kat Johnson", "By Sebastian Fitzek");
+        Assert.assertEquals(totalBooksAuthors, expectedBooksAuthors, "Book authors are not matched.");
     }
 }
