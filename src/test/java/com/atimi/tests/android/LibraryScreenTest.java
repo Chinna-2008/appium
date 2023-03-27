@@ -97,7 +97,7 @@ public class LibraryScreenTest extends AndroidTestBase {
     }
 
     /**
-     * Test get all the books authors.
+     * Test gets all the books authors.
      */
     @Test
     public void testGetAllBooksAuthors() {
@@ -116,6 +116,29 @@ public class LibraryScreenTest extends AndroidTestBase {
         totalBooksAuthors.addAll(visibleBooksAuthorNames);
         totalBooksAuthors.addAll(visibleBooksAuthorNamesAfterScroll);
         List<String> expectedBooksAuthors = Arrays.asList("By Mary Pilon", "By Neil Pasricha", "By Donald Katz", "By Nalini Singh", "By Jane Fonda", "By Kat Johnson", "By Sebastian Fitzek");
-        Assert.assertEquals(totalBooksAuthors, expectedBooksAuthors, "Book authors are not matched.");
+        Assert.assertEquals(totalBooksAuthors, expectedBooksAuthors, "Audiobook authors names are not matched.");
+    }
+
+    /**
+     * Test gets all the book titles.
+     */
+    @Test
+    public void testGetAllBookTitles() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
+        getLibraryScreen().waitForScreenToLoad();
+        List<String> visibleBookTitles = getLibraryScreen().getAllVisibleAudiobookTitles();
+        getLibraryScreen().scrollUpToLastAudiobook();
+        getLibraryScreen().waitForScreenToLoad();
+        List<String> visibleBookTitlesAfterScroll = getLibraryScreen().getAllVisibleAudiobookTitles();
+        Set<String> totalBooksNames = new HashSet<>();
+        totalBooksNames.addAll(visibleBookTitles);
+        totalBooksNames.addAll(visibleBookTitlesAfterScroll);
+        List<String> allAudiobooksTitles = Arrays.asList("Canada Is Awesome", "Tomato Can Blues", "The Big Store", "Murder, We Spoke", "The King of the Ferret Leggers and Other True Stories", "FIRST THREE FREE CHAPTERS: Amok", "Don Katz Interviews Jane Fonda", "Just Do It", "Christmas in the Kitchen");
+        Assert.assertEquals(totalBooksNames, allAudiobooksTitles, "Audiobooks titles are not matched.");
     }
 }

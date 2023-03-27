@@ -5,6 +5,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,9 +119,13 @@ public class LibraryScreen extends BaseScreen {
     public List<String> getAllVisibleAudiobookTitles() {
         ArrayList<String> visibleAudiobookTitles = new ArrayList<>();
         for (final MobileElement mobileElement : libraryScreenObject.getAudiobookCells()) {
-            MobileElement bookTitles = mobileElement.findElement(By.xpath("//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id='com.audible.application:id/title']"));
-            String bookTitle = bookTitles.getText();
-            visibleAudiobookTitles.add(bookTitle);
+            try{
+                MobileElement bookTitles = mobileElement.findElement(By.xpath("//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id = 'com.audible.application:id/title']"));
+                String bookTitle = bookTitles.getText();
+                visibleAudiobookTitles.add(bookTitle);
+            } catch (final NoSuchElementException exception) {
+                exception.getMessage();
+            }
         }
         return visibleAudiobookTitles;
     }
@@ -170,6 +175,6 @@ public class LibraryScreen extends BaseScreen {
      * Scroll up to last audiobook.
      */
     public void scrollUpToLastAudiobook() {
-        scrollToText((AndroidDriver<MobileElement>) driver, "Just Do It");
+        scrollToText((AndroidDriver<MobileElement>) driver, "The Big Store");
     }
 }
