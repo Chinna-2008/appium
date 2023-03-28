@@ -157,4 +157,13 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
     public SettingsScreen getSettingsScreen() {
         return getScreenRegistry().get(SettingsScreen.class);
     }
+
+    /**
+     * Gets data and storage screen.
+     *
+     * @return data and storage screen object
+     */
+    public DataAndStorageScreen getDataAndStorageScreen() {
+        return getScreenRegistry().get(DataAndStorageScreen.class);
+    }
 }
