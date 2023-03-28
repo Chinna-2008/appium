@@ -99,4 +99,16 @@ public class DataAndStorageScreen extends BaseScreen {
     public String getAttributeValueOfMultiPartRadioButton() {
         return dataAndStorageScreenObject.getDownloadByPartsRadioButtons().get(1).getAttribute("checked");
     }
+
+    /**
+     * Taps on download quality radio button.
+     */
+    public void tapDownloadQualityRadioButton() {
+        for (final MobileElement radioButton : dataAndStorageScreenObject.getDownloadQualityRadioButtons()) {
+            if (radioButton.getAttribute("checked").equals("false")) {
+                radioButton.click();
+                break;
+            }
+        }
+    }
 }

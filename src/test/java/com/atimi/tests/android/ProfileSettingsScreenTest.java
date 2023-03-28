@@ -65,4 +65,22 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfSingleRadioButton(), "true", "Single radio button is not selected.");
         Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfMultiPartRadioButton(), "false", "Multi part radio button is selected.");
     }
+
+    /**
+     * Tests download quality radio buttons.
+     */
+    @Test
+    public void testDownloadQualityRadioButtons() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
+        getProfileScreen().tapSettings();
+        getSettingsScreen().waitForScreenToLoad();
+        getSettingsScreen().tapAppSettingsOption(AppSettingsOptions.DATA_AND_STORAGE.getAppSettingsOptionsValue());
+        getDataAndStorageScreen().tapDownloadQualityRadioButton();
+        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfStandardRadioButton(), "true", "Standard radio button is not selected.");
+    }
 }
