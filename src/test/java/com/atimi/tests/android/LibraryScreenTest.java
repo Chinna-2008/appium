@@ -3,7 +3,6 @@ package com.atimi.tests.android;
 import com.atimi.tests.AndroidTestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.util.*;
 
 /**
@@ -82,10 +81,10 @@ public class LibraryScreenTest extends AndroidTestBase {
     }
 
     /**
-     * Test the all book titles count.
+     * Test the all audiobook titles count.
      */
     @Test
-    public void testGetAllBookTitlesCount() {
+    public void testGetAllAudiobookTitlesCount() {
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         getSignInScreen().waitForScreenToLoad();
@@ -93,14 +92,14 @@ public class LibraryScreenTest extends AndroidTestBase {
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
-        Assert.assertEquals(getLibraryScreen().getBookTitlesCount(), "5 titles", "Book titles are not matched.");
+        Assert.assertEquals(getLibraryScreen().getAudiobookTitlesCount(), "9 titles", "Audiobook titles count is not matched.");
     }
 
     /**
-     * Test gets all the books authors.
+     * Test gets all the audiobooks authors.
      */
     @Test
-    public void testGetAllBooksAuthors() {
+    public void testGetAllAudiobooksAuthors() {
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         getSignInScreen().waitForScreenToLoad();
@@ -120,10 +119,10 @@ public class LibraryScreenTest extends AndroidTestBase {
     }
 
     /**
-     * Test gets all the book titles.
+     * Test gets all the audiobook titles.
      */
     @Test
-    public void testGetAllBookTitles() {
+    public void testGetAllAudiobookTitles() {
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         getSignInScreen().waitForScreenToLoad();

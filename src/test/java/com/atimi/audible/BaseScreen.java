@@ -60,8 +60,8 @@ public abstract class BaseScreen {
      * @param driver driver
      * @param text text
      */
-    public static void scrollToText(AndroidDriver<MobileElement> driver, String text) {
-        MobileElement el = (MobileElement) driver.findElementByAndroidUIAutomator("new UiScrollable("
+    public static void scrollToText(AndroidDriver<MobileElement> driver, final String text) {
+        MobileElement mobileElement = (MobileElement) driver.findElementByAndroidUIAutomator("new UiScrollable("
                 + "new UiSelector().scrollable(true)).scrollIntoView(" + "new UiSelector().text(\"" + text + "\"));");
     }
 }

@@ -6,7 +6,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -163,11 +162,11 @@ public class LibraryScreen extends BaseScreen {
     }
 
     /**
-     * Gets book titles count.
+     * Gets audiobook titles count.
      *
-     * @return book titles count with text
+     * @return audiobook titles count with text
      */
-    public String getBookTitlesCount() {
+    public String getAudiobookTitlesCount() {
         return libraryScreenObject.getTitles().getText();
     }
 
