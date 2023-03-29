@@ -98,7 +98,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getProfileScreen().tapSettings();
         getSettingsScreen().waitForScreenToLoad();
         getSettingsScreen().tapAppSettingsOption(AppSettingsOptions.DATA_AND_STORAGE.getAppSettingsOptionsValue());
-        getDataAndStorageScreen().tapStreamAndDownloadOnWifiOnlyToggleButton();
+        getDataAndStorageScreen().tapTogglesButton(DataAndStorageToggleButtonNames.STREAM_DOWNLOAD_ON_WIFI_ONLY.getToggleButtonValue());
         Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfStreamAndDownloadOnWifiOnlyToggleButton(), "true", "Stream and download on wifi only toggle button is turn off.");
     }
 
@@ -116,7 +116,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getProfileScreen().tapSettings();
         getSettingsScreen().waitForScreenToLoad();
         getSettingsScreen().tapAppSettingsOption(AppSettingsOptions.DATA_AND_STORAGE.getAppSettingsOptionsValue());
-        getDataAndStorageScreen().tapAutoRemoveToggleButton();
+        getDataAndStorageScreen().tapTogglesButton(DataAndStorageToggleButtonNames.AUTO_REMOVE.getToggleButtonValue());
         Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfAutoRemoveToggleButton(), "true", "Auto remove toggle button is turn off.");
     }
 
@@ -135,7 +135,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getSettingsScreen().waitForScreenToLoad();
         getSettingsScreen().tapAppSettingsOption(AppSettingsOptions.DATA_AND_STORAGE.getAppSettingsOptionsValue());
         getDataAndStorageScreen().scrollToBottomOfScreen();
-        getDataAndStorageScreen().tapAutoDownloadToggleButton();
+        getDataAndStorageScreen().tapTogglesButton(DataAndStorageToggleButtonNames.AUTO_DOWNLOAD.getToggleButtonValue());
         Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfAutoDownloadToggleButton(), "true", "Auto download toggle button is turn off.");
     }
 
