@@ -111,4 +111,11 @@ public class DataAndStorageScreen extends BaseScreen {
             }
         }
     }
+
+    /**
+     * Taps stream and download On wi-fi only toggle button.
+     */
+    public void tapStreamAndDownloadOnWifiOnlyToggleButton() {
+        dataAndStorageScreenObject.getToggleSwitchButtons().get(1).click();
+    }
 }
