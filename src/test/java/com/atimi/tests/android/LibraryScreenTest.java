@@ -21,8 +21,9 @@ public class LibraryScreenTest extends AndroidTestBase {
         getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
+        getLibraryScreen().scrollUpToAudiobook("Just Do It");
         getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
-        List<String> moreOptionsList = Arrays.asList("Title details", "Donald Katz", "Download", "Share", "Mark as finished", "Rate and Review & related content", "Add to favourites", "Add to…", "Archive this title", "Remove from library");
+        List<String> moreOptionsList = Arrays.asList("Title details", "Donald Katz", "Download", "Share", "Mark as finished", "Rate & review", "Add to favourites", "Add to…", "Archive this title", "Remove from library");
         Assert.assertEquals(getLibraryScreen().getListOfHamburgerOptions(), moreOptionsList, "More options for book is not matched.");
     }
 
@@ -108,7 +109,7 @@ public class LibraryScreenTest extends AndroidTestBase {
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
         List<String> visibleBooksAuthorNames = getLibraryScreen().getAllVisibleAudiobookAuthors();
-        getLibraryScreen().scrollUpToLastAudiobook();
+        getLibraryScreen().scrollUpToAudiobook("Just Do It");
         getLibraryScreen().waitForScreenToLoad();
         List<String> visibleBooksAuthorNamesAfterScroll = getLibraryScreen().getAllVisibleAudiobookAuthors();
         Set<String> totalBooksAuthors = new HashSet<>();
@@ -131,7 +132,7 @@ public class LibraryScreenTest extends AndroidTestBase {
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
         List<String> visibleBookTitles = getLibraryScreen().getAllVisibleAudiobookTitles();
-        getLibraryScreen().scrollUpToLastAudiobook();
+        getLibraryScreen().scrollUpToAudiobook("Just Do It");
         getLibraryScreen().waitForScreenToLoad();
         List<String> visibleBookTitlesAfterScroll = getLibraryScreen().getAllVisibleAudiobookTitles();
         Set<String> totalBooksNames = new HashSet<>();
