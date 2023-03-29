@@ -83,4 +83,22 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getDataAndStorageScreen().tapDownloadQualityRadioButton();
         Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfStandardRadioButton(), "true", "Standard radio button is not selected.");
     }
+
+    /**
+     * Tests stream and download on wi-fi only toggle button.
+     */
+    @Test
+    public void testStreamAndDownloadOnWifiOnlyToggleButton() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
+        getProfileScreen().tapSettings();
+        getSettingsScreen().waitForScreenToLoad();
+        getSettingsScreen().tapAppSettingsOption(AppSettingsOptions.DATA_AND_STORAGE.getAppSettingsOptionsValue());
+        getDataAndStorageScreen().tapStreamAndDownloadOnWifiOnlyToggleButton();
+        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfStreamAndDownloadOnWifiOnlyToggleButton(), "true", "Stream and download on wifi only toggle button is turn off.");
+    }
 }
