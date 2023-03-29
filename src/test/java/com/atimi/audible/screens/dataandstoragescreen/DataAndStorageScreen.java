@@ -4,6 +4,7 @@ import com.atimi.audible.BaseScreen;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import org.openqa.selenium.By;
 
 /**
  * This is 'DataAndStorageScreen' class.
@@ -113,33 +114,28 @@ public class DataAndStorageScreen extends BaseScreen {
     }
 
     /**
-     * Taps stream and download On wi-fi only toggle button.
-     */
-    public void tapStreamAndDownloadOnWifiOnlyToggleButton() {
-        dataAndStorageScreenObject.getToggleSwitchButtons().get(1).click();
-    }
-
-    /**
-     * Taps auto remove toggle button.
-     */
-    public void tapAutoRemoveToggleButton() {
-        dataAndStorageScreenObject.getToggleSwitchButtons().get(2).click();
-    }
-
-    /**
-     * Taps auto download toggle button.
-     */
-    public void tapAutoDownloadToggleButton() {
-        dataAndStorageScreenObject.getToggleSwitchButtons().get(3).click();
-    }
-
-    /**
      * Taps download by parts radio button.
      */
     public void tapDownloadByPartsRadioButton() {
         for (final MobileElement radioButton : dataAndStorageScreenObject.getDownloadByPartsRadioButtons()) {
             if (radioButton.getAttribute("checked").equals("false")) {
                 radioButton.click();
+                break;
+            }
+        }
+    }
+
+    /**
+     * Taps on the toggle button.
+     *
+     * @param toggleButtonName toggle button name
+     */
+    public void tapTogglesButton(final String toggleButtonName) {
+        for (final MobileElement title : dataAndStorageScreenObject.getButtonsTitles()) {
+            String titleName = title.getText();
+            if (titleName.equals(toggleButtonName)) {
+                By toggleButton = By.xpath(String.format("//android.widget.TextView[@text = '%s']/following-sibling::android.widget.Switch", toggleButtonName));
+                driver.findElement(toggleButton).click();
                 break;
             }
         }

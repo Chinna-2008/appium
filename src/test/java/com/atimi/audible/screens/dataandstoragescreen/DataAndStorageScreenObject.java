@@ -25,6 +25,9 @@ public class DataAndStorageScreenObject {
     @FindBy(id = "com.audible.application:id/radio_btn")
     private List<MobileElement> downloadByPartsRadioButtons;
 
+    @FindBy(xpath = "//android.widget.TextView[@resource-id='android:id/title']")
+    private List<MobileElement> buttonsTitles;
+
     public DataAndStorageScreenObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
