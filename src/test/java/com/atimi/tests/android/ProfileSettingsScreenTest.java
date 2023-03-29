@@ -101,4 +101,60 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getDataAndStorageScreen().tapStreamAndDownloadOnWifiOnlyToggleButton();
         Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfStreamAndDownloadOnWifiOnlyToggleButton(), "true", "Stream and download on wifi only toggle button is turn off.");
     }
+
+    /**
+     * Tests auto remove toggle button.
+     */
+    @Test
+    public void testAutoRemoveToggleButton() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
+        getProfileScreen().tapSettings();
+        getSettingsScreen().waitForScreenToLoad();
+        getSettingsScreen().tapAppSettingsOption(AppSettingsOptions.DATA_AND_STORAGE.getAppSettingsOptionsValue());
+        getDataAndStorageScreen().tapAutoRemoveToggleButton();
+        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfAutoRemoveToggleButton(), "true", "Auto remove toggle button is turn off.");
+    }
+
+    /**
+     * Tests auto download toggle button.
+     */
+    @Test
+    public void testAutoDownloadToggleButton() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
+        getProfileScreen().tapSettings();
+        getSettingsScreen().waitForScreenToLoad();
+        getSettingsScreen().tapAppSettingsOption(AppSettingsOptions.DATA_AND_STORAGE.getAppSettingsOptionsValue());
+        getDataAndStorageScreen().scrollToBottomOfScreen();
+        getDataAndStorageScreen().tapAutoDownloadToggleButton();
+        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfAutoDownloadToggleButton(), "true", "Auto download toggle button is turn off.");
+    }
+
+    /**
+     * Tests download by parts radio buttons.
+     */
+    @Test
+    public void testDownloadByPartsRadioButtons() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
+        getProfileScreen().tapSettings();
+        getSettingsScreen().waitForScreenToLoad();
+        getSettingsScreen().tapAppSettingsOption(AppSettingsOptions.DATA_AND_STORAGE.getAppSettingsOptionsValue());
+        getDataAndStorageScreen().scrollToBottomOfScreen();
+        getDataAndStorageScreen().tapDownloadByPartsRadioButton();
+        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfMultiPartRadioButton(), "true", "Multi part radio button is not selected.");
+    }
 }

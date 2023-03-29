@@ -118,4 +118,30 @@ public class DataAndStorageScreen extends BaseScreen {
     public void tapStreamAndDownloadOnWifiOnlyToggleButton() {
         dataAndStorageScreenObject.getToggleSwitchButtons().get(1).click();
     }
+
+    /**
+     * Taps auto remove toggle button.
+     */
+    public void tapAutoRemoveToggleButton() {
+        dataAndStorageScreenObject.getToggleSwitchButtons().get(2).click();
+    }
+
+    /**
+     * Taps auto download toggle button.
+     */
+    public void tapAutoDownloadToggleButton() {
+        dataAndStorageScreenObject.getToggleSwitchButtons().get(3).click();
+    }
+
+    /**
+     * Taps download by parts radio button.
+     */
+    public void tapDownloadByPartsRadioButton() {
+        for (final MobileElement radioButton : dataAndStorageScreenObject.getDownloadByPartsRadioButtons()) {
+            if (radioButton.getAttribute("checked").equals("false")) {
+                radioButton.click();
+                break;
+            }
+        }
+    }
 }
