@@ -176,4 +176,20 @@ public class LibraryScreen extends BaseScreen {
     public void scrollUpToLastAudiobook() {
         scrollToText((AndroidDriver<MobileElement>) driver, "The Big Store");
     }
+
+    /**
+     * Taps in progress button.
+     */
+    public void tapInProgressButton() {
+        libraryScreenObject.getInProgressButton().click();
+    }
+
+    /**
+     * Gets the in progress book title.
+     *
+     * @return in progress book title
+     */
+    public String GetInProgressBookTitle() {
+        return libraryScreenObject.getInProgressBook().getText();
+    }
 }

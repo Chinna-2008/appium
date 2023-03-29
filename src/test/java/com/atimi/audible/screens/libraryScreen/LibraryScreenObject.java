@@ -37,6 +37,12 @@ public class LibraryScreenObject {
     @FindBy(id = "com.audible.application:id/header_text")
     private MobileElement titles;
 
+    @FindBy(xpath = "//android.widget.RadioButton[@content-desc='Titles in progress']")
+    private MobileElement inProgressButton;
+
+    @FindBy(id = "com.audible.application:id/title")
+    private MobileElement inProgressBook;
+
     public LibraryScreenObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);

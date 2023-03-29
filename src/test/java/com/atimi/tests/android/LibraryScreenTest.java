@@ -140,4 +140,20 @@ public class LibraryScreenTest extends AndroidTestBase {
         List<String> allAudiobooksTitles = Arrays.asList("Canada Is Awesome", "Tomato Can Blues", "The Big Store", "Murder, We Spoke", "The King of the Ferret Leggers and Other True Stories", "FIRST THREE FREE CHAPTERS: Amok", "Don Katz Interviews Jane Fonda", "Just Do It", "Christmas in the Kitchen");
         Assert.assertEquals(totalBooksNames, allAudiobooksTitles, "Audiobooks titles are not matched.");
     }
+
+    /**
+     * Test get in progress audiobooks.
+     */
+    @Test
+    public void testGetAllInProgressAudioBooks() {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        getSignInScreen().waitForScreenToLoad();
+        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
+        getLibraryScreen().waitForScreenToLoad();
+        getLibraryScreen().tapInProgressButton();
+        Assert.assertEquals(getLibraryScreen().GetInProgressBookTitle(), "Don Katz Interviews Jane Fonda", "In progress book title is not matched.");
+    }
 }
