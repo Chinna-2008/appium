@@ -7,18 +7,18 @@ public enum MenuTabs {
 
     HOME("Home"), LIBRARY("Library"), DISCOVER("Discover"), PROFILE("Profile"), DEBUG_PANEL("Debug panel");
 
-    private final String tabs;
+    private final String tab;
 
-    MenuTabs(final String tabs) {
-        this.tabs = tabs;
+    MenuTabs(final String tab) {
+        this.tab = tab;
     }
 
     /**
-     * Gets tabs.
+     * Gets tabs value.
      *
-     * @return tabs
+     * @return tab
      */
     public String getTabsValue() {
-        return tabs;
+        return tab;
     }
 }

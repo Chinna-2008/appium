@@ -93,9 +93,9 @@ public class DataAndStorageScreen extends BaseScreen {
     }
 
     /**
-     * Gets attribute value of multi radio button.//TODO: Gets attribute value of multi-part radio button.
+     * Gets attribute value of multi-part radio button.
      *
-     * @return attribute value of multi radio button //TODO: attribute value of multi-part radio button.
+     * @return attribute value of multi-part radio button
      */
     public String getAttributeValueOfMultiPartRadioButton() {
         return dataAndStorageScreenObject.getDownloadByPartsRadioButtons().get(1).getAttribute("checked");
