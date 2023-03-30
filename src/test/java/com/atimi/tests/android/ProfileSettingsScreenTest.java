@@ -57,11 +57,11 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getSettingsScreen().tapAppSettingsOption(AppSettingsOptions.DATA_AND_STORAGE.getAppSettingsOptionsValue());
         Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfStandardRadioButton(), "false", "Standard radio button is selected.");
         Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfHighRadioButton(), "true", "High radio button is not selected.");
-        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfSpatialAudioToggleButton(), "false", "Spatial audio toggle button is turn on.");
-        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfStreamAndDownloadOnWifiOnlyToggleButton(), "false", "Stream and download on wifi only toggle button is turn on.");
-        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfAutoRemoveToggleButton(), "false", "Auto remove toggle button is turn on.");
+        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfToggleButtons(DataAndStorageToggleButtonNames.SPATIAL_AUDIO), "false", "Spatial audio toggle button is turn on.");
+        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfToggleButtons(DataAndStorageToggleButtonNames.STREAM_DOWNLOAD_ON_WIFI_ONLY), "false", "Stream and download on wifi only toggle button is turn on.");
+        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfToggleButtons(DataAndStorageToggleButtonNames.AUTO_REMOVE), "false", "Auto remove toggle button is turn on.");
         getDataAndStorageScreen().scrollToBottomOfScreen();
-        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfAutoDownloadToggleButton(), "false", "Auto download toggle button is turn on.");
+        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfToggleButtons(DataAndStorageToggleButtonNames.AUTO_DOWNLOAD), "false", "Auto download toggle button is turn on.");
         Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfSingleRadioButton(), "true", "Single radio button is not selected.");
         Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfMultiPartRadioButton(), "false", "Multi part radio button is selected.");
     }
@@ -99,7 +99,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getSettingsScreen().waitForScreenToLoad();
         getSettingsScreen().tapAppSettingsOption(AppSettingsOptions.DATA_AND_STORAGE.getAppSettingsOptionsValue());
         getDataAndStorageScreen().tapTogglesButton(DataAndStorageToggleButtonNames.STREAM_DOWNLOAD_ON_WIFI_ONLY.getToggleButtonValue());
-        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfStreamAndDownloadOnWifiOnlyToggleButton(), "true", "Stream and download on wifi only toggle button is turn off.");
+        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfToggleButtons(DataAndStorageToggleButtonNames.STREAM_DOWNLOAD_ON_WIFI_ONLY), "true", "Stream and download on wifi only toggle button is turn off.");
     }
 
     /**
@@ -117,7 +117,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getSettingsScreen().waitForScreenToLoad();
         getSettingsScreen().tapAppSettingsOption(AppSettingsOptions.DATA_AND_STORAGE.getAppSettingsOptionsValue());
         getDataAndStorageScreen().tapTogglesButton(DataAndStorageToggleButtonNames.AUTO_REMOVE.getToggleButtonValue());
-        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfAutoRemoveToggleButton(), "true", "Auto remove toggle button is turn off.");
+        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfToggleButtons(DataAndStorageToggleButtonNames.AUTO_REMOVE), "true", "Auto remove toggle button is turn off.");
     }
 
     /**
@@ -136,7 +136,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getSettingsScreen().tapAppSettingsOption(AppSettingsOptions.DATA_AND_STORAGE.getAppSettingsOptionsValue());
         getDataAndStorageScreen().scrollToBottomOfScreen();
         getDataAndStorageScreen().tapTogglesButton(DataAndStorageToggleButtonNames.AUTO_DOWNLOAD.getToggleButtonValue());
-        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfAutoDownloadToggleButton(), "true", "Auto download toggle button is turn off.");
+        Assert.assertEquals(getDataAndStorageScreen().getAttributeValueOfToggleButtons(DataAndStorageToggleButtonNames.AUTO_DOWNLOAD), "true", "Auto download toggle button is turn off.");
     }
 
     /**

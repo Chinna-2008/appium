@@ -1,10 +1,13 @@
 package com.atimi.audible.screens.dataandstoragescreen;
 
 import com.atimi.audible.BaseScreen;
+import com.atimi.tests.android.DataAndStorageToggleButtonNames;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.By;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * This is 'DataAndStorageScreen' class.
@@ -41,42 +44,6 @@ public class DataAndStorageScreen extends BaseScreen {
     }
 
     /**
-     * Gets attribute value of spatial audio toggle button.
-     *
-     * @return attribute value of spatial audio toggle button
-     */
-    public String getAttributeValueOfSpatialAudioToggleButton() {
-        return dataAndStorageScreenObject.getToggleSwitchButtons().get(0).getAttribute("checked");
-    }
-
-    /**
-     * Gets attribute value of stream and download on wi-fi only toggle button.
-     *
-     * @return attribute value of stream and download on wi-fi only toggle button
-     */
-    public String getAttributeValueOfStreamAndDownloadOnWifiOnlyToggleButton() {
-        return dataAndStorageScreenObject.getToggleSwitchButtons().get(1).getAttribute("checked");
-    }
-
-    /**
-     * Gets attribute value of auto remove toggle button.
-     *
-     * @return attribute value of auto remove toggle button
-     */
-    public String getAttributeValueOfAutoRemoveToggleButton() {
-        return dataAndStorageScreenObject.getToggleSwitchButtons().get(2).getAttribute("checked");
-    }
-
-    /**
-     * Gets attribute value of auto download toggle button.
-     *
-     * @return attribute value of auto download toggle button
-     */
-    public String getAttributeValueOfAutoDownloadToggleButton() {
-        return dataAndStorageScreenObject.getToggleSwitchButtons().get(3).getAttribute("checked");
-    }
-
-    /**
      * Scroll to bottom of screen.
      */
     public void scrollToBottomOfScreen() {
@@ -102,27 +69,19 @@ public class DataAndStorageScreen extends BaseScreen {
     }
 
     /**
-     * Taps on download quality radio button.
+     * Tap download quality radio button.
      */
     public void tapDownloadQualityRadioButton() {
-        for (final MobileElement radioButton : dataAndStorageScreenObject.getDownloadQualityRadioButtons()) {
-            if (radioButton.getAttribute("checked").equals("false")) {
-                radioButton.click();
-                break;
-            }
-        }
+        List<MobileElement> radioButtons = dataAndStorageScreenObject.getDownloadQualityRadioButtons().stream().filter(radioButton -> radioButton.getAttribute("checked").equals("false")).collect(Collectors.toList());
+        radioButtons.stream().forEach(radioButton -> radioButton.click());
     }
 
     /**
      * Taps download by parts radio button.
      */
     public void tapDownloadByPartsRadioButton() {
-        for (final MobileElement radioButton : dataAndStorageScreenObject.getDownloadByPartsRadioButtons()) {
-            if (radioButton.getAttribute("checked").equals("false")) {
-                radioButton.click();
-                break;
-            }
-        }
+        List<MobileElement> radioButtons = dataAndStorageScreenObject.getDownloadByPartsRadioButtons().stream().filter(radioButton -> radioButton.getAttribute("checked").equals("false")).collect(Collectors.toList());
+        radioButtons.stream().forEach(radioButton -> radioButton.click());
     }
 
     /**
@@ -139,5 +98,32 @@ public class DataAndStorageScreen extends BaseScreen {
                 break;
             }
         }
+    }
+
+    /**
+     * Get attribute value of toggle buttons.
+     *
+     * @param toggleButtonName toggle button name
+     * @return true / false
+     */
+    public String getAttributeValueOfToggleButtons(final DataAndStorageToggleButtonNames toggleButtonName) {
+        String attributeValue = null;
+        switch (toggleButtonName) {
+            case SPATIAL_AUDIO:
+                attributeValue = dataAndStorageScreenObject.getToggleSwitchButtons().get(0).getAttribute("checked");
+                break;
+            case STREAM_DOWNLOAD_ON_WIFI_ONLY:
+                attributeValue = dataAndStorageScreenObject.getToggleSwitchButtons().get(1).getAttribute("checked");
+                break;
+            case AUTO_REMOVE:
+                attributeValue = dataAndStorageScreenObject.getToggleSwitchButtons().get(2).getAttribute("checked");
+                break;
+            case AUTO_DOWNLOAD:
+                attributeValue = dataAndStorageScreenObject.getToggleSwitchButtons().get(3).getAttribute("checked");
+                break;
+            default:
+                System.out.println("Unable to get attribute value of toggle button");
+        }
+        return attributeValue;
     }
 }

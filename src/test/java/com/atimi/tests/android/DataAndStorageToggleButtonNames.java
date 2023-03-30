@@ -5,9 +5,9 @@ package com.atimi.tests.android;
  */
 public enum DataAndStorageToggleButtonNames {
 
-    STREAM_DOWNLOAD_ON_WIFI_ONLY("Stream & download on Wi-Fi only"), AUTO_REMOVE("Auto-remove"), AUTO_DOWNLOAD("Auto-download");
+    SPATIAL_AUDIO("Spatial Audio"), STREAM_DOWNLOAD_ON_WIFI_ONLY("Stream & download on Wi-Fi only"), AUTO_REMOVE("Auto-remove"), AUTO_DOWNLOAD("Auto-download");
 
-    private final String toggleButton;
+    public final String toggleButton;
 
     DataAndStorageToggleButtonNames(final String toggleButton) {
         this.toggleButton = toggleButton;
