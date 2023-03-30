@@ -17,10 +17,10 @@ public class LibraryScreenObject {
     private final AppiumDriver driver;
 
     @FindBy(id = "com.audible.application:id/overflow_btn")
-    private MobileElement hamburgerButton;
+    private MobileElement moreButton;
 
     @FindBy(id = "com.audible.application:id/action_text")
-    private List<MobileElement> hamburgerOptions;
+    private List<MobileElement> moreOptions;
 
     @FindBy(id = "com.audible.application:id/header_button")
     private MobileElement sortingHeaderButton;

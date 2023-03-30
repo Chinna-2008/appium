@@ -20,8 +20,8 @@ public class BookDetailsScreenTest extends AndroidTestBase {
         getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
-        getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
-        getLibraryScreen().tapAudiobookHamburgerOption("Title details");
+        getLibraryScreen().tapAudiobookMoreButton("Just Do It");
+        getLibraryScreen().tapAudiobookMoreOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();
         Assert.assertEquals(getBookDetailsScreen().getBookTitle(), "Just Do It", "Book title is not matched.");
     }
@@ -37,8 +37,8 @@ public class BookDetailsScreenTest extends AndroidTestBase {
         getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
-        getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
-        getLibraryScreen().tapAudiobookHamburgerOption("Title details");
+        getLibraryScreen().tapAudiobookMoreButton("Just Do It");
+        getLibraryScreen().tapAudiobookMoreOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();
         System.out.println(String.format("Book details are: \n %s.", getBookDetailsScreen().getBookDetails()));
         Assert.assertTrue(getBookDetailsScreen().isBookDetailsContainsSubtitle(), "Book details is not contain subtitle.");
@@ -55,8 +55,8 @@ public class BookDetailsScreenTest extends AndroidTestBase {
         getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
-        getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
-        getLibraryScreen().tapAudiobookHamburgerOption("Title details");
+        getLibraryScreen().tapAudiobookMoreButton("Just Do It");
+        getLibraryScreen().tapAudiobookMoreOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();
         getBookDetailsScreen().tapDownloadButton();
         getBookDetailsScreen().waitForRemoveFromDeviceButtonToLoad();
@@ -74,8 +74,8 @@ public class BookDetailsScreenTest extends AndroidTestBase {
         getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
-        getLibraryScreen().tapAudiobookHamburgerButton("Don Katz Interviews Jane Fonda");
-        getLibraryScreen().tapAudiobookHamburgerOption("Title details");
+        getLibraryScreen().tapAudiobookMoreButton("Don Katz Interviews Jane Fonda");
+        getLibraryScreen().tapAudiobookMoreOption("Title details");
         getBookDetailsScreen().waitForScreenToLoad();
         getBookDetailsScreen().tapPlayButton();
         getBookDetailsScreen().waitForPauseButton();

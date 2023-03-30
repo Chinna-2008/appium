@@ -22,9 +22,9 @@ public class LibraryScreenTest extends AndroidTestBase {
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().scrollUpToAudiobook("Just Do It");
-        getLibraryScreen().tapAudiobookHamburgerButton("Just Do It");
+        getLibraryScreen().tapAudiobookMoreButton("Just Do It");
         List<String> moreOptionsList = Arrays.asList("Title details", "Donald Katz", "Download", "Share", "Mark as finished", "Rate & review", "Add to favourites", "Add to…", "Archive this title", "Remove from library");
-        Assert.assertEquals(getLibraryScreen().getListOfHamburgerOptions(), moreOptionsList, "More options for audiobook is not matched.");
+        Assert.assertEquals(getLibraryScreen().getListOfMoreOptions(), moreOptionsList, "More options for audiobook is not matched.");
     }
 
     /**

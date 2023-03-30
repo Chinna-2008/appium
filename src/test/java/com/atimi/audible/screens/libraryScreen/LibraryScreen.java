@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * This is 'LibraryScreen' class.
@@ -26,15 +27,15 @@ public class LibraryScreen extends BaseScreen {
      */
     @Override
     public void waitForScreenToLoad() {
-        waitForElementToDisplay(libraryScreenObject.getHamburgerButton());
+        waitForElementToDisplay(libraryScreenObject.getMoreButton());
     }
 
     /**
-     * Taps on hamburger button.
+     * Taps on see more button.
      *
      * @param audiobookName audiobook name
      */
-    public void tapAudiobookHamburgerButton(final String audiobookName) {
+    public void tapAudiobookMoreButton(final String audiobookName) {
         for (final MobileElement book : libraryScreenObject.getAudioBooks()) {
             String bookName = book.getText();
             if (bookName.equals(audiobookName)) {
@@ -46,32 +47,25 @@ public class LibraryScreen extends BaseScreen {
     }
 
     /**
-     * Gets the hamburger options of book.
+     * Gets list of more options.
      *
-     * @return list of hamburger options
+     * @return list of more options
      */
-    public List<String> getListOfHamburgerOptions() {
-        List<String> hamburgerOptionsList = new ArrayList<>();
-        for (final MobileElement option : libraryScreenObject.getHamburgerOptions()) {
-            hamburgerOptionsList.add(option.getText());
-        }
-        return hamburgerOptionsList;
+    public List<String> getListOfMoreOptions() {
+        List<String> moreOptions = libraryScreenObject.getMoreOptions().stream().map(option -> option.getText()).collect(Collectors.toList());
+        return moreOptions;
     }
 
     /**
-     * Taps audiobook hamburger option.
+     * Taps audiobook more option.
      *
-     * @param hamburgerOptionName hamburger option name
+     * @param moreOptionName more option name
      */
-    public void tapAudiobookHamburgerOption(final String hamburgerOptionName) {
-        for (final MobileElement hamburgerOption : libraryScreenObject.getHamburgerOptions()) {
-            String optionName = hamburgerOption.getText();
-            if (optionName.equals(hamburgerOptionName)) {
-                hamburgerOption.click();
-                break;
-            }
-        }
-    }
+   public void tapAudiobookMoreOption(final String moreOptionName) {
+       List<MobileElement> moreOptions = libraryScreenObject.getMoreOptions().stream().collect(Collectors.toList());
+       List<MobileElement> optionList = moreOptions.stream().filter(option -> option.getText().equals(moreOptionName)).collect(Collectors.toList());
+       optionList.stream().forEach(option -> option.click());
+   }
 
     /**
      * Taps sorting header button.
@@ -86,27 +80,17 @@ public class LibraryScreen extends BaseScreen {
      * @param sortOptionName sort option name
      */
     public void tapSortOption(final String sortOptionName) {
-        for (final MobileElement option : libraryScreenObject.getSortOptions()) {
-            String sortOption = option.getText();
-            if(sortOption.equals(sortOptionName)) {
-                option.click();
-                break;
-            }
-        }
+        List<MobileElement> shortOptions = libraryScreenObject.getSortOptions().stream().collect(Collectors.toList());
+        List<MobileElement> shortOptionList = shortOptions.stream().filter(option -> option.getText().equals(sortOptionName)).collect(Collectors.toList());
+        shortOptionList.stream().forEach(option -> option.click());
     }
-
     /**
      * Gets list of audiobook titles.
      *
      * @return list of audiobook titles
      */
     public List<String> getAudiobookTitles() {
-        List<String> audioBookTitles = new ArrayList<>();
-        for (final MobileElement book : libraryScreenObject.getAudioBooks()) {
-            String bookName = book.getText();
-            audioBookTitles.add(bookName);
-        }
-        System.out.println(String.format("Audiobook titles : %s", audioBookTitles));
+        List<String> audioBookTitles = libraryScreenObject.getAudioBooks().stream().map(book -> book.getText()).collect(Collectors.toList());
         return audioBookTitles;
     }
 
