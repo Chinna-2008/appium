@@ -35,7 +35,7 @@ public class LibraryScreenObject {
     private List<MobileElement> audiobookCells;
 
     @FindBy(id = "com.audible.application:id/header_text")
-    private MobileElement titles;
+    private MobileElement titles; // TODO : Update it as numberOfTitles.
 
     @FindBy(xpath = "//android.widget.RadioButton[@content-desc='Titles in progress']")
     private MobileElement inProgressButton;

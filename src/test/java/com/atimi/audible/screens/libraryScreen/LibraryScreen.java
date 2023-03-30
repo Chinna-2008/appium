@@ -117,7 +117,7 @@ public class LibraryScreen extends BaseScreen {
      */
     public List<String> getAllVisibleAudiobookTitles() {
         ArrayList<String> visibleAudiobookTitles = new ArrayList<>();
-        for (final MobileElement mobileElement : libraryScreenObject.getAudiobookCells()) {
+        for (final MobileElement mobileElement : libraryScreenObject.getAudiobookCells()) { // TODO : Update the variable name as 'audiobookCell'.
             try{
                 MobileElement bookTitles = mobileElement.findElement(By.xpath("//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id = 'com.audible.application:id/title']"));
                 String bookTitle = bookTitles.getText();
@@ -166,21 +166,21 @@ public class LibraryScreen extends BaseScreen {
      *
      * @return audiobook titles count with text
      */
-    public String getAudiobookTitlesCount() {
+    public String getAudiobookTitlesCount() { // TODO : Update method name as 'getCountOfAudiobookTitles'.
         return libraryScreenObject.getTitles().getText();
     }
 
     /**
      * Scroll up to last audiobook.
      */
-    public void scrollUpToAudiobook(final String audiobook) {
+    public void scrollUpToAudiobook(final String audiobook) { // TODO : Update the method name as 'scrollUpToLastAudiobook'.
         scrollToText((AndroidDriver<MobileElement>) driver, audiobook);
     }
 
     /**
      * Taps in progress button.
      */
-    public void tapInProgressButton() {
+    public void tapInProgressButton() { // TODO : Update the method name as 'tapInProgressTab'.
         libraryScreenObject.getInProgressButton().click();
     }
 
@@ -189,7 +189,7 @@ public class LibraryScreen extends BaseScreen {
      *
      * @return in progress book title
      */
-    public String GetInProgressBookTitle() {
+    public String GetInProgressBookTitle() { // TODO : Method name should starts with small letter and update the method name.
         return libraryScreenObject.getInProgressBook().getText();
     }
 }

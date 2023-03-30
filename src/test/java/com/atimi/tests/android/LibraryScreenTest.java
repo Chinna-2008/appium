@@ -85,7 +85,7 @@ public class LibraryScreenTest extends AndroidTestBase {
      * Test the all audiobook titles count.
      */
     @Test
-    public void testGetAllAudiobookTitlesCount() {
+    public void testGetAllAudiobookTitlesCount() { // TODO : Update the test method name as 'testCountOfAllAudiobookTitles'.
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         getSignInScreen().waitForScreenToLoad();
@@ -108,14 +108,14 @@ public class LibraryScreenTest extends AndroidTestBase {
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
-        List<String> visibleBooksAuthorNames = getLibraryScreen().getAllVisibleAudiobookAuthors();
+        List<String> visibleBooksAuthorNames = getLibraryScreen().getAllVisibleAudiobookAuthors(); // TODO : Update the variable name as 'visibleAudiobookAuthorsName'.
         getLibraryScreen().scrollUpToAudiobook("Just Do It");
         getLibraryScreen().waitForScreenToLoad();
         List<String> visibleBooksAuthorNamesAfterScroll = getLibraryScreen().getAllVisibleAudiobookAuthors();
-        Set<String> totalBooksAuthors = new HashSet<>();
+        Set<String> totalBooksAuthors = new HashSet<>(); // TODO : Update the variable name as 'allAudiobooksAuthors'.
         totalBooksAuthors.addAll(visibleBooksAuthorNames);
         totalBooksAuthors.addAll(visibleBooksAuthorNamesAfterScroll);
-        List<String> expectedBooksAuthors = Arrays.asList("By Mary Pilon", "By Neil Pasricha", "By Donald Katz", "By Nalini Singh", "By Jane Fonda", "By Kat Johnson", "By Sebastian Fitzek");
+        List<String> expectedBooksAuthors = Arrays.asList("By Mary Pilon", "By Neil Pasricha", "By Donald Katz", "By Nalini Singh", "By Jane Fonda", "By Kat Johnson", "By Sebastian Fitzek"); // TODO : Update the variable name as 'expectedAudiobooksAuthorsName'.
         Assert.assertEquals(totalBooksAuthors, expectedBooksAuthors, "Audiobook authors names are not matched.");
     }
 
@@ -131,11 +131,11 @@ public class LibraryScreenTest extends AndroidTestBase {
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
-        List<String> visibleBookTitles = getLibraryScreen().getAllVisibleAudiobookTitles();
+        List<String> visibleBookTitles = getLibraryScreen().getAllVisibleAudiobookTitles(); // TODO : Update the variable name as 'visibleAudiobookTitles'.
         getLibraryScreen().scrollUpToAudiobook("Just Do It");
         getLibraryScreen().waitForScreenToLoad();
         List<String> visibleBookTitlesAfterScroll = getLibraryScreen().getAllVisibleAudiobookTitles();
-        Set<String> totalBooksNames = new HashSet<>();
+        Set<String> totalBooksNames = new HashSet<>(); // TODO : Update the variable name as 'allAudiobooksTitles'.
         totalBooksNames.addAll(visibleBookTitles);
         totalBooksNames.addAll(visibleBookTitlesAfterScroll);
         List<String> allAudiobooksTitles = Arrays.asList("Canada Is Awesome", "Tomato Can Blues", "The Big Store", "Murder, We Spoke", "The King of the Ferret Leggers and Other True Stories", "FIRST THREE FREE CHAPTERS: Amok", "Don Katz Interviews Jane Fonda", "Just Do It", "Christmas in the Kitchen");
@@ -146,7 +146,7 @@ public class LibraryScreenTest extends AndroidTestBase {
      * Test get in progress audiobooks.
      */
     @Test
-    public void testGetAllInProgressAudioBooks() {
+    public void testGetAllInProgressAudioBooks() { // TODO : Update the test method name as 'testInProgressAudioBooks'
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         getSignInScreen().waitForScreenToLoad();
