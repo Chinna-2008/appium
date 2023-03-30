@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class SearchScreenTest extends AndroidTestBase {
 
     /**
-     * Test the search book.
+     * Tests the search book.
      */
     @Test
     public void testSearchBook() {

@@ -11,7 +11,7 @@ public class WelcomeScreenAndroid extends BaseScreen {
 
     private final WelcomeScreenObject welcomeScreenObject;
 
-    public WelcomeScreenAndroid(AndroidDriver<AndroidElement> driver) {
+    public WelcomeScreenAndroid(final AndroidDriver<AndroidElement> driver) {
         super(driver);
         welcomeScreenObject = new WelcomeScreenObject(driver);
     }

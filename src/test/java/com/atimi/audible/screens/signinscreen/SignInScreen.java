@@ -11,7 +11,7 @@ public class SignInScreen extends BaseScreen {
 
     private final SignInScreenObject signInScreenObject;
 
-    public SignInScreen(AndroidDriver<AndroidElement> driver) { // TODO : Add final.
+    public SignInScreen(final AndroidDriver<AndroidElement> driver) {
         super(driver);
         signInScreenObject = new SignInScreenObject(driver);
     }

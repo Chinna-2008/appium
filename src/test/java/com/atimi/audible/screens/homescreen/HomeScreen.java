@@ -12,7 +12,7 @@ public class HomeScreen extends BaseScreen {
 
     private final HomeScreenObject homeScreenObject;
 
-    public HomeScreen(AndroidDriver<AndroidElement> driver) {
+    public HomeScreen(final AndroidDriver<AndroidElement> driver) {
         super(driver);
         homeScreenObject = new HomeScreenObject(driver);
     }

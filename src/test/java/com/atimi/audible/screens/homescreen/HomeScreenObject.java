@@ -29,7 +29,5 @@ public class HomeScreenObject {
     public HomeScreenObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-    } // TODO : Remove extra lines.
-
-
+    }
 }

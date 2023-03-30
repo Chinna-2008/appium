@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class BookDetailsScreenTest extends AndroidTestBase {
 
     /**
-     * Test the book title.
+     * Tests the book title.
      */
     @Test
     public void testBookTitle() {
@@ -27,7 +27,7 @@ public class BookDetailsScreenTest extends AndroidTestBase {
     }
 
     /**
-     * Test the book details.
+     * Tests the book details.
      */
     @Test
     public void testBookDetails() {
@@ -45,7 +45,7 @@ public class BookDetailsScreenTest extends AndroidTestBase {
     }
 
     /**
-     * Test the download book option.
+     * Tests the download book option.
      */
     @Test
     public void testDownloadBook() {
@@ -64,7 +64,7 @@ public class BookDetailsScreenTest extends AndroidTestBase {
     }
 
     /**
-     * Test the play book.
+     * Tests the play book.
      */
     @Test
     public void testPlayBook() {

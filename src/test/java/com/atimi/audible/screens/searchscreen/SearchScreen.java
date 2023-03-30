@@ -7,7 +7,7 @@ import io.appium.java_client.android.AndroidElement;
 public class SearchScreen extends BaseScreen {
     private final SearchScreenObject searchScreenObject;
 
-    public SearchScreen(AndroidDriver<AndroidElement> driver) {
+    public SearchScreen(final AndroidDriver<AndroidElement> driver) {
         super(driver);
         searchScreenObject = new SearchScreenObject(driver);
     }

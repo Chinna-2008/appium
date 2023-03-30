@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class SignInScreenTest extends AndroidTestBase {
 
     /**
-     * Test the sign in.
+     * Tests the sign in.
      */
     @Test
     public void testSignIn() {

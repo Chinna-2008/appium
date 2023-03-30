@@ -11,7 +11,7 @@ public class ProfileScreen extends BaseScreen {
 
     private final ProfileScreenObject profileScreenObject;
 
-    public ProfileScreen(AndroidDriver<AndroidElement> driver) {
+    public ProfileScreen(final AndroidDriver<AndroidElement> driver) {
         super(driver);
         profileScreenObject = new ProfileScreenObject(driver);
     }

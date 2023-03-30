@@ -13,7 +13,7 @@ public class BookDetailsScreen extends BaseScreen {
 
     private final BookDetailsScreenObject bookDetailsScreenObject;
 
-    public BookDetailsScreen(AndroidDriver<AndroidElement> driver) {
+    public BookDetailsScreen(final AndroidDriver<AndroidElement> driver) {
         super(driver);
         bookDetailsScreenObject = new BookDetailsScreenObject(driver);
     }

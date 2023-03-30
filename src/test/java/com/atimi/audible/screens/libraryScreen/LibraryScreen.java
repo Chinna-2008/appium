@@ -16,7 +16,7 @@ public class LibraryScreen extends BaseScreen {
 
     private final LibraryScreenObject libraryScreenObject;
 
-    public LibraryScreen(AndroidDriver<AndroidElement> driver) {
+    public LibraryScreen(final AndroidDriver<AndroidElement> driver) {
         super(driver);
         libraryScreenObject = new LibraryScreenObject(driver);
     }
@@ -117,9 +117,9 @@ public class LibraryScreen extends BaseScreen {
      */
     public List<String> getAllVisibleAudiobookTitles() {
         ArrayList<String> visibleAudiobookTitles = new ArrayList<>();
-        for (final MobileElement mobileElement : libraryScreenObject.getAudiobookCells()) { // TODO : Update the variable name as 'audiobookCell'.
+        for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
             try{
-                MobileElement bookTitles = mobileElement.findElement(By.xpath("//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id = 'com.audible.application:id/title']"));
+                MobileElement bookTitles = audiobookCell.findElement(By.xpath("//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id = 'com.audible.application:id/title']"));
                 String bookTitle = bookTitles.getText();
                 visibleAudiobookTitles.add(bookTitle);
             } catch (final NoSuchElementException exception) {
@@ -162,26 +162,26 @@ public class LibraryScreen extends BaseScreen {
     }
 
     /**
-     * Gets audiobook titles count.
+     * Gets count of audiobook titles.
      *
      * @return audiobook titles count with text
      */
-    public String getAudiobookTitlesCount() { // TODO : Update method name as 'getCountOfAudiobookTitles'.
-        return libraryScreenObject.getTitles().getText();
+    public String getCountOfAudiobookTitles() {
+        return libraryScreenObject.getNumberOfTitles().getText();
     }
 
     /**
-     * Scroll up to last audiobook.
+     * Scroll up to audiobook.
      */
-    public void scrollUpToAudiobook(final String audiobook) { // TODO : Update the method name as 'scrollUpToLastAudiobook'.
+    public void scrollUpToAudiobook(final String audiobook) {
         scrollToText((AndroidDriver<MobileElement>) driver, audiobook);
     }
 
     /**
-     * Taps in progress button.
+     * Taps in progress tab.
      */
-    public void tapInProgressButton() { // TODO : Update the method name as 'tapInProgressTab'.
-        libraryScreenObject.getInProgressButton().click();
+    public void tapInProgressTab() {
+        libraryScreenObject.getInProgressTab().click();
     }
 
     /**
@@ -189,7 +189,7 @@ public class LibraryScreen extends BaseScreen {
      *
      * @return in progress book title
      */
-    public String GetInProgressBookTitle() { // TODO : Method name should starts with small letter and update the method name.
+    public String getInProgressAudiobookTitle() {
         return libraryScreenObject.getInProgressBook().getText();
     }
 }
