@@ -7,10 +7,10 @@ public enum AppSettingsOptions {
 
     DATA_AND_STORAGE("Data & Storage"), PLAYER("Player"), THEME("Theme"), CONNECT_TO_OTHER_APPS("Connect to other Apps");
 
-    private final String appSettingsOptions;//TODO: The variable name should be appSettingsOption.
+    private final String appSettingsOption;
 
-    AppSettingsOptions(final String appSettingsOptions) {
-        this.appSettingsOptions = appSettingsOptions;
+    AppSettingsOptions(final String appSettingsOption) {
+        this.appSettingsOption = appSettingsOption;
     }
 
     /**
@@ -19,6 +19,6 @@ public enum AppSettingsOptions {
      * @return app settings options value
      */
     public String getAppSettingsOptionsValue() {
-        return appSettingsOptions;
+        return appSettingsOption;
     }
 }
