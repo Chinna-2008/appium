@@ -1,6 +1,7 @@
 package com.atimi.audible.screens.libraryScreen;
 
 import com.atimi.audible.BaseScreen;
+import com.atimi.audible.screens.widgets.SortOptions;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -27,71 +28,57 @@ public class LibraryScreen extends BaseScreen {
      */
     @Override
     public void waitForScreenToLoad() {
-        waitForElementToDisplay(libraryScreenObject.getMoreButton());
+        waitForElementToDisplay(libraryScreenObject.getOverflowButton());
     }
 
     /**
-     * Taps on see more button.
+     * Taps on overflow button.
      *
      * @param audiobookName audiobook name
      */
-    public void tapAudiobookMoreButton(final String audiobookName) {
-        for (final MobileElement book : libraryScreenObject.getAudioBooks()) {
-            String bookName = book.getText();
-            if (bookName.equals(audiobookName)) {
-                By hamburgerButton = By.xpath(String.format("//android.widget.TextView[@text= '%s']/../../../../../../following-sibling::android.view.ViewGroup/android.view.ViewGroup/android.widget.Button", audiobookName));
-                driver.findElement(hamburgerButton).click();
-                break;
+    public void tapAudiobookOverflowButton(final String audiobookName) {
+        for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
+            try {
+                MobileElement bookTitles = audiobookCell.findElement(By.id("com.audible.application:id/title"));
+                String bookTitle = bookTitles.getText();
+                if (bookTitle.equals(audiobookName)) {
+                    MobileElement overflow = audiobookCell.findElement(By.id("com.audible.application:id/overflow_btn"));
+                    overflow.click();
+                    break;
+                }
+            } catch (final NoSuchElementException exception) {
+                exception.getMessage();
             }
         }
     }
 
     /**
-     * Gets list of more options.
+     * Gets list of overflow menu options.
      *
-     * @return list of more options
+     * @return list of overflow menu options
      */
-    public List<String> getListOfMoreOptions() {
-        List<String> moreOptions = libraryScreenObject.getMoreOptions().stream().map(option -> option.getText()).collect(Collectors.toList());
-        return moreOptions;
+    public List<String> getListOfOverflowMenuOptions() {
+        return libraryScreenObject.getOverflowMenuOptions().stream().map(option -> option.getText()).collect(Collectors.toList());
     }
 
     /**
-     * Taps audiobook more option.
+     * Taps audiobook overflow menu option.
      *
-     * @param moreOptionName more option name
+     * @param overflowMenuOptionName overflow menu option name
      */
-   public void tapAudiobookMoreOption(final String moreOptionName) {
-       List<MobileElement> moreOptions = libraryScreenObject.getMoreOptions().stream().collect(Collectors.toList());
-       List<MobileElement> optionList = moreOptions.stream().filter(option -> option.getText().equals(moreOptionName)).collect(Collectors.toList());
-       optionList.stream().forEach(option -> option.click());
-   }
-
-    /**
-     * Taps sorting header button.
-     */
-    public void tapSortingHeaderButton() {
-        libraryScreenObject.getSortingHeaderButton().click();
+    public void tapAudiobookOverflowMenuOption(final String overflowMenuOptionName) {
+        List<MobileElement> overflowMenuOptions = libraryScreenObject.getOverflowMenuOptions().stream().collect(Collectors.toList());
+        List<MobileElement> optionList = overflowMenuOptions.stream().filter(option -> option.getText().equals(overflowMenuOptionName)).collect(Collectors.toList());
+        optionList.forEach(option -> option.click());
     }
 
-    /**
-     * Taps sort option.
-     *
-     * @param sortOptionName sort option name
-     */
-    public void tapSortOption(final String sortOptionName) {
-        List<MobileElement> shortOptions = libraryScreenObject.getSortOptions().stream().collect(Collectors.toList());
-        List<MobileElement> shortOptionList = shortOptions.stream().filter(option -> option.getText().equals(sortOptionName)).collect(Collectors.toList());
-        shortOptionList.stream().forEach(option -> option.click());
-    }
     /**
      * Gets list of audiobook titles.
      *
      * @return list of audiobook titles
      */
     public List<String> getAudiobookTitles() {
-        List<String> audioBookTitles = libraryScreenObject.getAudioBooks().stream().map(book -> book.getText()).collect(Collectors.toList());
-        return audioBookTitles;
+        return libraryScreenObject.getAudioBooks().stream().map(book -> book.getText()).collect(Collectors.toList());
     }
 
     /**
@@ -102,8 +89,8 @@ public class LibraryScreen extends BaseScreen {
     public List<String> getAllVisibleAudiobookTitles() {
         ArrayList<String> visibleAudiobookTitles = new ArrayList<>();
         for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
-            try{
-                MobileElement bookTitles = audiobookCell.findElement(By.xpath("//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id = 'com.audible.application:id/title']"));
+            try {
+                MobileElement bookTitles = audiobookCell.findElement(By.id("com.audible.application:id/title"));
                 String bookTitle = bookTitles.getText();
                 visibleAudiobookTitles.add(bookTitle);
             } catch (final NoSuchElementException exception) {
@@ -121,7 +108,7 @@ public class LibraryScreen extends BaseScreen {
     public List<String> getAllVisibleAudiobookAuthors() {
         ArrayList<String> visibleAudiobookAuthorNames = new ArrayList<>();
         for (final MobileElement mobileElement : libraryScreenObject.getAudiobookCells()) {
-            MobileElement author = mobileElement.findElement(By.xpath("//android.widget.LinearLayout/android.widget.TextView[@resource-id = 'com.audible.application:id/author_text_view']"));
+            MobileElement author = mobileElement.findElement(By.id("com.audible.application:id/author_text_view"));
             String authorName = author.getText();
             visibleAudiobookAuthorNames.add(authorName);
         }
@@ -136,11 +123,11 @@ public class LibraryScreen extends BaseScreen {
     public List<String> getVisibleAudiobooksDetails() {
         ArrayList<String> visibleAudiobooksDetails = new ArrayList<>();
         for (final MobileElement mobileElement : libraryScreenObject.getAudiobookCells()) {
-            MobileElement bookTitles = mobileElement.findElement(By.xpath("//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id='com.audible.application:id/title']"));
+            MobileElement bookTitles = mobileElement.findElement(By.id("com.audible.application:id/title"));
             String bookTitle = bookTitles.getText();
-            MobileElement author = mobileElement.findElement(By.xpath("//android.widget.LinearLayout/android.widget.TextView[@resource-id = 'com.audible.application:id/author_text_view']"));
+            MobileElement author = mobileElement.findElement(By.id("com.audible.application:id/author_text_view"));
             String authorName = author.getText();
-            visibleAudiobooksDetails.add(String.format("\nBook title: %s, Author: %s",  bookTitle, authorName));
+            visibleAudiobooksDetails.add(String.format("\nBook title: %s, Author: %s", bookTitle, authorName));
         }
         return visibleAudiobooksDetails;
     }
@@ -175,5 +162,14 @@ public class LibraryScreen extends BaseScreen {
      */
     public String getInProgressAudiobookTitle() {
         return libraryScreenObject.getInProgressBook().getText();
+    }
+
+    /**
+     * Gets the sort options.
+     *
+     * @return sort options object
+     */
+    public SortOptions getSortOptions() {
+        return new SortOptions((AndroidDriver<AndroidElement>) driver);
     }
 }

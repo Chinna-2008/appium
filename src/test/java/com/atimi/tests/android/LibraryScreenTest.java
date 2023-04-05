@@ -15,16 +15,13 @@ public class LibraryScreenTest extends AndroidTestBase {
      */
     @Test
     public void testLibrary() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login();
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().scrollUpToAudiobook("Just Do It");
-        getLibraryScreen().tapAudiobookMoreButton("Just Do It");
+        getLibraryScreen().tapAudiobookOverflowButton("Just Do It");
         List<String> moreOptionsList = Arrays.asList("Title details", "Donald Katz", "Download", "Share", "Mark as finished", "Rate & review", "Add to favourites", "Add to…", "Archive this title", "Remove from library");
-        Assert.assertEquals(getLibraryScreen().getListOfMoreOptions(), moreOptionsList, "More options for audiobook is not matched.");
+        Assert.assertEquals(getLibraryScreen().getListOfOverflowMenuOptions(), moreOptionsList, "More options for audiobook is not matched.");
     }
 
     /**
@@ -32,16 +29,13 @@ public class LibraryScreenTest extends AndroidTestBase {
      */
     @Test
     public void testSortingAudiobooks() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login();
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
         List<String> beforeSortingAudiobookList = getLibraryScreen().getAudiobookTitles();
-        getLibraryScreen().tapSortingHeaderButton();
-        getLibraryScreen().tapSortOption("Title");
+        getLibraryScreen().getSortOptions().tapSortingHeaderButton();
+        getLibraryScreen().getSortOptions().tapSortOption("Title");
         List<String> afterSortingAudiobookList = getLibraryScreen().getAudiobookTitles();
         Assert.assertNotEquals(beforeSortingAudiobookList, afterSortingAudiobookList, "Audiobooks are not sorted.");
     }
@@ -51,10 +45,7 @@ public class LibraryScreenTest extends AndroidTestBase {
      */
     @Test
     public void testVisibleAudiobooksDetailsInLibrary() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login();
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
@@ -64,14 +55,11 @@ public class LibraryScreenTest extends AndroidTestBase {
     }
 
     /**
-     * Tests gets the visible audiobook titles and author names in library screen.
+     * Tests the visible audiobook titles and author names in library screen.
      */
     @Test
     public void testVisibleAudiobookTitlesAndAuthorNamesInLibraryScreen() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login();
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
@@ -86,10 +74,7 @@ public class LibraryScreenTest extends AndroidTestBase {
      */
     @Test
     public void testCountOfAllAudiobookTitles() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login();
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
@@ -101,10 +86,7 @@ public class LibraryScreenTest extends AndroidTestBase {
      */
     @Test
     public void testAllAudiobooksAuthors() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login();
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
@@ -124,10 +106,7 @@ public class LibraryScreenTest extends AndroidTestBase {
      */
     @Test
     public void testAllAudiobookTitles() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login();
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
@@ -147,10 +126,7 @@ public class LibraryScreenTest extends AndroidTestBase {
      */
     @Test
     public void testInProgressAudioBooks() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login();
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().waitForScreenToLoad();
