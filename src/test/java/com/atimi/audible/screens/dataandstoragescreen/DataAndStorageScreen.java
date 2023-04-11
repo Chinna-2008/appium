@@ -4,7 +4,6 @@ import com.atimi.audible.BaseScreen;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import org.openqa.selenium.By;
 
 /**
  * This is 'DataAndStorageScreen' class.
@@ -23,29 +22,25 @@ public class DataAndStorageScreen extends BaseScreen {
      */
     @Override
     public void waitForScreenToLoad() {
-        waitForElementToDisplay(dataAndStorageScreenObject.getDataAndStorageScreen());
+        waitForElementToDisplay(dataAndStorageScreenObject.getDataAndStorageTitle());
     }
 
     /**
      * Checks standard radio button is selected or not.
      *
-     * @param booleanValue boolean value
      * @return true / false
      */
-    public boolean isStandardRadioButtonSelected(final String booleanValue) {
-        String standardRadioButtonSelected = dataAndStorageScreenObject.getDownloadQualityRadioButtons().get(0).getAttribute("checked");
-        return standardRadioButtonSelected.equals(booleanValue);
+    public boolean isStandardRadioButtonSelected() {
+        return dataAndStorageScreenObject.getDownloadQualityRadioButtons().get(0).getAttribute("checked").equals("true");
     }
 
     /**
      * Checks high radio button is selected or not.
      *
-     * @param booleanValue boolean value
      * @return true / false
      */
-    public boolean isHighRadioButtonSelected(final String booleanValue) {
-        String highRadioButtonSelected = dataAndStorageScreenObject.getDownloadQualityRadioButtons().get(1).getAttribute("checked");
-        return highRadioButtonSelected.equals(booleanValue);
+    public boolean isHighRadioButtonSelected() {
+        return dataAndStorageScreenObject.getDownloadQualityRadioButtons().get(1).getAttribute("checked").equals("true");
     }
 
     /**
@@ -58,27 +53,25 @@ public class DataAndStorageScreen extends BaseScreen {
     /**
      * Checks single radio button is selected or not.
      *
-     * @param booleanValue boolean value
      * @return true / false
      */
-    public boolean isSingleRadioButtonSelected(final String booleanValue) {
-        return dataAndStorageScreenObject.getDownloadByPartsRadioButtons().get(0).getAttribute("checked").equals(booleanValue);
+    public boolean isSingleRadioButtonSelected() {
+        return dataAndStorageScreenObject.getDownloadByPartsRadioButtons().get(0).getAttribute("checked").equals("true");
     }
 
     /**
      * Checks multipart radio button is selected or not.
      *
-     * @param booleanValue boolean value
      * @return true / false
      */
-    public boolean isMultiPartRadioButtonSelected(final String booleanValue) {
-        return dataAndStorageScreenObject.getDownloadByPartsRadioButtons().get(1).getAttribute("checked").equals(booleanValue);
+    public boolean isMultiPartRadioButtonSelected() {
+        return dataAndStorageScreenObject.getDownloadByPartsRadioButtons().get(1).getAttribute("checked").equals("true");
     }
 
     /**
-     * Tap download quality radio button.
+     * Select download quality radio button.
      */
-    public void tapDownloadQualityRadioButton() {
+    public void selectDownloadQualityRadioButton() {
         for (final MobileElement radioButton : dataAndStorageScreenObject.getDownloadQualityRadioButtons()) {
             if (radioButton.getAttribute("checked").equals("false")) {
                 radioButton.click();
@@ -88,9 +81,9 @@ public class DataAndStorageScreen extends BaseScreen {
     }
 
     /**
-     * Taps download by parts radio button.
+     * Select download by parts radio button.
      */
-    public void tapDownloadByPartsRadioButton() {
+    public void selectDownloadByPartsRadioButton() {
         for (final MobileElement radioButton : dataAndStorageScreenObject.getDownloadByPartsRadioButtons()) {
             if (radioButton.getAttribute("checked").equals("false")) {
                 radioButton.click();
@@ -100,67 +93,68 @@ public class DataAndStorageScreen extends BaseScreen {
     }
 
     /**
-     * Taps on the spatial audio toggles button.
-     *
-     * @param spatialAudioToggleButtonName spatial audio toggle button name
+     * Taps stream and download on wi-fi only toggle button.
      */
-    public void tapSpatialAudioTogglesButton(final String spatialAudioToggleButtonName) {
-        for (final MobileElement title : dataAndStorageScreenObject.getButtonsTitles()) {
-            String titleName = title.getText();
-            if (titleName.equals(spatialAudioToggleButtonName)) {
-                By toggleButton = By.xpath(String.format("//android.widget.TextView[@text = '%s']/following-sibling::android.widget.Switch", spatialAudioToggleButtonName));
-                driver.findElement(toggleButton).click();
-                break;
-            }
-        }
+    public void tapStreamAndDownloadOnWiFiOnlyToggleButton() {
+        dataAndStorageScreenObject.getToggleButtons().get(1).click();
     }
 
     /**
-     * Checks is data and storage screen displayed or not.
+     * Taps auto remove toggle button.
+     */
+    public void tapAutoRemoveToggleButton() {
+        dataAndStorageScreenObject.getToggleButtons().get(2).click();
+    }
+
+    /**
+     * Taps auto download toggle button.
+     */
+    public void tapAutoDownloadToggleButton() {
+        dataAndStorageScreenObject.getToggleButtons().get(3).click();
+    }
+
+    /**
+     * Checks is data and storage title displayed or not.
      *
      * @return true / false
      */
-    public boolean isDataAndStorageScreenDisplayed() {
-        return isDisplayed(dataAndStorageScreenObject.getDataAndStorageScreen());
+    public boolean isDataAndStorageTitleDisplayed() {
+        return isDisplayed(dataAndStorageScreenObject.getDataAndStorageTitle());
     }
 
     /**
      * Checks spatial audio toggle button is enabled or not.
      *
-     * @param booleanValue boolean value
      * @return true / false
      */
-    public boolean isSpatialAudioToggleButtonEnabled(final String booleanValue) {
-        return dataAndStorageScreenObject.getToggleButtons().get(0).getAttribute("checked").equals(booleanValue);
+    public boolean isSpatialAudioToggleButtonEnabled() {
+        return dataAndStorageScreenObject.getToggleButtons().get(0).getAttribute("checked").equals("false");
     }
 
     /**
      * Checks stream and download on wi-fi only toggle button is enabled or not.
      *
-     * @param booleanValue boolean value
      * @return true / false
      */
-    public boolean isStreamAndDownloadOnWifiOnlyToggleButtonEnabled(final String booleanValue) {
-        return dataAndStorageScreenObject.getToggleButtons().get(1).getAttribute("checked").equals(booleanValue);
+    public boolean isStreamAndDownloadOnWifiOnlyToggleButtonEnabled() {
+        return dataAndStorageScreenObject.getToggleButtons().get(1).getAttribute("checked").equals("true");
     }
 
     /**
      * Checks auto remove toggle button is enabled or not.
      *
-     * @param booleanValue boolean value
      * @return true / false
      */
-    public boolean isAutoRemoveToggleButtonEnabled(final String booleanValue) {
-        return dataAndStorageScreenObject.getToggleButtons().get(2).getAttribute("checked").equals(booleanValue);
+    public boolean isAutoRemoveToggleButtonEnabled() {
+        return dataAndStorageScreenObject.getToggleButtons().get(2).getAttribute("checked").equals("true");
     }
 
     /**
      * Checks auto download toggle button is enabled or not.
      *
-     * @param booleanValue boolean value
      * @return true / false
      */
-    public boolean isAutoDownloadToggleButtonEnabled(final String booleanValue) {
-        return dataAndStorageScreenObject.getToggleButtons().get(3).getAttribute("checked").equals(booleanValue);
+    public boolean isAutoDownloadToggleButtonEnabled() {
+        return dataAndStorageScreenObject.getToggleButtons().get(3).getAttribute("checked").equals("true");
     }
 }

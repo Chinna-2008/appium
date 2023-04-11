@@ -2,6 +2,7 @@ package com.atimi.audible.screens.dataandstoragescreen;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import lombok.Data;
 import org.openqa.selenium.support.FindBy;
@@ -28,8 +29,8 @@ public class DataAndStorageScreenObject {
     @FindBy(id = "android:id/title")
     private List<MobileElement> buttonsTitles;
 
-    @FindBy(id = "com.audible.application:id/top_bar_title")
-    private MobileElement dataAndStorageScreen;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Data & Storage\")")
+    private MobileElement dataAndStorageTitle;
 
     public DataAndStorageScreenObject(final AppiumDriver driver) {
         this.driver = driver;

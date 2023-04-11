@@ -39,7 +39,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getSettingsScreen().waitForScreenToLoad();
         getSettingsScreen().tapDataAndStorageOption();
         getDataAndStorageScreen().waitForScreenToLoad();
-        Assert.assertTrue(getDataAndStorageScreen().isDataAndStorageScreenDisplayed(), "Unable to load the data and storage screen.");
+        Assert.assertTrue(getDataAndStorageScreen().isDataAndStorageTitleDisplayed(), "Unable to load the data and storage screen.");
     }
 
     /**
@@ -57,15 +57,15 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getSettingsScreen().waitForScreenToLoad();
         getSettingsScreen().tapDataAndStorageOption();
         getDataAndStorageScreen().waitForScreenToLoad();
-        Assert.assertTrue(getDataAndStorageScreen().isStandardRadioButtonSelected("false"), "Standard radio button is selected.");
-        Assert.assertTrue(getDataAndStorageScreen().isHighRadioButtonSelected("true"), "High radio button is not selected.");
-        Assert.assertTrue(getDataAndStorageScreen().isSpatialAudioToggleButtonEnabled("false"), "Spatial audio toggle button is enabled.");
-        Assert.assertTrue(getDataAndStorageScreen().isStreamAndDownloadOnWifiOnlyToggleButtonEnabled("false"), "Stream and download on wifi only toggle button is enabled.");
-        Assert.assertTrue(getDataAndStorageScreen().isAutoRemoveToggleButtonEnabled("false"), "Auto remove toggle button is enabled.");
+        Assert.assertFalse(getDataAndStorageScreen().isStandardRadioButtonSelected(), "Standard radio button is selected.");
+        Assert.assertTrue(getDataAndStorageScreen().isHighRadioButtonSelected(), "High radio button is not selected.");
+        Assert.assertTrue(getDataAndStorageScreen().isSpatialAudioToggleButtonEnabled(), "Spatial audio toggle button is enabled.");
+        Assert.assertFalse(getDataAndStorageScreen().isStreamAndDownloadOnWifiOnlyToggleButtonEnabled(), "Stream and download on wifi only toggle button is enabled.");
+        Assert.assertFalse(getDataAndStorageScreen().isAutoRemoveToggleButtonEnabled(), "Auto remove toggle button is enabled.");
         getDataAndStorageScreen().scrollToMultiPartRadioButton();
-        Assert.assertTrue(getDataAndStorageScreen().isAutoDownloadToggleButtonEnabled("false"), "Auto download toggle button is enabled.");
-        Assert.assertTrue(getDataAndStorageScreen().isSingleRadioButtonSelected("true"), "Single radio button is not selected.");
-        Assert.assertTrue(getDataAndStorageScreen().isMultiPartRadioButtonSelected("false"), "Multi part radio button is selected.");
+        Assert.assertFalse(getDataAndStorageScreen().isAutoDownloadToggleButtonEnabled(), "Auto download toggle button is enabled.");
+        Assert.assertTrue(getDataAndStorageScreen().isSingleRadioButtonSelected(), "Single radio button is not selected.");
+        Assert.assertFalse(getDataAndStorageScreen().isMultiPartRadioButtonSelected(), "Multi part radio button is selected.");
     }
 
     /**
@@ -83,8 +83,8 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getSettingsScreen().waitForScreenToLoad();
         getSettingsScreen().tapDataAndStorageOption();
         getDataAndStorageScreen().waitForScreenToLoad();
-        getDataAndStorageScreen().tapDownloadQualityRadioButton();
-        Assert.assertTrue(getDataAndStorageScreen().isStandardRadioButtonSelected("true"), "Standard radio button is not selected.");
+        getDataAndStorageScreen().selectDownloadQualityRadioButton();
+        Assert.assertTrue(getDataAndStorageScreen().isStandardRadioButtonSelected(), "Standard radio button is not selected.");
     }
 
     /**
@@ -102,8 +102,8 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getSettingsScreen().waitForScreenToLoad();
         getSettingsScreen().tapDataAndStorageOption();
         getDataAndStorageScreen().waitForScreenToLoad();
-        getDataAndStorageScreen().tapSpatialAudioTogglesButton(DataAndStorageToggleButtonNames.STREAM_DOWNLOAD_ON_WIFI_ONLY.getToggleButtonValue());
-        Assert.assertTrue(getDataAndStorageScreen().isStreamAndDownloadOnWifiOnlyToggleButtonEnabled("true"), "Stream and download on wifi only toggle button is disabled.");
+        getDataAndStorageScreen().tapStreamAndDownloadOnWiFiOnlyToggleButton();
+        Assert.assertTrue(getDataAndStorageScreen().isStreamAndDownloadOnWifiOnlyToggleButtonEnabled(), "Stream and download on wifi only toggle button is disabled.");
     }
 
     /**
@@ -121,8 +121,8 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getSettingsScreen().waitForScreenToLoad();
         getSettingsScreen().tapDataAndStorageOption();
         getDataAndStorageScreen().waitForScreenToLoad();
-        getDataAndStorageScreen().tapSpatialAudioTogglesButton(DataAndStorageToggleButtonNames.AUTO_REMOVE.getToggleButtonValue());
-        Assert.assertTrue(getDataAndStorageScreen().isAutoRemoveToggleButtonEnabled("true"), "Auto remove toggle button is disabled.");
+        getDataAndStorageScreen().tapAutoRemoveToggleButton();
+        Assert.assertTrue(getDataAndStorageScreen().isAutoRemoveToggleButtonEnabled(), "Auto remove toggle button is disabled.");
     }
 
     /**
@@ -141,8 +141,8 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getSettingsScreen().tapDataAndStorageOption();
         getDataAndStorageScreen().waitForScreenToLoad();
         getDataAndStorageScreen().scrollToMultiPartRadioButton();
-        getDataAndStorageScreen().tapSpatialAudioTogglesButton(DataAndStorageToggleButtonNames.AUTO_DOWNLOAD.getToggleButtonValue());
-        Assert.assertTrue(getDataAndStorageScreen().isAutoDownloadToggleButtonEnabled("true"), "Auto download toggle button is disabled.");
+        getDataAndStorageScreen().tapAutoDownloadToggleButton();
+        Assert.assertTrue(getDataAndStorageScreen().isAutoDownloadToggleButtonEnabled(), "Auto download toggle button is disabled.");
     }
 
     /**
@@ -161,7 +161,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getSettingsScreen().tapDataAndStorageOption();
         getDataAndStorageScreen().waitForScreenToLoad();
         getDataAndStorageScreen().scrollToMultiPartRadioButton();
-        getDataAndStorageScreen().tapDownloadByPartsRadioButton();
-        Assert.assertTrue(getDataAndStorageScreen().isMultiPartRadioButtonSelected("true"), "Multi part radio button is not selected.");
+        getDataAndStorageScreen().selectDownloadByPartsRadioButton();
+        Assert.assertTrue(getDataAndStorageScreen().isMultiPartRadioButtonSelected(), "Multi part radio button is not selected.");
     }
 }
