@@ -64,7 +64,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         Assert.assertFalse(getDataAndStorageScreen().isAutoRemoveToggleButtonEnabled(), "Auto remove toggle button is enabled.");
         getDataAndStorageScreen().scrollToMultiPartRadioButton();
         Assert.assertFalse(getDataAndStorageScreen().isAutoDownloadToggleButtonEnabled(), "Auto download toggle button is enabled.");
-        Assert.assertTrue(getDataAndStorageScreen().isSingleRadioButtonSelected(), "Single radio button is not selected.");
+        Assert.assertTrue(getDataAndStorageScreen().isSinglePartRadioButtonSelected(), "Single radio button is not selected.");
         Assert.assertFalse(getDataAndStorageScreen().isMultiPartRadioButtonSelected(), "Multi part radio button is selected.");
     }
 
@@ -83,8 +83,10 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getSettingsScreen().waitForScreenToLoad();
         getSettingsScreen().tapDataAndStorageOption();
         getDataAndStorageScreen().waitForScreenToLoad();
-        getDataAndStorageScreen().selectDownloadQualityRadioButton();
+        getDataAndStorageScreen().selectStandardRadioButton();
         Assert.assertTrue(getDataAndStorageScreen().isStandardRadioButtonSelected(), "Standard radio button is not selected.");
+        getDataAndStorageScreen().selectHighRadioButton();
+        Assert.assertTrue(getDataAndStorageScreen().isHighRadioButtonSelected(),"High radio button is not selected.");
     }
 
     /**
@@ -161,7 +163,9 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
         getSettingsScreen().tapDataAndStorageOption();
         getDataAndStorageScreen().waitForScreenToLoad();
         getDataAndStorageScreen().scrollToMultiPartRadioButton();
-        getDataAndStorageScreen().selectDownloadByPartsRadioButton();
+        getDataAndStorageScreen().selectMultiPartRadioButton();
         Assert.assertTrue(getDataAndStorageScreen().isMultiPartRadioButtonSelected(), "Multi part radio button is not selected.");
+        getDataAndStorageScreen().selectSinglePartRadioButton();
+        Assert.assertTrue(getDataAndStorageScreen().isSinglePartRadioButtonSelected(), "Single part radio button is not selected.");
     }
 }
