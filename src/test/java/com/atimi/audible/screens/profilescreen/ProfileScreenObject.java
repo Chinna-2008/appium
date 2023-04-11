@@ -2,6 +2,7 @@ package com.atimi.audible.screens.profilescreen;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import lombok.Data;
 import org.openqa.selenium.support.FindBy;
@@ -18,8 +19,8 @@ public class ProfileScreenObject {
     @FindBy(id = "com.audible.application:id/profileNameTextView")
     private MobileElement profileName;
 
-    @FindBy(id = "com.audible.application:id/action_start_container")
-    private MobileElement settingsButton;
+    @AndroidFindBy(uiAutomator = "new UiSelector().descriptionContains(\"Settings\")")
+    private MobileElement settings;
 
     public ProfileScreenObject(final AppiumDriver driver) {
         this.driver = driver;
