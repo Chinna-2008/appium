@@ -18,6 +18,5 @@ public class WelcomeScreenTest extends AndroidTestBase {
         getWelcomeScreen().tapGetStarted();
         getHomeScreen().waitForScreenToLoad();
         Assert.assertTrue(getHomeScreen().isAudibleLogoDisplayed(), "Audible logo is not displayed.");
-        System.out.println("Test.");
     }
 }
