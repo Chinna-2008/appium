@@ -14,7 +14,7 @@ public class BookDetailsScreenTest extends AndroidTestBase {
      */
     @Test
     public void testBookTitle() {
-        getSignInScreen().login();
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().scrollUpToAudiobook("Just Do It");
@@ -29,7 +29,7 @@ public class BookDetailsScreenTest extends AndroidTestBase {
      */
     @Test
     public void testBookDetails() {
-        getSignInScreen().login();
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().scrollUpToAudiobook("Just Do It");
@@ -45,7 +45,7 @@ public class BookDetailsScreenTest extends AndroidTestBase {
      */
     @Test
     public void testDownloadBook() {
-        getSignInScreen().login();
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().tapAudiobookOverflowButton("Just Do It");
@@ -61,7 +61,7 @@ public class BookDetailsScreenTest extends AndroidTestBase {
      */
     @Test
     public void testPlayBook() {
-        getSignInScreen().login();
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
         getLibraryScreen().tapAudiobookOverflowButton("Don Katz Interviews Jane Fonda");

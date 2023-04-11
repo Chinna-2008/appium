@@ -8,22 +8,22 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * This is 'SortOptions' class.
+ * This is 'LibrarySort' class.
  */
-public class SortOptions extends BaseScreen {
+public class LibrarySort extends BaseScreen {
 
-    private final SortOptionsObject sortOptionsObject;
+    private final LibrarySortObject librarySortObject;
 
-    public SortOptions(final AndroidDriver<AndroidElement> driver) {
+    public LibrarySort(final AndroidDriver<AndroidElement> driver) {
         super(driver);
-        sortOptionsObject = new SortOptionsObject(driver);
+        librarySortObject = new LibrarySortObject(driver);
     }
 
     /**
      * Taps sorting header button.
      */
     public void tapSortingHeaderButton() {
-        sortOptionsObject.getSortingHeaderButton().click();
+        librarySortObject.getSortingHeaderButton().click();
     }
 
     /**
@@ -32,7 +32,7 @@ public class SortOptions extends BaseScreen {
      * @param sortOptionName sort option name
      */
     public void tapSortOption(final String sortOptionName) {
-        List<MobileElement> shortOptions = sortOptionsObject.getSortOptions().stream().collect(Collectors.toList());
+        List<MobileElement> shortOptions = librarySortObject.getSortOptions().stream().collect(Collectors.toList());
         List<MobileElement> shortOptionList = shortOptions.stream().filter(option -> option.getText().equals(sortOptionName)).collect(Collectors.toList());
         shortOptionList.forEach(option -> option.click());
     }

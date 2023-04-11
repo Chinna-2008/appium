@@ -14,7 +14,7 @@ public class SearchScreenTest extends AndroidTestBase {
      */
     @Test
     public void testSearchBook() {
-        getSignInScreen().login();
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapSearchButton();
         getSearchScreen().enterSearchText("Story of Buddha");

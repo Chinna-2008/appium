@@ -9,10 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 /**
- * This is 'SortOptionsObject' class.
+ * This is 'LibrarySortObject' class.
  */
 @Data
-public class SortOptionsObject {
+public class LibrarySortObject {
 
     private final AppiumDriver driver;
 
@@ -22,7 +22,7 @@ public class SortOptionsObject {
     @FindBy(className = "android.widget.TextView")
     public List<MobileElement> sortOptions;
 
-    public SortOptionsObject(final AppiumDriver driver) {
+    public LibrarySortObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }

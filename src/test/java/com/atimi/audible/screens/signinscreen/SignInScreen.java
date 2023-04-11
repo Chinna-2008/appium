@@ -26,14 +26,16 @@ public class SignInScreen extends BaseScreen {
     }
 
     /**
-     * Log in.
+     * Login.
+     * @param emailID email id
+     * @param password password
      */
-    public void login() {
+    public void login(final String emailID, final String password) {
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         waitForScreenToLoad();
-        signInScreenObject.getEnterEmailID().sendKeys("reddeppapc1@gmail.com");
-        signInScreenObject.getEnterPassword().sendKeys("Reddeppa@3");
+        signInScreenObject.getEnterEmailID().sendKeys(emailID);
+        signInScreenObject.getEnterPassword().sendKeys(password);
         signInScreenObject.getSignInButton().click();
     }
 

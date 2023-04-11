@@ -1,14 +1,16 @@
 package com.atimi.audible.screens.libraryScreen;
 
 import com.atimi.audible.BaseScreen;
-import com.atimi.audible.screens.widgets.SortOptions;
+import com.atimi.audible.screens.widgets.LibrarySort;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -64,11 +66,11 @@ public class LibraryScreen extends BaseScreen {
     /**
      * Taps audiobook overflow menu option.
      *
-     * @param overflowMenuOptionName overflow menu option name
+     * @param overflowMenuOptionText overflow menu option text
      */
-    public void tapAudiobookOverflowMenuOption(final String overflowMenuOptionName) {
+    public void tapAudiobookOverflowMenuOption(final String overflowMenuOptionText) {
         List<MobileElement> overflowMenuOptions = libraryScreenObject.getOverflowMenuOptions().stream().collect(Collectors.toList());
-        List<MobileElement> optionList = overflowMenuOptions.stream().filter(option -> option.getText().equals(overflowMenuOptionName)).collect(Collectors.toList());
+        List<MobileElement> optionList = overflowMenuOptions.stream().filter(option -> option.getText().equals(overflowMenuOptionText)).collect(Collectors.toList());
         optionList.forEach(option -> option.click());
     }
 
@@ -120,8 +122,8 @@ public class LibraryScreen extends BaseScreen {
      *
      * @return visible audiobooks details
      */
-    public List<String> getVisibleAudiobooksDetails() {
-        ArrayList<String> visibleAudiobooksDetails = new ArrayList<>();
+    public Set<String> getVisibleAudiobooksDetails() {
+        Set<String> visibleAudiobooksDetails = new HashSet<>();
         for (final MobileElement mobileElement : libraryScreenObject.getAudiobookCells()) {
             MobileElement bookTitles = mobileElement.findElement(By.id("com.audible.application:id/title"));
             String bookTitle = bookTitles.getText();
@@ -139,6 +141,18 @@ public class LibraryScreen extends BaseScreen {
      */
     public String getCountOfAudiobookTitles() {
         return libraryScreenObject.getNumberOfTitles().getText();
+    }
+
+    /**
+     * Gets the count of audiobooks.
+     *
+     * @return count
+     */
+    public int getCountOfAudioBooks() {
+        String numWithString = libraryScreenObject.getNumberOfTitles().getText();
+        String digits = numWithString.replaceAll("[^0-9]", "");
+        final int count = Integer.parseInt(digits);
+        return count;
     }
 
     /**
@@ -165,11 +179,11 @@ public class LibraryScreen extends BaseScreen {
     }
 
     /**
-     * Gets the sort options.
+     * Gets the library sort.
      *
-     * @return sort options object
+     * @return library sort object
      */
-    public SortOptions getSortOptions() {
-        return new SortOptions((AndroidDriver<AndroidElement>) driver);
+    public LibrarySort getSort() {
+        return new LibrarySort((AndroidDriver<AndroidElement>) driver);
     }
 }

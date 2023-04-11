@@ -14,7 +14,7 @@ public class SignInScreenTest extends AndroidTestBase {
      */
     @Test
     public void testSignIn() {
-        getSignInScreen().login();
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         Assert.assertTrue(getHomeScreen().isAudibleLogoDisplayed(), "Home page is not displayed.");
         getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
