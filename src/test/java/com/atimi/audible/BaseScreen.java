@@ -53,4 +53,16 @@ public abstract class BaseScreen {
     protected WebDriverWait getWait() {
         return new WebDriverWait(driver, 50);
     }
+
+    /**
+     * Scroll to text.
+     *
+     * @param driver driver
+     * @param text text
+     */
+    public static void scrollToText(AndroidDriver<MobileElement> driver, final String text) {
+        MobileElement mobileElement = (MobileElement) driver.findElementByAndroidUIAutomator("new UiScrollable("
+                + "new UiSelector().scrollable(true)).scrollIntoView(" + "new UiSelector().text(\"" + text + "\"));");
+    }
+
 }
