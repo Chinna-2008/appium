@@ -7,7 +7,7 @@ import com.atimi.audible.screens.libraryScreen.LibraryScreen;
 import com.atimi.audible.screens.profilescreen.ProfileScreen;
 import com.atimi.audible.screens.searchscreen.SearchScreen;
 import com.atimi.audible.screens.settingsscreen.SettingsScreen;
-import com.atimi.audible.screens.signinscreen.SignInScreen;
+import com.atimi.audible.screens.signinscreen.SignInScreenAndroid;
 import com.atimi.audible.screens.welcomescreen.WelcomeScreenAndroid;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -34,8 +34,8 @@ public class AndroidScreenFactory extends IScreenFactory {
      *
      * @return sign in screen object
      */
-    public SignInScreen getSignInScreen() {
-        return new SignInScreen(driver);
+    public SignInScreenAndroid getSignInScreen() {
+        return new SignInScreenAndroid(driver);
     }
 
     /**

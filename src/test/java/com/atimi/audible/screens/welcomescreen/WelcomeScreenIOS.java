@@ -16,8 +16,12 @@ public class WelcomeScreenIOS extends BaseScreen {
         welcomeScreenObject = new WelcomeScreenObject(driver);
     }
 
+    /**
+     * Waits for screen to load.
+     */
     @Override
     public void waitForScreenToLoad() {
+        waitForElementToDisplay(welcomeScreenObject.getGetStarted());
     }
 
     /**
@@ -25,5 +29,12 @@ public class WelcomeScreenIOS extends BaseScreen {
      */
     public void tapGetStarted() {
         welcomeScreenObject.getGetStarted().click();
+    }
+
+    /**
+     * Taps sign in button.
+     */
+    public void tapSignIn() {
+        welcomeScreenObject.getSignIn().click();
     }
 }

@@ -7,7 +7,7 @@ import com.atimi.audible.screens.libraryScreen.LibraryScreenAndroid;
 import com.atimi.audible.screens.profilescreen.ProfileScreen;
 import com.atimi.audible.screens.searchscreen.SearchScreen;
 import com.atimi.audible.screens.settingsscreen.SettingsScreen;
-import com.atimi.audible.screens.signinscreen.SignInScreen;
+import com.atimi.audible.screens.signinscreen.SignInScreenAndroid;
 import com.atimi.audible.screens.welcomescreen.WelcomeScreenAndroid;
 import com.atimi.tests.ScreenFactory.AndroidScreenFactory;
 import com.atimi.tests.ScreenFactory.IScreenFactory;
@@ -82,8 +82,8 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
      *
      * @return sign in screen object
      */
-    public SignInScreen getSignInScreen() {
-        return getScreenRegistry().get(SignInScreen.class);
+    public SignInScreenAndroid getSignInScreen() {
+        return getScreenRegistry().get(SignInScreenAndroid.class);
     }
 
     /**

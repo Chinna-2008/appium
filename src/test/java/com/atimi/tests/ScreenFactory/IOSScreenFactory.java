@@ -1,6 +1,7 @@
 package com.atimi.tests.ScreenFactory;
 
 import com.atimi.audible.screens.dataandstoragescreen.DataAndStorageScreenIOS;
+import com.atimi.audible.screens.signinscreen.SignInScreenIOS;
 import com.atimi.audible.screens.welcomescreen.WelcomeScreenIOS;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
@@ -23,6 +24,15 @@ public class IOSScreenFactory extends IScreenFactory {
      */
     public WelcomeScreenIOS getWelcomeScreen() {
         return new WelcomeScreenIOS(driver);
+    }
+
+    /**
+     * Gets sign in screen.
+     *
+     * @return sign in screen object
+     */
+    public SignInScreenIOS getSignInScreen() {
+        return new SignInScreenIOS(driver);
     }
 
     /**

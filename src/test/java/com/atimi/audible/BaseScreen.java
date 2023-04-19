@@ -51,7 +51,7 @@ public abstract class BaseScreen {
      * @return duration in seconds
      */
     protected WebDriverWait getWait() {
-        return new WebDriverWait(driver, 50);
+        return new WebDriverWait(driver, 70);
     }
 
     /**

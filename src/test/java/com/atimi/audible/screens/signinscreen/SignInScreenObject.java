@@ -2,9 +2,10 @@ package com.atimi.audible.screens.signinscreen;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import lombok.Data;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
@@ -15,20 +16,21 @@ public class SignInScreenObject {
 
     private final AppiumDriver driver;
 
-    @FindBy(xpath = "//android.widget.TextView[@text='Sign in using your Amazon Account']")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Sign in using your Amazon Account']")
+    @iOSXCUITFindBy(accessibility = "Sign in to Audible using your Amazon account")
     private MobileElement signInScreen;
 
-    @FindBy(xpath = "//android.widget.EditText[@resource-id='ap_email']")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id='ap_email']")
+    @iOSXCUITFindBy(iOSNsPredicate = "value == \"Email or phone number\" AND type == \"XCUIElementTypeTextField\"")
     private MobileElement enterEmailID;
 
-    @FindBy(xpath = "//android.widget.EditText[@resource-id='ap_password']")
+    @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id='ap_password']")
+    @iOSXCUITFindBy(accessibility = "Amazon password")
     private MobileElement enterPassword;
 
-    @FindBy(xpath = "//android.widget.Button[@resource-id='signInSubmit']")
+    @AndroidFindBy(xpath = "//android.widget.Button[@resource-id='signInSubmit']")
+    @iOSXCUITFindBy(accessibility = "Continue")
     private MobileElement signInButton;
-
-    @FindBy(xpath = "//android.view.View[@text='Your password is incorrect']")
-    private MobileElement errorMessage;
 
     public SignInScreenObject(final AppiumDriver driver) {
         this.driver = driver;

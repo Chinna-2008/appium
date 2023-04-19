@@ -6,13 +6,13 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
 /**
- * This is 'SignInScreen' class.
+ * This is 'SignInScreenAndroid' class.
  */
-public class SignInScreen extends BaseScreen {
+public class SignInScreenAndroid extends BaseScreen {
 
     private final SignInScreenObject signInScreenObject;
 
-    public SignInScreen(final AndroidDriver<AndroidElement> driver) {
+    public SignInScreenAndroid(final AndroidDriver<AndroidElement> driver) {
         super(driver);
         signInScreenObject = new SignInScreenObject(driver);
     }
