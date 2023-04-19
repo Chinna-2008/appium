@@ -5,19 +5,16 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
- * This is 'ProfileSettingsScreenTest' class.
+ * This is 'DataAndStorageScreenTest' class.
  */
-public class ProfileSettingsScreenTest extends AndroidTestBase {
+public class DataAndStorageScreenTest extends AndroidTestBase {
 
     /**
      * Tests settings button.
      */
     @Test
     public void testSettingsButton() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
         getProfileScreen().tapSettings();
@@ -29,10 +26,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
      */
     @Test
     public void testDataAndStorageOption() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
         getProfileScreen().tapSettings();
@@ -47,10 +41,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
      */
     @Test
     public void testDataAndStorageScreen() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
         getProfileScreen().tapSettings();
@@ -73,10 +64,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
      */
     @Test
     public void testDownloadQualityRadioButtons() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
         getProfileScreen().tapSettings();
@@ -94,10 +82,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
      */
     @Test
     public void testStreamAndDownloadOnWifiOnlyToggleButton() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
         getProfileScreen().tapSettings();
@@ -113,10 +98,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
      */
     @Test
     public void testAutoRemoveToggleButton() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
         getProfileScreen().tapSettings();
@@ -132,10 +114,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
      */
     @Test
     public void testAutoDownloadToggleButton() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
         getProfileScreen().tapSettings();
@@ -152,10 +131,7 @@ public class ProfileSettingsScreenTest extends AndroidTestBase {
      */
     @Test
     public void testDownloadByPartsRadioButtons() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
         getProfileScreen().tapSettings();
