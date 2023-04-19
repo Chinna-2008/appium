@@ -16,11 +16,11 @@ import java.util.stream.Collectors;
 /**
  * This is 'LibraryScreen' class.
  */
-public class LibraryScreen extends BaseScreen {
+public class LibraryScreenAndroid extends BaseScreen {
 
     private final LibraryScreenObject libraryScreenObject;
 
-    public LibraryScreen(final AndroidDriver<AndroidElement> driver) {
+    public LibraryScreenAndroid(final AndroidDriver<AndroidElement> driver) {
         super(driver);
         libraryScreenObject = new LibraryScreenObject(driver);
     }

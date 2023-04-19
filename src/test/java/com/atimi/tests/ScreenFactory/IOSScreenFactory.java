@@ -1,5 +1,6 @@
 package com.atimi.tests.ScreenFactory;
 
+import com.atimi.audible.screens.libraryScreen.LibraryScreenIOS;
 import com.atimi.audible.screens.welcomescreen.WelcomeScreenIOS;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
@@ -19,5 +20,14 @@ public class IOSScreenFactory extends IScreenFactory {
      */
     public WelcomeScreenIOS getWelcomeScreen() {
         return new WelcomeScreenIOS(driver);
+    }
+
+    /**
+     * Gets the library screen.
+     *
+     * @returnscreen library screen object
+     */
+    public LibraryScreenIOS getLibraryScreen() {
+        return new LibraryScreenIOS(driver);
     }
 }

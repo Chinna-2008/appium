@@ -3,7 +3,9 @@ package com.atimi.audible.screens.libraryScreen;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import lombok.Data;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -17,25 +19,26 @@ public class LibraryScreenObject {
 
     private final AppiumDriver driver;
 
-    @FindBy(id = "com.audible.application:id/overflow_btn")
+    @AndroidFindBy(id = "com.audible.application:id/overflow_btn")
+    @iOSXCUITFindBy(accessibility = "pilter_button_All_Titles_isSelected")
     private MobileElement overflowButton;
 
-    @FindBy(id = "com.audible.application:id/action_text")
+    @AndroidFindBy(id = "com.audible.application:id/action_text")
     private List<MobileElement> overflowMenuOptions;
 
-    @FindBy(id = "com.audible.application:id/title")
+    @AndroidFindBy(id = "com.audible.application:id/title")
     private List<MobileElement> audioBooks;
 
-    @FindBy(id = "com.audible.application:id/owned_title_item")
+    @AndroidFindBy(id = "com.audible.application:id/owned_title_item")
     private List<MobileElement> audiobookCells;
 
-    @FindBy(id = "com.audible.application:id/header_text")
+    @AndroidFindBy(id = "com.audible.application:id/header_text")
     private MobileElement numberOfTitles;
 
-    @AndroidBy(uiAutomator = "new UiSelector().text(\"In Progress\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"In Progress\")")
     private MobileElement inProgressTab;
 
-    @FindBy(id = "com.audible.application:id/title")
+    @AndroidFindBy(id = "com.audible.application:id/title")
     private MobileElement inProgressBook;
 
     public LibraryScreenObject(final AppiumDriver driver) {
