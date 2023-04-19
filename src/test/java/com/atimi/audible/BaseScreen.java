@@ -2,6 +2,7 @@ package com.atimi.audible;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -51,5 +52,16 @@ public abstract class BaseScreen {
      */
     protected WebDriverWait getWait() {
         return new WebDriverWait(driver, 50);
+    }
+
+    /**
+     * Scroll to text.
+     *
+     * @param driver driver
+     * @param text text
+     */
+    public void scrollToText(final AndroidDriver<MobileElement> driver, final String text) {
+        MobileElement mobileElement = (MobileElement) driver.findElementByAndroidUIAutomator("new UiScrollable("
+                + "new UiSelector().scrollable(true)).scrollIntoView(" + "new UiSelector().text(\"" + text + "\"));");
     }
 }

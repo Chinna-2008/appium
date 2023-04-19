@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class WelcomeScreenTest extends AndroidTestBase {
 
     /**
-     * Test to launch application.
+     * Tests to launch application.
      */
     @Test
     public void testLaunchApplication() {

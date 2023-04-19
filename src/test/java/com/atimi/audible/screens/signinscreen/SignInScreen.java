@@ -1,6 +1,7 @@
 package com.atimi.audible.screens.signinscreen;
 
 import com.atimi.audible.BaseScreen;
+import com.atimi.audible.screens.welcomescreen.WelcomeScreenAndroid;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
@@ -11,7 +12,7 @@ public class SignInScreen extends BaseScreen {
 
     private final SignInScreenObject signInScreenObject;
 
-    public SignInScreen(AndroidDriver<AndroidElement> driver) {
+    public SignInScreen(final AndroidDriver<AndroidElement> driver) {
         super(driver);
         signInScreenObject = new SignInScreenObject(driver);
     }
@@ -25,14 +26,25 @@ public class SignInScreen extends BaseScreen {
     }
 
     /**
-     * Sign in.
-     *
+     * Login.
      * @param emailID email id
      * @param password password
      */
-    public void signIn(final String emailID, final String password) {
+    public void login(final String emailID, final String password) {
+        getWelcomeScreen().waitForScreenToLoad();
+        getWelcomeScreen().tapSignIn();
+        waitForScreenToLoad();
         signInScreenObject.getEnterEmailID().sendKeys(emailID);
         signInScreenObject.getEnterPassword().sendKeys(password);
         signInScreenObject.getSignInButton().click();
+    }
+
+    /**
+     * Gets welcome screen.
+     *
+     * @return welcome screen object
+     */
+    private WelcomeScreenAndroid getWelcomeScreen() {
+        return new WelcomeScreenAndroid((AndroidDriver<AndroidElement>) driver);
     }
 }

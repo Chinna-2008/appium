@@ -1,4 +1,4 @@
-package com.atimi.audible.screens.homescreen;
+package com.atimi.audible.screens.widgets;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -6,27 +6,23 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import lombok.Data;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.List;
 
 /**
- * This is 'HomeScreenObject' class.
+ * This is 'LibrarySortObject' class.
  */
 @Data
-public class HomeScreenObject {
+public class LibrarySortObject {
 
     private final AppiumDriver driver;
 
-    @FindBy(id = "com.audible.application:id/logo_themed")
-    private MobileElement audibleLogo;
-
-    @FindBy(id = "com.audible.application:id/ic_opaque")
-    private MobileElement search;
+    @FindBy(id = "com.audible.application:id/header_button")
+    private MobileElement sortingHeaderButton;
 
     @FindBy(className = "android.widget.TextView")
-    private List<MobileElement> menuTabs;
+    public List<MobileElement> sortOptions;
 
-    public HomeScreenObject(final AppiumDriver driver) {
+    public LibrarySortObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }

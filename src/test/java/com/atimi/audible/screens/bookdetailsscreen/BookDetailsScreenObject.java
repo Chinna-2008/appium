@@ -2,6 +2,7 @@ package com.atimi.audible.screens.bookdetailsscreen;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import lombok.Data;
 import org.openqa.selenium.support.FindBy;
@@ -33,16 +34,16 @@ public class BookDetailsScreenObject {
     @FindBy(id = "com.audible.application:id/format_text_view")
     private MobileElement audioBookDuration;
 
-    @FindBy(xpath = "//android.widget.Button[@content-desc='Download']")
+    @AndroidBy(uiAutomator = "new UiSelector().text(\"Download\")")
     private MobileElement downloadButton;
 
-    @FindBy(xpath = "//android.widget.Button[@content-desc='Remove From Device']")
+    @AndroidBy(uiAutomator = "new UiSelector().text(\"Remove From Device\")")
     private MobileElement removeFromDevice;
 
-    @FindBy(xpath = "//android.widget.Button[@content-desc='Play']")
+    @AndroidBy(uiAutomator = "new UiSelector().text(\"Play\")")
     private MobileElement playButton;
 
-    @FindBy(xpath = "//android.widget.Button[@content-desc='Pause']")
+    @AndroidBy(uiAutomator = "new UiSelector().text(\"Pause\")")
     private MobileElement pauseButton;
 
     public BookDetailsScreenObject(final AppiumDriver driver) {

@@ -1,13 +1,17 @@
 package com.atimi.audible.screens.libraryScreen;
 
 import com.atimi.audible.BaseScreen;
+import com.atimi.audible.screens.widgets.LibrarySort;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.By;
-
+import org.openqa.selenium.NoSuchElementException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * This is 'LibraryScreen' class.
@@ -16,7 +20,7 @@ public class LibraryScreen extends BaseScreen {
 
     private final LibraryScreenObject libraryScreenObject;
 
-    public LibraryScreen(AndroidDriver<AndroidElement> driver) {
+    public LibraryScreen(final AndroidDriver<AndroidElement> driver) {
         super(driver);
         libraryScreenObject = new LibraryScreenObject(driver);
     }
@@ -26,73 +30,48 @@ public class LibraryScreen extends BaseScreen {
      */
     @Override
     public void waitForScreenToLoad() {
-        waitForElementToDisplay(libraryScreenObject.getHamburgerButton());
+        waitForElementToDisplay(libraryScreenObject.getOverflowButton());
     }
 
     /**
-     * Taps on hamburger button.
+     * Taps on overflow button.
      *
      * @param audiobookName audiobook name
      */
-    public void tapAudiobookHamburgerButton(final String audiobookName) {
-        for (final MobileElement book : libraryScreenObject.getAudioBooks()) {
-            String bookName = book.getText();
-            if (bookName.equals(audiobookName)) {
-                By hamburgerButton = By.xpath(String.format("//android.widget.TextView[@text= '%s']/../../../../../../following-sibling::android.view.ViewGroup/android.view.ViewGroup/android.widget.Button", audiobookName));
-                driver.findElement(hamburgerButton).click();
-                break;
+    public void tapAudiobookOverflowButton(final String audiobookName) {
+        for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
+            try {
+                MobileElement bookTitles = audiobookCell.findElement(By.id("com.audible.application:id/title"));
+                String bookTitle = bookTitles.getText();
+                if (bookTitle.equals(audiobookName)) {
+                    MobileElement overflow = audiobookCell.findElement(By.id("com.audible.application:id/overflow_btn"));
+                    overflow.click();
+                    break;
+                }
+            } catch (final NoSuchElementException exception) {
+                exception.getMessage();
             }
         }
     }
 
     /**
-     * Gets the hamburger options of book.
+     * Gets list of overflow menu options.
      *
-     * @return list of hamburger options
+     * @return list of overflow menu options
      */
-    public List<String> getListOfHamburgerOptions() {
-        List<String> hamburgerOptionsList = new ArrayList<>();
-        for (final MobileElement option : libraryScreenObject.getHamburgerOptions()) {
-            hamburgerOptionsList.add(option.getText());
-        }
-        return hamburgerOptionsList;
+    public List<String> getListOfOverflowMenuOptions() {
+        return libraryScreenObject.getOverflowMenuOptions().stream().map(option -> option.getText()).collect(Collectors.toList());
     }
 
     /**
-     * Taps audiobook hamburger option.
+     * Taps audiobook overflow menu option.
      *
-     * @param hamburgerOptionName hamburger option name
+     * @param overflowMenuOptionText overflow menu option text
      */
-    public void tapAudiobookHamburgerOption(final String hamburgerOptionName) {
-        for (final MobileElement hamburgerOption : libraryScreenObject.getHamburgerOptions()) {
-            String optionName = hamburgerOption.getText();
-            if (optionName.equals(hamburgerOptionName)) {
-                hamburgerOption.click();
-                break;
-            }
-        }
-    }
-
-    /**
-     * Taps sorting header button.
-     */
-    public void tapSortingHeaderButton() {
-        libraryScreenObject.getSortingHeaderButton().click();
-    }
-
-    /**
-     * Taps sort option.
-     *
-     * @param sortOptionName sort option name
-     */
-    public void tapSortOption(final String sortOptionName) {
-        for (final MobileElement option : libraryScreenObject.getSortOptions()) {
-            String sortOption = option.getText();
-            if(sortOption.equals(sortOptionName)) {
-                option.click();
-                break;
-            }
-        }
+    public void tapAudiobookOverflowMenuOption(final String overflowMenuOptionText) {
+        List<MobileElement> overflowMenuOptions = libraryScreenObject.getOverflowMenuOptions().stream().collect(Collectors.toList());
+        List<MobileElement> optionList = overflowMenuOptions.stream().filter(option -> option.getText().equals(overflowMenuOptionText)).collect(Collectors.toList());
+        optionList.forEach(option -> option.click());
     }
 
     /**
@@ -101,59 +80,110 @@ public class LibraryScreen extends BaseScreen {
      * @return list of audiobook titles
      */
     public List<String> getAudiobookTitles() {
-        List<String> audioBookTitles = new ArrayList<>();
-        for (final MobileElement book : libraryScreenObject.getAudioBooks()) {
-            String bookName = book.getText();
-            audioBookTitles.add(bookName);
-        }
-        System.out.println(String.format("Audiobook titles : %s", audioBookTitles));
-        return audioBookTitles;
+        return libraryScreenObject.getAudioBooks().stream().map(book -> book.getText()).collect(Collectors.toList());
     }
 
     /**
-     * Gets all audiobook titles.
+     * Gets all visible audiobook titles.
      *
-     * @return audiobook titles
+     * @return visible audiobook titles
      */
-    public List<String> getAllAudiobookTitles() {
-        ArrayList<String> allAudiobookTitles = new ArrayList<>();
-        for (final MobileElement mobileElement : libraryScreenObject.getAudiobookCells()) {
-            MobileElement bookTitles = mobileElement.findElement(By.xpath("//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id='com.audible.application:id/title']"));
-            String bookTitle = bookTitles.getText();
-            allAudiobookTitles.add(bookTitle);
+    public List<String> getAllVisibleAudiobookTitles() {
+        ArrayList<String> visibleAudiobookTitles = new ArrayList<>();
+        for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
+            try {
+                MobileElement bookTitles = audiobookCell.findElement(By.id("com.audible.application:id/title"));
+                String bookTitle = bookTitles.getText();
+                visibleAudiobookTitles.add(bookTitle);
+            } catch (final NoSuchElementException exception) {
+                exception.getMessage();
+            }
         }
-        return allAudiobookTitles;
+        return visibleAudiobookTitles;
     }
 
     /**
-     * Gets all audiobook author names.
+     * Gets all visible audiobook author names.
      *
-     * @return audiobook author names
+     * @return visible audiobook author names
      */
-    public List<String> getAllAudiobookAuthors() {
-        ArrayList<String> allAudiobookAuthorNames = new ArrayList<>();
+    public List<String> getAllVisibleAudiobookAuthors() {
+        ArrayList<String> visibleAudiobookAuthorNames = new ArrayList<>();
         for (final MobileElement mobileElement : libraryScreenObject.getAudiobookCells()) {
-            MobileElement author = mobileElement.findElement(By.xpath("//android.widget.LinearLayout/android.widget.TextView[@resource-id = 'com.audible.application:id/author_text_view']"));
+            MobileElement author = mobileElement.findElement(By.id("com.audible.application:id/author_text_view"));
             String authorName = author.getText();
-            allAudiobookAuthorNames.add(authorName);
+            visibleAudiobookAuthorNames.add(authorName);
         }
-        return allAudiobookAuthorNames;
+        return visibleAudiobookAuthorNames;
     }
 
     /**
-     * Gets audiobooks details.
+     * Gets visible audiobooks details.
      *
-     * @return audiobooks details
+     * @return visible audiobooks details
      */
-    public List<String> getAudiobooksDetails() {
-        ArrayList<String> audiobooksDetails = new ArrayList<>();
+    public Set<String> getVisibleAudiobooksDetails() {
+        Set<String> visibleAudiobooksDetails = new HashSet<>();
         for (final MobileElement mobileElement : libraryScreenObject.getAudiobookCells()) {
-            MobileElement bookTitles = mobileElement.findElement(By.xpath("//android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.TextView[@resource-id='com.audible.application:id/title']"));
+            MobileElement bookTitles = mobileElement.findElement(By.id("com.audible.application:id/title"));
             String bookTitle = bookTitles.getText();
-            MobileElement author = mobileElement.findElement(By.xpath("//android.widget.LinearLayout/android.widget.TextView[@resource-id = 'com.audible.application:id/author_text_view']"));
+            MobileElement author = mobileElement.findElement(By.id("com.audible.application:id/author_text_view"));
             String authorName = author.getText();
-            audiobooksDetails.add(String.format("\nBook title: %s, Author: %s",  bookTitle, authorName));
+            visibleAudiobooksDetails.add(String.format("\nBook title: %s, Author: %s", bookTitle, authorName));
         }
-        return audiobooksDetails;
+        return visibleAudiobooksDetails;
+    }
+
+    /**
+     * Gets count of audiobook titles.
+     *
+     * @return audiobook titles count with text
+     */
+    public String getCountOfAudiobookTitles() {
+        return libraryScreenObject.getNumberOfTitles().getText();
+    }
+
+    /**
+     * Gets the count of audiobooks.
+     *
+     * @return count
+     */
+    public int getCountOfAudioBooks() {
+        String numWithString = libraryScreenObject.getNumberOfTitles().getText();
+        String digits = numWithString.replaceAll("[^0-9]", "");
+        final int count = Integer.parseInt(digits);
+        return count;
+    }
+
+    /**
+     * Scroll up to audiobook.
+     */
+    public void scrollUpToAudiobook(final String audiobook) {
+        scrollToText((AndroidDriver<MobileElement>) driver, audiobook);
+    }
+
+    /**
+     * Taps in progress tab.
+     */
+    public void tapInProgressTab() {
+        libraryScreenObject.getInProgressTab().click();
+    }
+
+    /**
+     * Gets the in progress book title.
+     *
+     * @return in progress book title
+     */
+    public String getInProgressAudiobookTitle() {
+        return libraryScreenObject.getInProgressBook().getText();
+    }
+
+    /**
+     * Gets the library sort.
+     *
+     * @return library sort object
+     */
+    public LibrarySort getSort() {
+        return new LibrarySort((AndroidDriver<AndroidElement>) driver);
     }
 }

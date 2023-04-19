@@ -10,14 +10,11 @@ import org.testng.annotations.Test;
 public class SignInScreenTest extends AndroidTestBase {
 
     /**
-     * Test the sign in.
+     * Tests the sign in.
      */
     @Test
     public void testSignIn() {
-        getWelcomeScreen().waitForScreenToLoad();
-        getWelcomeScreen().tapSignIn();
-        getSignInScreen().waitForScreenToLoad();
-        getSignInScreen().signIn("reddeppapc1@gmail.com", "Reddeppa@3");
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         Assert.assertTrue(getHomeScreen().isAudibleLogoDisplayed(), "Home page is not displayed.");
         getHomeScreen().tapMenuTab(MenuTabs.PROFILE.getTabsValue());
