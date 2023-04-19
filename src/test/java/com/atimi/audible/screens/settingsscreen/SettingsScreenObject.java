@@ -1,4 +1,4 @@
-package com.atimi.audible.screens.profilescreen;
+package com.atimi.audible.screens.settingsscreen;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -9,20 +9,20 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * This is 'ProfileScreenObject' class.
+ * This is 'SettingsScreenObject' class.
  */
 @Data
-public class ProfileScreenObject {
+public class SettingsScreenObject {
 
     private final AppiumDriver driver;
 
-    @FindBy(id = "com.audible.application:id/profileNameTextView")
-    private MobileElement profileName;
+    @FindBy(id = "com.audible.application:id/top_bar_title")
+    private MobileElement settingsScreen;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().descriptionContains(\"Settings\")")
-    private MobileElement settings;
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Data & Storage\")")
+    private MobileElement dataAndStorageOption;
 
-    public ProfileScreenObject(final AppiumDriver driver) {
+    public SettingsScreenObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }

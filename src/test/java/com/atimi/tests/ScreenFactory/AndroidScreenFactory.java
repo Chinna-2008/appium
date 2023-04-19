@@ -1,10 +1,12 @@
 package com.atimi.tests.ScreenFactory;
 
 import com.atimi.audible.screens.bookdetailsscreen.BookDetailsScreen;
+import com.atimi.audible.screens.dataandstoragescreen.DataAndStorageScreen;
 import com.atimi.audible.screens.homescreen.HomeScreen;
 import com.atimi.audible.screens.libraryScreen.LibraryScreen;
 import com.atimi.audible.screens.profilescreen.ProfileScreen;
 import com.atimi.audible.screens.searchscreen.SearchScreen;
+import com.atimi.audible.screens.settingsscreen.SettingsScreen;
 import com.atimi.audible.screens.signinscreen.SignInScreen;
 import com.atimi.audible.screens.welcomescreen.WelcomeScreenAndroid;
 import io.appium.java_client.android.AndroidDriver;
@@ -79,5 +81,23 @@ public class AndroidScreenFactory extends IScreenFactory {
      */
     public LibraryScreen getLibraryScreen() {
         return new LibraryScreen(driver);
+    }
+
+    /**
+     * Gets settings screen.
+     *
+     * @return settings screen object
+     */
+    public SettingsScreen getSettingsScreen() {
+        return new SettingsScreen(driver);
+    }
+
+    /**
+     * Gets data and storage screen.
+     *
+     * @return data and storage screen object
+     */
+    public DataAndStorageScreen getDataAndStorageScreen() {
+        return new DataAndStorageScreen(driver);
     }
 }

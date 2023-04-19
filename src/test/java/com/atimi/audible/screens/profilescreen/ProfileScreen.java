@@ -32,4 +32,11 @@ public class ProfileScreen extends BaseScreen {
     public String getProfileNameText() {
         return profileScreenObject.getProfileName().getText();
     }
+
+    /**
+     * Taps on settings.
+     */
+    public void tapSettings() {
+        profileScreenObject.getSettings().click();
+    }
 }
