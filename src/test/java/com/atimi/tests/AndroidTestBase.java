@@ -1,7 +1,7 @@
 package com.atimi.tests;
 
 import com.atimi.audible.screens.bookdetailsscreen.BookDetailsScreen;
-import com.atimi.audible.screens.dataandstoragescreen.DataAndStorageScreen;
+import com.atimi.audible.screens.dataandstoragescreen.DataAndStorageScreenAndroid;
 import com.atimi.audible.screens.homescreen.HomeScreen;
 import com.atimi.audible.screens.libraryScreen.LibraryScreenAndroid;
 import com.atimi.audible.screens.profilescreen.ProfileScreen;
@@ -163,7 +163,7 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
      *
      * @return data and storage screen object
      */
-    public DataAndStorageScreen getDataAndStorageScreen() {
-        return getScreenRegistry().get(DataAndStorageScreen.class);
+    public DataAndStorageScreenAndroid getDataAndStorageScreen() {
+        return getScreenRegistry().get(DataAndStorageScreenAndroid.class);
     }
 }

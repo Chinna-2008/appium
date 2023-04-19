@@ -6,13 +6,13 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
 /**
- * This is 'DataAndStorageScreen' class.
+ * This is 'DataAndStorageScreenAndroid' class.
  */
-public class DataAndStorageScreen extends BaseScreen {
+public class DataAndStorageScreenAndroid extends BaseScreen {
 
     private final DataAndStorageScreenObject dataAndStorageScreenObject;
 
-    public DataAndStorageScreen(AndroidDriver<AndroidElement> driver) {
+    public DataAndStorageScreenAndroid(AndroidDriver<AndroidElement> driver) {
         super(driver);
         dataAndStorageScreenObject = new DataAndStorageScreenObject(driver);
     }

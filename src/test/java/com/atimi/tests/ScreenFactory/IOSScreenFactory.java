@@ -1,10 +1,13 @@
 package com.atimi.tests.ScreenFactory;
 
-import com.atimi.audible.screens.libraryScreen.LibraryScreenIOS;
+import com.atimi.audible.screens.dataandstoragescreen.DataAndStorageScreenIOS;
 import com.atimi.audible.screens.welcomescreen.WelcomeScreenIOS;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 
+/**
+ * This is 'IOSScreenFactory' class.
+ */
 public class IOSScreenFactory extends IScreenFactory {
 
     private final IOSDriver<IOSElement> driver;
@@ -23,11 +26,11 @@ public class IOSScreenFactory extends IScreenFactory {
     }
 
     /**
-     * Gets the library screen.
+     * Gets data and storage screen.
      *
-     * @returnscreen library screen object
+     * @return data and storage screen object
      */
-    public LibraryScreenIOS getLibraryScreen() {
-        return new LibraryScreenIOS(driver);
+    public DataAndStorageScreenIOS getDataAndStorageScreen() {
+        return new DataAndStorageScreenIOS(driver);
     }
 }
