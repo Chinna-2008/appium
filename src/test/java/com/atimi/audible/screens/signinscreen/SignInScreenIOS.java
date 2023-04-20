@@ -23,7 +23,7 @@ public class SignInScreenIOS extends BaseScreen {
      */
     @Override
     public void waitForScreenToLoad() {
-        waitForElementToDisplay(signInScreenObject.getSignInButton());
+        waitForElementToDisplay(signInScreenObject.getEnterEmailID());
     }
 
     /**
@@ -35,6 +35,7 @@ public class SignInScreenIOS extends BaseScreen {
     public void login(final String emailID, final String password) {
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
+        waitForScreenToLoad();
         signInScreenObject.getEnterEmailID().sendKeys(emailID);
         signInScreenObject.getEnterPassword().sendKeys(password);
         signInScreenObject.getSignInButton().click();

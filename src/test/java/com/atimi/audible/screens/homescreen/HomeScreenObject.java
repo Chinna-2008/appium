@@ -2,9 +2,10 @@ package com.atimi.audible.screens.homescreen;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import lombok.Data;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
@@ -16,13 +17,16 @@ public class HomeScreenObject {
 
     private final AppiumDriver driver;
 
-    @FindBy(id = "com.audible.application:id/logo_themed")
+    @AndroidFindBy(id = "com.audible.application:id/logo_themed")
+    @iOSXCUITFindBy(accessibility = "apphome_audible_logo_image")
     private MobileElement audibleLogo;
 
-    @FindBy(id = "com.audible.application:id/ic_opaque")
+    @AndroidFindBy(id = "com.audible.application:id/ic_opaque")
+    @iOSXCUITFindBy(accessibility = "Search Library and Audible Catalog")
     private MobileElement search;
 
-    @FindBy(className = "android.widget.TextView")
+    @AndroidFindBy(className = "android.widget.TextView")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTabBar[`label == \"Tab Bar\"`]/XCUIElementTypeButton")
     private List<MobileElement> menuTabs;
 
     public HomeScreenObject(final AppiumDriver driver) {

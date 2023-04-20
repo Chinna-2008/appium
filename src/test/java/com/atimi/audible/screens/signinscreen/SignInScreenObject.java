@@ -21,7 +21,7 @@ public class SignInScreenObject {
     private MobileElement signInScreen;
 
     @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id='ap_email']")
-    @iOSXCUITFindBy(iOSNsPredicate = "value == \"Email or phone number\" AND type == \"XCUIElementTypeTextField\"")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField[`value == \"Email or phone number\"`]")
     private MobileElement enterEmailID;
 
     @AndroidFindBy(xpath = "//android.widget.EditText[@resource-id='ap_password']")

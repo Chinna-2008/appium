@@ -2,7 +2,7 @@ package com.atimi.tests.ScreenFactory;
 
 import com.atimi.audible.screens.bookdetailsscreen.BookDetailsScreen;
 import com.atimi.audible.screens.dataandstoragescreen.DataAndStorageScreenAndroid;
-import com.atimi.audible.screens.homescreen.HomeScreen;
+import com.atimi.audible.screens.homescreen.HomeScreenAndroid;
 import com.atimi.audible.screens.libraryScreen.LibraryScreen;
 import com.atimi.audible.screens.profilescreen.ProfileScreen;
 import com.atimi.audible.screens.searchscreen.SearchScreen;
@@ -43,8 +43,8 @@ public class AndroidScreenFactory extends IScreenFactory {
      *
      * @return home screen object
      */
-    public HomeScreen getHomeScreen() {
-        return new HomeScreen(driver);
+    public HomeScreenAndroid getHomeScreen() {
+        return new HomeScreenAndroid(driver);
     }
 
     /**

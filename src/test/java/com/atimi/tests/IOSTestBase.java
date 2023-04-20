@@ -1,6 +1,7 @@
 package com.atimi.tests;
 
 import com.atimi.audible.screens.dataandstoragescreen.DataAndStorageScreenIOS;
+import com.atimi.audible.screens.homescreen.HomeScreenIOS;
 import com.atimi.audible.screens.signinscreen.SignInScreenIOS;
 import com.atimi.audible.screens.welcomescreen.WelcomeScreenIOS;
 import io.appium.java_client.ios.IOSDriver;
@@ -76,6 +77,15 @@ public class IOSTestBase extends MobileTestBase<IOSDriver<IOSElement>> {
      */
     public SignInScreenIOS getSignInScreen() {
         return getScreenRegistry().get(SignInScreenIOS.class);
+    }
+
+    /**
+     * Gets home screen.
+     *
+     * @return home screen object
+     */
+    public HomeScreenIOS getHomeScreen() {
+        return getScreenRegistry().get(HomeScreenIOS.class);
     }
 
     /**

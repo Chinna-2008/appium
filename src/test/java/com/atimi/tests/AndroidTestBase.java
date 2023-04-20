@@ -2,8 +2,8 @@ package com.atimi.tests;
 
 import com.atimi.audible.screens.bookdetailsscreen.BookDetailsScreen;
 import com.atimi.audible.screens.dataandstoragescreen.DataAndStorageScreenAndroid;
-import com.atimi.audible.screens.homescreen.HomeScreen;
-import com.atimi.audible.screens.libraryScreen.LibraryScreenAndroid;
+import com.atimi.audible.screens.homescreen.HomeScreenAndroid;
+import com.atimi.audible.screens.libraryScreen.LibraryScreen;
 import com.atimi.audible.screens.profilescreen.ProfileScreen;
 import com.atimi.audible.screens.searchscreen.SearchScreen;
 import com.atimi.audible.screens.settingsscreen.SettingsScreen;
@@ -91,8 +91,8 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
      *
      * @return home screen object
      */
-    public HomeScreen getHomeScreen() {
-        return getScreenRegistry().get(HomeScreen.class);
+    public HomeScreenAndroid getHomeScreen() {
+        return getScreenRegistry().get(HomeScreenAndroid.class);
     }
 
     /**
@@ -127,26 +127,8 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
      *
      * @return library screen object
      */
-    public LibraryScreenAndroid getLibraryScreen() {
-        return getScreenRegistry().get(LibraryScreenAndroid.class);
-    }
-
-    /**
-     * Gets settings screen.
-     *
-     * @return settings screen object
-     */
-    public SettingsScreen getSettingsScreen() {
-        return getScreenRegistry().get(SettingsScreen.class);
-    }
-
-    /**
-     * Gets data and storage screen.
-     *
-     * @return data and storage screen object
-     */
-    public DataAndStorageScreen getDataAndStorageScreen() {
-        return getScreenRegistry().get(DataAndStorageScreen.class);
+    public LibraryScreen getLibraryScreen() {
+        return getScreenRegistry().get(LibraryScreen.class);
     }
 
     /**

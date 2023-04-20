@@ -2,17 +2,17 @@ package com.atimi.audible.screens.homescreen;
 
 import com.atimi.audible.BaseScreen;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.IOSElement;
 
 /**
- * This is 'HomeScreen' class.
+ * This is 'HomeScreenIOS' class.
  */
-public class HomeScreen extends BaseScreen {
+public class HomeScreenIOS extends BaseScreen {
 
     private final HomeScreenObject homeScreenObject;
 
-    public HomeScreen(final AndroidDriver<AndroidElement> driver) {
+    public HomeScreenIOS(final IOSDriver<IOSElement> driver) {
         super(driver);
         homeScreenObject = new HomeScreenObject(driver);
     }
@@ -23,22 +23,6 @@ public class HomeScreen extends BaseScreen {
     @Override
     public void waitForScreenToLoad() {
         waitForElementToDisplay(homeScreenObject.getAudibleLogo());
-    }
-
-    /**
-     * Taps on the search button.
-     */
-    public void tapSearchButton() {
-        homeScreenObject.getSearch().click();
-    }
-
-    /**
-     * Checks is audible logo displayed or not.
-     *
-     * @return true / false
-     */
-    public boolean isAudibleLogoDisplayed() {
-        return isDisplayed(homeScreenObject.getAudibleLogo());
     }
 
     /**
