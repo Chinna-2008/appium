@@ -14,7 +14,6 @@ import com.atimi.tests.ScreenFactory.IScreenFactory;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
