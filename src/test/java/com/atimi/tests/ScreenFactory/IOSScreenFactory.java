@@ -2,6 +2,7 @@ package com.atimi.tests.ScreenFactory;
 
 import com.atimi.audible.screens.dataandstoragescreen.DataAndStorageScreenIOS;
 import com.atimi.audible.screens.homescreen.HomeScreenIOS;
+import com.atimi.audible.screens.libraryScreen.LibraryScreenIOS;
 import com.atimi.audible.screens.signinscreen.SignInScreenIOS;
 import com.atimi.audible.screens.welcomescreen.WelcomeScreenIOS;
 import io.appium.java_client.ios.IOSDriver;
@@ -52,5 +53,14 @@ public class IOSScreenFactory extends IScreenFactory {
      */
     public DataAndStorageScreenIOS getDataAndStorageScreen() {
         return new DataAndStorageScreenIOS(driver);
+    }
+
+    /**
+     * Gets library screen.
+     *
+     * @return library screen object
+     */
+    public LibraryScreenIOS getLibraryScreen() {
+        return new LibraryScreenIOS(driver);
     }
 }

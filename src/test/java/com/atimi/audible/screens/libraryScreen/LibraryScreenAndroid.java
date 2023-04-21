@@ -1,7 +1,7 @@
 package com.atimi.audible.screens.libraryScreen;
 
 import com.atimi.audible.BaseScreen;
-import com.atimi.audible.screens.widgets.LibrarySort;
+import com.atimi.audible.screens.widgets.LibrarySortAndroid;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -183,7 +183,7 @@ public class LibraryScreenAndroid extends BaseScreen {
      *
      * @return library sort object
      */
-    public LibrarySort getSort() {
-        return new LibrarySort((AndroidDriver<AndroidElement>) driver);
+    public LibrarySortAndroid getSort() {
+        return new LibrarySortAndroid((AndroidDriver<AndroidElement>) driver);
     }
 }

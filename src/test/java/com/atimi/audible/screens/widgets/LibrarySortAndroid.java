@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * This is 'LibrarySort' class.
+ * This is 'LibrarySortAndroid' class.
  */
-public class LibrarySort extends BaseScreen {
+public class LibrarySortAndroid extends BaseScreen {
 
     private final LibrarySortObject librarySortObject;
 
-    public LibrarySort(final AndroidDriver<AndroidElement> driver) {
+    public LibrarySortAndroid(final AndroidDriver<AndroidElement> driver) {
         super(driver);
         librarySortObject = new LibrarySortObject(driver);
     }

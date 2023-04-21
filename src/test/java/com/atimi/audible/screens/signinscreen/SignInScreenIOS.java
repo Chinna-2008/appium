@@ -5,6 +5,7 @@ import com.atimi.audible.screens.welcomescreen.WelcomeScreenIOS;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * This is 'SignInScreenIOS' class.
@@ -13,7 +14,7 @@ public class SignInScreenIOS extends BaseScreen {
 
     private final SignInScreenObject signInScreenObject;
 
-    public SignInScreenIOS(AppiumDriver driver) {
+    public SignInScreenIOS(IOSDriver<IOSElement> driver) {
         super(driver);
         signInScreenObject = new SignInScreenObject(driver);
     }
@@ -36,6 +37,7 @@ public class SignInScreenIOS extends BaseScreen {
         getWelcomeScreen().waitForScreenToLoad();
         getWelcomeScreen().tapSignIn();
         waitForScreenToLoad();
+        getWait().until(ExpectedConditions.elementToBeClickable(signInScreenObject.getEnterEmailID()));
         signInScreenObject.getEnterEmailID().sendKeys(emailID);
         signInScreenObject.getEnterPassword().sendKeys(password);
         signInScreenObject.getSignInButton().click();

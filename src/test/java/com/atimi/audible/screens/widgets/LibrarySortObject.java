@@ -3,6 +3,7 @@ package com.atimi.audible.screens.widgets;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import lombok.Data;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -17,9 +18,11 @@ public class LibrarySortObject {
     private final AppiumDriver driver;
 
     @FindBy(id = "com.audible.application:id/header_button")
+    @iOSXCUITFindBy(accessibility = "Recent")
     private MobileElement sortingHeaderButton;
 
     @FindBy(className = "android.widget.TextView")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeScrollView[`name == \"overflow_scrollview_container\"`]/XCUIElementTypeOther/XCUIElementTypeOther")
     public List<MobileElement> sortOptions;
 
     public LibrarySortObject(final AppiumDriver driver) {

@@ -1,6 +1,7 @@
 package com.atimi.audible.screens.welcomescreen;
 
 import com.atimi.audible.BaseScreen;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 

@@ -26,6 +26,15 @@ public class HomeScreenIOS extends BaseScreen {
     }
 
     /**
+     * Checks is audible logo displayed or not.
+     *
+     * @return true / false
+     */
+    public boolean isAudibleLogoDisplayed() {
+        return isDisplayed(homeScreenObject.getAudibleLogo());
+    }
+
+    /**
      * Taps menu tab.
      *
      * @param tabName tab name

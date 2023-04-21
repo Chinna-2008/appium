@@ -1,10 +1,16 @@
 package com.atimi.audible;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.IOSElement;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.HashMap;
 
 /**
  * This is 'BaseScreen' class.
@@ -60,9 +66,20 @@ public abstract class BaseScreen {
      * @param driver driver
      * @param text text
      */
-    public static void scrollToText(AndroidDriver<MobileElement> driver, final String text) {
-        MobileElement mobileElement = (MobileElement) driver.findElementByAndroidUIAutomator("new UiScrollable("
-                + "new UiSelector().scrollable(true)).scrollIntoView(" + "new UiSelector().text(\"" + text + "\"));");
+    public static void scrollToText(AppiumDriver<MobileElement> driver, final String text) {
+        MobileElement mobileElement =  driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable("
+                + "new UiSelector().scrollable(true)).scrollIntoView(" + "new UiSelector().text(\"" + text + "\"));"));
     }
 
+    /**
+     * Scroll to text.
+     *
+     * @param driver driver
+     * @param text text
+     */
+    public static void scrollToTextInIOS(AppiumDriver<MobileElement> driver, final String text) {
+        HashMap<String, Object> scrollObject = new HashMap<>();
+        scrollObject.put("predicateString", "label == "+ text+"");
+        driver.executeScript("mobile: scroll", scrollObject);
+    }
 }

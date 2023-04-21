@@ -24,15 +24,19 @@ public class LibraryScreenObject {
     private MobileElement overflowButton;
 
     @AndroidFindBy(id = "com.audible.application:id/action_text")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeScrollView[`name == \"overflow_scrollview_container\"`]/XCUIElementTypeOther[1]/XCUIElementTypeOther")
     private List<MobileElement> overflowMenuOptions;
 
     @AndroidFindBy(id = "com.audible.application:id/title")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == \"metadata_titlegroup\"")
     private List<MobileElement> audioBooks;
 
     @AndroidFindBy(id = "com.audible.application:id/owned_title_item")
+    @iOSXCUITFindBy(iOSNsPredicate = "name CONTAINS \"cell-library-Library Titles\"")
     private List<MobileElement> audiobookCells;
 
     @AndroidFindBy(id = "com.audible.application:id/header_text")
+    @iOSXCUITFindBy(accessibility = "left_header_detail_label")
     private MobileElement numberOfTitles;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"In Progress\")")
