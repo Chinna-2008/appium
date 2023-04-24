@@ -3,17 +3,16 @@ package com.atimi.audible.screens.bookdetailsscreen;
 import com.atimi.audible.BaseScreen;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-
 import java.util.HashMap;
 
 /**
- * This is 'BookDetailsScreen' class.
+ * This is 'BookDetailsScreenAndroid' class.
  */
-public class BookDetailsScreen extends BaseScreen {
+public class BookDetailsScreenAndroid extends BaseScreen {
 
     private final BookDetailsScreenObject bookDetailsScreenObject;
 
-    public BookDetailsScreen(final AndroidDriver<AndroidElement> driver) {
+    public BookDetailsScreenAndroid(final AndroidDriver<AndroidElement> driver) {
         super(driver);
         bookDetailsScreenObject = new BookDetailsScreenObject(driver);
     }

@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static com.atimi.audible.utils.IOS.scrollToTextInIOS;
+
 /**
  * This is 'LibraryScreenIOS' class.
  */
@@ -95,7 +97,7 @@ public class LibraryScreenIOS extends BaseScreen {
         for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
             MobileElement bookTitles = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name == \"metadata_titlegroup\""));
             String bookTitle = bookTitles.getText();
-            MobileElement author = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name== \"metadata_author\""));
+            MobileElement author = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name == \"metadata_author\""));
             String authorName = author.getText();
             visibleAudiobooksDetails.add(String.format("\nBook title: %s, Author: %s.", bookTitle, authorName));
         }
@@ -129,7 +131,7 @@ public class LibraryScreenIOS extends BaseScreen {
     public List<String> getAllVisibleAudiobookAuthors() {
         ArrayList<String> visibleAudiobookAuthorNames = new ArrayList<>();
         for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
-            MobileElement author = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name== \"metadata_author\""));
+            MobileElement author = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name == \"metadata_author\""));
             String authorName = author.getText();
             visibleAudiobookAuthorNames.add(authorName);
         }

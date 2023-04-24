@@ -48,4 +48,11 @@ public class HomeScreenIOS extends BaseScreen {
             }
         }
     }
+
+    /**
+     * Taps on the search button.
+     */
+    public void tapSearchButton() {
+        homeScreenObject.getSearch().click();
+    }
 }

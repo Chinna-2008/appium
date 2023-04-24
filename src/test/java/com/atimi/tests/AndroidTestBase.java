@@ -1,11 +1,11 @@
 package com.atimi.tests;
 
-import com.atimi.audible.screens.bookdetailsscreen.BookDetailsScreen;
+import com.atimi.audible.screens.bookdetailsscreen.BookDetailsScreenAndroid;
 import com.atimi.audible.screens.dataandstoragescreen.DataAndStorageScreenAndroid;
 import com.atimi.audible.screens.homescreen.HomeScreenAndroid;
 import com.atimi.audible.screens.libraryScreen.LibraryScreenAndroid;
 import com.atimi.audible.screens.profilescreen.ProfileScreen;
-import com.atimi.audible.screens.searchscreen.SearchScreen;
+import com.atimi.audible.screens.searchscreen.SearchScreenAndroid;
 import com.atimi.audible.screens.settingsscreen.SettingsScreen;
 import com.atimi.audible.screens.signinscreen.SignInScreenAndroid;
 import com.atimi.audible.screens.welcomescreen.WelcomeScreenAndroid;
@@ -108,8 +108,8 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
      *
      * @return search screen object
      */
-    public SearchScreen getSearchScreen() {
-        return getScreenRegistry().get(SearchScreen.class);
+    public SearchScreenAndroid getSearchScreen() {
+        return getScreenRegistry().get(SearchScreenAndroid.class);
     }
 
     /**
@@ -117,8 +117,8 @@ public class AndroidTestBase extends MobileTestBase<AndroidDriver<AndroidElement
      *
      * @return book details screen object
      */
-    public BookDetailsScreen getBookDetailsScreen() {
-        return getScreenRegistry().get(BookDetailsScreen.class);
+    public BookDetailsScreenAndroid getBookDetailsScreen() {
+        return getScreenRegistry().get(BookDetailsScreenAndroid.class);
     }
 
     /**

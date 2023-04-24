@@ -1,8 +1,10 @@
 package com.atimi.tests.ScreenFactory;
 
+import com.atimi.audible.screens.bookdetailsscreen.BookDetailsScreenIOS;
 import com.atimi.audible.screens.dataandstoragescreen.DataAndStorageScreenIOS;
 import com.atimi.audible.screens.homescreen.HomeScreenIOS;
 import com.atimi.audible.screens.libraryScreen.LibraryScreenIOS;
+import com.atimi.audible.screens.searchscreen.SearchScreenIOS;
 import com.atimi.audible.screens.signinscreen.SignInScreenIOS;
 import com.atimi.audible.screens.welcomescreen.WelcomeScreenIOS;
 import io.appium.java_client.ios.IOSDriver;
@@ -62,5 +64,23 @@ public class IOSScreenFactory extends IScreenFactory {
      */
     public LibraryScreenIOS getLibraryScreen() {
         return new LibraryScreenIOS(driver);
+    }
+
+    /**
+     * Gets search screen.
+     *
+     * @return search screen object
+     */
+    public SearchScreenIOS getSearchScreen() {
+        return new SearchScreenIOS(driver);
+    }
+
+    /**
+     * Gets book details screen.
+     *
+     * @return book details screen object
+     */
+    public BookDetailsScreenIOS getBookDetailsScreen() {
+        return new BookDetailsScreenIOS(driver);
     }
 }

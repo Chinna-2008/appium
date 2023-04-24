@@ -2,10 +2,10 @@ package com.atimi.audible.screens.widgets;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import lombok.Data;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
@@ -17,11 +17,11 @@ public class LibrarySortObject {
 
     private final AppiumDriver driver;
 
-    @FindBy(id = "com.audible.application:id/header_button")
+    @AndroidFindBy(id = "com.audible.application:id/header_button")
     @iOSXCUITFindBy(accessibility = "Recent")
     private MobileElement sortingHeaderButton;
 
-    @FindBy(className = "android.widget.TextView")
+    @AndroidFindBy(className = "android.widget.TextView")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeScrollView[`name == \"overflow_scrollview_container\"`]/XCUIElementTypeOther/XCUIElementTypeOther")
     public List<MobileElement> sortOptions;
 

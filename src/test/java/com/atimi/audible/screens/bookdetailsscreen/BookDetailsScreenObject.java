@@ -2,10 +2,10 @@ package com.atimi.audible.screens.bookdetailsscreen;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AndroidBy;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import lombok.Data;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
@@ -16,34 +16,35 @@ public class BookDetailsScreenObject {
 
     private final AppiumDriver driver;
 
-    @FindBy(id = "com.audible.application:id/glow_top_left")
+    @AndroidFindBy(id = "com.audible.application:id/glow_top_left")
     private MobileElement leftImage;
 
-    @FindBy(id = "com.audible.application:id/root_recycler_view")
+    @AndroidFindBy(id = "com.audible.application:id/root_recycler_view")
     private MobileElement bookDetailsScreen;
 
-    @FindBy(id = "com.audible.application:id/title")
+    @AndroidFindBy(id = "com.audible.application:id/title")
+    @iOSXCUITFindBy(iOSNsPredicate = "label == \"Story of Buddha\"")
     private MobileElement bookTitle;
 
-    @FindBy(id = "com.audible.application:id/subtitle")
+    @AndroidFindBy(id = "com.audible.application:id/subtitle")
     private MobileElement subTitle;
 
-    @FindBy(id = "com.audible.application:id/enhanced_author_text")
+    @AndroidFindBy(id = "com.audible.application:id/enhanced_author_text")
     private MobileElement author;
 
-    @FindBy(id = "com.audible.application:id/format_text_view")
+    @AndroidFindBy(id = "com.audible.application:id/format_text_view")
     private MobileElement audioBookDuration;
 
-    @AndroidBy(uiAutomator = "new UiSelector().text(\"Download\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Download\")")
     private MobileElement downloadButton;
 
-    @AndroidBy(uiAutomator = "new UiSelector().text(\"Remove From Device\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Remove From Device\")")
     private MobileElement removeFromDevice;
 
-    @AndroidBy(uiAutomator = "new UiSelector().text(\"Play\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Play\")")
     private MobileElement playButton;
 
-    @AndroidBy(uiAutomator = "new UiSelector().text(\"Pause\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Pause\")")
     private MobileElement pauseButton;
 
     public BookDetailsScreenObject(final AppiumDriver driver) {

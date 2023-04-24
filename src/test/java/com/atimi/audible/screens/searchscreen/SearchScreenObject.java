@@ -2,9 +2,10 @@ package com.atimi.audible.screens.searchscreen;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import lombok.Data;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
@@ -15,10 +16,12 @@ public class SearchScreenObject {
 
     private final AppiumDriver driver;
 
-    @FindBy(id = "com.audible.application:id/search_src_text")
+    @AndroidFindBy(id = "com.audible.application:id/search_src_text")
+    @iOSXCUITFindBy(accessibility = "Search our catalogue")
     private MobileElement searchBox;
 
-    @FindBy(id = "com.audible.application:id/title")
+    @AndroidFindBy(id = "com.audible.application:id/title")
+    @iOSXCUITFindBy(accessibility = "metadata_titlegroup")
     private MobileElement storyOfBuddha;
 
     public SearchScreenObject(final AppiumDriver driver) {

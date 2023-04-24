@@ -1,19 +1,27 @@
 package com.atimi.audible.screens.searchscreen;
 
 import com.atimi.audible.BaseScreen;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.IOSElement;
 
-public class SearchScreen extends BaseScreen {
+/**
+ * This is 'SearchScreenIOS' class.
+ */
+public class SearchScreenIOS extends BaseScreen {
+
     private final SearchScreenObject searchScreenObject;
 
-    public SearchScreen(final AndroidDriver<AndroidElement> driver) {
+    public SearchScreenIOS(final IOSDriver<IOSElement> driver) {
         super(driver);
         searchScreenObject = new SearchScreenObject(driver);
     }
 
+    /**
+     * Waits for element to display.
+     */
     @Override
     public void waitForScreenToLoad() {
+        waitForElementToDisplay(searchScreenObject.getStoryOfBuddha());
     }
 
     /**

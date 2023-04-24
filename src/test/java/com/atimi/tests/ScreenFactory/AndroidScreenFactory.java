@@ -1,11 +1,11 @@
 package com.atimi.tests.ScreenFactory;
 
-import com.atimi.audible.screens.bookdetailsscreen.BookDetailsScreen;
+import com.atimi.audible.screens.bookdetailsscreen.BookDetailsScreenAndroid;
 import com.atimi.audible.screens.dataandstoragescreen.DataAndStorageScreenAndroid;
 import com.atimi.audible.screens.homescreen.HomeScreenAndroid;
 import com.atimi.audible.screens.libraryScreen.LibraryScreenAndroid;
 import com.atimi.audible.screens.profilescreen.ProfileScreen;
-import com.atimi.audible.screens.searchscreen.SearchScreen;
+import com.atimi.audible.screens.searchscreen.SearchScreenAndroid;
 import com.atimi.audible.screens.settingsscreen.SettingsScreen;
 import com.atimi.audible.screens.signinscreen.SignInScreenAndroid;
 import com.atimi.audible.screens.welcomescreen.WelcomeScreenAndroid;
@@ -61,8 +61,8 @@ public class AndroidScreenFactory extends IScreenFactory {
      *
      * @return search screen object
      */
-    public SearchScreen getSearchScreen() {
-        return new SearchScreen(driver);
+    public SearchScreenAndroid getSearchScreen() {
+        return new SearchScreenAndroid(driver);
     }
 
     /**
@@ -70,8 +70,8 @@ public class AndroidScreenFactory extends IScreenFactory {
      *
      * @return book details screen object
      */
-    public BookDetailsScreen getBookDetailsScreen() {
-        return new BookDetailsScreen(driver);
+    public BookDetailsScreenAndroid getBookDetailsScreen() {
+        return new BookDetailsScreenAndroid(driver);
     }
 
     /**

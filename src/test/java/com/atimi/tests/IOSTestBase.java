@@ -1,8 +1,10 @@
 package com.atimi.tests;
 
+import com.atimi.audible.screens.bookdetailsscreen.BookDetailsScreenIOS;
 import com.atimi.audible.screens.dataandstoragescreen.DataAndStorageScreenIOS;
 import com.atimi.audible.screens.homescreen.HomeScreenIOS;
 import com.atimi.audible.screens.libraryScreen.LibraryScreenIOS;
+import com.atimi.audible.screens.searchscreen.SearchScreenIOS;
 import com.atimi.audible.screens.signinscreen.SignInScreenIOS;
 import com.atimi.audible.screens.welcomescreen.WelcomeScreenIOS;
 import io.appium.java_client.ios.IOSDriver;
@@ -105,5 +107,23 @@ public class IOSTestBase extends MobileTestBase<IOSDriver<IOSElement>> {
      */
     public LibraryScreenIOS getLibraryScreen() {
         return getScreenRegistry().get(LibraryScreenIOS.class);
+    }
+
+    /**
+     * Gets search screen.
+     *
+     * @return search screen object
+     */
+    public SearchScreenIOS getSearchScreen() {
+        return getScreenRegistry().get(SearchScreenIOS.class);
+    }
+
+    /**
+     * Gets book details screen.
+     *
+     * @return book details screen object
+     */
+    public BookDetailsScreenIOS getBookDetailsScreen() {
+        return getScreenRegistry().get(BookDetailsScreenIOS.class);
     }
 }
