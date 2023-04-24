@@ -22,9 +22,8 @@ public class LibraryScreenTest extends IOSTestBase {
         getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
-        getLibraryScreen().scrollUpToAudiobook("Just Do It");
-        getLibraryScreen().tapAudiobookOverflowButton("Just Do It");
-        List<String> overflowMenuOptionsList = Arrays.asList("Title details", "Donald Katz", "Download", "Share", "Mark as finished", "Rate and review", "Add to favourites", "Add to collection…", "Archive this title", "Remove from library");
+        getLibraryScreen().tapAudiobookOverflowButton("Canada Is Awesome");
+        List<String> overflowMenuOptionsList = Arrays.asList("Title Details", "Neil Pasricha", "Download", "Share", "Mark as Unfinished", "Rate and Review", "Add to Favourites", "Add to collection...", "Archive this title", "Remove from Library");
         Assert.assertEquals(getLibraryScreen().getListOfOverflowMenuOptions(), overflowMenuOptionsList, "Overflow menu options for audiobook is not matched.");
     }
 
@@ -105,5 +104,25 @@ public class LibraryScreenTest extends IOSTestBase {
         allAudiobooksAuthors.addAll(visibleAudiobooksAuthorNamesAfterScroll);
         List<String> expectedAudiobooksAuthorsName = Arrays.asList("By Mary Pilon", "By Neil Pasricha", "By Donald Katz", "By Nalini Singh", "By Jane Fonda", "By Kat Johnson", "By Sebastian Fitzek");
         Assert.assertEquals(allAudiobooksAuthors, expectedAudiobooksAuthorsName, "Audiobook authors names are not matched.");
+    }
+
+    /**
+     * Tests all the audiobook titles.
+     */
+    @Test
+    public void testAllAudiobookTitles() {
+        getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
+        getHomeScreen().waitForScreenToLoad();
+        getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
+        getLibraryScreen().waitForScreenToLoad();
+        List<String> visibleAudiobookTitles = getLibraryScreen().getAllVisibleAudiobookTitles();
+        getLibraryScreen().scrollUpToAudiobook("Just Do It");
+        getLibraryScreen().waitForScreenToLoad();
+        List<String> visibleAudiobookTitlesAfterScroll = getLibraryScreen().getAllVisibleAudiobookTitles();
+        Set<String> allAudiobooksNames = new HashSet<>();
+        allAudiobooksNames.addAll(visibleAudiobookTitles);
+        allAudiobooksNames.addAll(visibleAudiobookTitlesAfterScroll);
+        List<String> expectedAllAudiobooksTitles = Arrays.asList("Canada Is Awesome", "Tomato Can Blues", "The Big Store", "Murder, We Spoke", "The King of the Ferret Leggers and Other True Stories", "FIRST THREE FREE CHAPTERS: Amok", "Don Katz Interviews Jane Fonda", "Just Do It", "Christmas in the Kitchen");
+        Assert.assertEquals(allAudiobooksNames, expectedAllAudiobooksTitles, "Audiobooks titles are not matched.");
     }
 }

@@ -47,7 +47,7 @@ public class DataAndStorageScreenAndroid extends BaseScreen {
      * Scroll to multi part radio button.
      */
     public void scrollToMultiPartRadioButton() {
-        scrollToText((AndroidDriver<MobileElement>) driver, "Multi-part");
+        scrollToTextInAndroid((AndroidDriver<MobileElement>) driver, "Multi-part");
     }
 
     /**

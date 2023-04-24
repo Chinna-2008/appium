@@ -24,7 +24,7 @@ public class LibraryScreenObject {
     private MobileElement overflowButton;
 
     @AndroidFindBy(id = "com.audible.application:id/action_text")
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeScrollView[`name == \"overflow_scrollview_container\"`]/XCUIElementTypeOther[1]/XCUIElementTypeOther")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeScrollView[`name == \"overflow_scrollview_container\"`]/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeStaticText")
     private List<MobileElement> overflowMenuOptions;
 
     @AndroidFindBy(id = "com.audible.application:id/title")

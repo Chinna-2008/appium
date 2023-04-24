@@ -159,7 +159,7 @@ public class LibraryScreenAndroid extends BaseScreen {
      * Scroll up to audiobook.
      */
     public void scrollUpToAudiobook(final String audiobook) {
-        scrollToText((AndroidDriver<MobileElement>) driver, audiobook);
+        scrollToTextInAndroid((AndroidDriver<MobileElement>) driver, audiobook);
     }
 
     /**

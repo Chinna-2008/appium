@@ -1,17 +1,12 @@
 package com.atimi.audible.screens.libraryScreen;
 
 import com.atimi.audible.BaseScreen;
-import com.atimi.audible.screens.widgets.LibrarySortAndroid;
 import com.atimi.audible.screens.widgets.LibrarySortIOS;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -46,17 +41,6 @@ public class LibraryScreenIOS extends BaseScreen {
     }
 
     /**
-     * Taps audiobook overflow menu option.
-     *
-     * @param overflowMenuOptionText overflow menu option text
-     */
-    public void tapAudiobookOverflowMenuOption(final String overflowMenuOptionText) {
-        List<MobileElement> overflowMenuOptions = libraryScreenObject.getOverflowMenuOptions().stream().collect(Collectors.toList());
-        List<MobileElement> optionList = overflowMenuOptions.stream().filter(option -> option.getText().equals(overflowMenuOptionText)).collect(Collectors.toList());
-        optionList.forEach(option -> option.click());
-    }
-
-    /**
      * Taps on overflow button.
      *
      * @param audiobookName audiobook name
@@ -83,7 +67,12 @@ public class LibraryScreenIOS extends BaseScreen {
      * @return list of overflow menu options
      */
     public List<String> getListOfOverflowMenuOptions() {
-        return libraryScreenObject.getOverflowMenuOptions().stream().map(option -> option.getText()).collect(Collectors.toList());
+        ArrayList<String> audiobookOverflowMenuOptions = new ArrayList<>();
+        for(final MobileElement option : libraryScreenObject.getOverflowMenuOptions()) {
+            String optionName = option.getAttribute("name");
+            audiobookOverflowMenuOptions.add(optionName);
+        }
+        return audiobookOverflowMenuOptions;
     }
 
     /**
