@@ -43,6 +43,9 @@ public class LibraryScreenObject {
     @AndroidFindBy(id = "com.audible.application:id/title")
     private MobileElement inProgressBook;
 
+    @iOSXCUITFindBy(iOSNsPredicate = "label == \"Close\" AND name == \"Close\" AND type == \"XCUIElementTypeButton\"")
+    private MobileElement overflowOptionTab;
+
     public LibraryScreenObject(final AppiumDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);

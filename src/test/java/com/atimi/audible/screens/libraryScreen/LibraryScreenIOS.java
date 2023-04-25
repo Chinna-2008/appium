@@ -64,6 +64,13 @@ public class LibraryScreenIOS extends BaseScreen {
     }
 
     /**
+     * Waits for overflow tab to load.
+     */
+    public void waitForOverflowTabToLoad() {
+        waitForElementToDisplay(libraryScreenObject.getOverflowOptionTab());
+    }
+
+    /**
      * Gets list of overflow menu options.
      *
      * @return list of overflow menu options
@@ -166,5 +173,20 @@ public class LibraryScreenIOS extends BaseScreen {
      */
     public LibrarySortIOS getSort() {
         return new LibrarySortIOS((IOSDriver<IOSElement>) driver);
+    }
+
+    /**
+     * Taps audiobook overflow menu option.
+     *
+     * @param overflowMenuOptionText overflow menu option text
+     */
+    public void tapAudiobookOverflowMenuOption(final String overflowMenuOptionText) {
+        for (final MobileElement option : libraryScreenObject.getOverflowMenuOptions()) {
+            String optionName = option.getAttribute("value");
+            if (optionName.equals(overflowMenuOptionText)) {
+                option.click();
+                break;
+            }
+        }
     }
 }

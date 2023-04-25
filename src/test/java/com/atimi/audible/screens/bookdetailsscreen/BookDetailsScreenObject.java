@@ -20,32 +20,42 @@ public class BookDetailsScreenObject {
     private MobileElement leftImage;
 
     @AndroidFindBy(id = "com.audible.application:id/root_recycler_view")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther[1]")
     private MobileElement bookDetailsScreen;
 
     @AndroidFindBy(id = "com.audible.application:id/title")
-    @iOSXCUITFindBy(iOSNsPredicate = "label == \"Story of Buddha\"")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name =\"metadata_titlegroup\"`][1]")
     private MobileElement bookTitle;
 
     @AndroidFindBy(id = "com.audible.application:id/subtitle")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeStaticText[`name =\"metadata_titlegroup\"`][2]")
     private MobileElement subTitle;
 
     @AndroidFindBy(id = "com.audible.application:id/enhanced_author_text")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == \"pdpmetadata_author\"")
     private MobileElement author;
 
     @AndroidFindBy(id = "com.audible.application:id/format_text_view")
+    @iOSXCUITFindBy(accessibility = "pdpmetadata_format_duration")
     private MobileElement audioBookDuration;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Download\")")
+    @iOSXCUITFindBy(accessibility = "pdp_download_button")
     private MobileElement downloadButton;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Remove From Device\")")
     private MobileElement removeFromDevice;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Play\")")
+    @iOSXCUITFindBy(accessibility = "pdp_play_pause_button")
     private MobileElement playButton;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Pause\")")
+    @iOSXCUITFindBy(accessibility = "pdp_play_pause_button")
     private MobileElement pauseButton;
+
+    @iOSXCUITFindBy(accessibility = "Cancel download")
+    private MobileElement cancelDownload;
 
     public BookDetailsScreenObject(final AppiumDriver driver) {
         this.driver = driver;
