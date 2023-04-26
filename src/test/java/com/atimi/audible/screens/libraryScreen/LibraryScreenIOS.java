@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.atimi.audible.utils.IOS.scrollToTextInIOS;
+import static com.atimi.audible.utils.IOS.scrollToText;
 
 /**
  * This is 'LibraryScreenIOS' class.
@@ -39,7 +39,7 @@ public class LibraryScreenIOS extends BaseScreen {
      * Scroll up to audiobook.
      */
     public void scrollUpToAudiobook(final String audiobook) {
-        scrollToTextInIOS((IOSDriver<MobileElement>) driver, audiobook);
+        scrollToText((IOSDriver<MobileElement>) driver, audiobook);
     }
 
     /**

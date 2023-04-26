@@ -10,12 +10,12 @@ import java.util.HashMap;
 public class IOS {
 
     /**
-     * Scroll to text in ios.
+     * Scroll to text.
      *
      * @param driver driver
      * @param text text
      */
-    public static void scrollToTextInIOS(final AppiumDriver<MobileElement> driver, final String text) {
+    public static void scrollToText(final AppiumDriver<MobileElement> driver, final String text) {
         HashMap<String, Object> scrollObject = new HashMap<>();
         scrollObject.put("direction", "down");
         scrollObject.put("value", text);

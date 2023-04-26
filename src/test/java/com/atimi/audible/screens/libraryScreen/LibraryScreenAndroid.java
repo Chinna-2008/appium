@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import static com.atimi.audible.utils.Android.scrollToTextInAndroid;
+import static com.atimi.audible.utils.Android.scrollToText;
 
 /**
  * This is 'LibraryScreen' class.
@@ -160,7 +160,7 @@ public class LibraryScreenAndroid extends BaseScreen {
      * Scroll up to audiobook.
      */
     public void scrollUpToAudiobook(final String audiobook) {
-        scrollToTextInAndroid((AndroidDriver<MobileElement>) driver, audiobook);
+        scrollToText((AndroidDriver<MobileElement>) driver, audiobook);
     }
 
     /**

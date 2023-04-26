@@ -4,7 +4,7 @@ import com.atimi.audible.BaseScreen;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import static com.atimi.audible.utils.Android.scrollToTextInAndroid;
+import static com.atimi.audible.utils.Android.scrollToText;
 
 /**
  * This is 'DataAndStorageScreenAndroid' class.
@@ -48,7 +48,7 @@ public class DataAndStorageScreenAndroid extends BaseScreen {
      * Scroll to multi part radio button.
      */
     public void scrollToMultiPartRadioButton() {
-        scrollToTextInAndroid((AndroidDriver<MobileElement>) driver, "Multi-part");
+        scrollToText((AndroidDriver<MobileElement>) driver, "Multi-part");
     }
 
     /**
