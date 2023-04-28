@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.stream.Collectors; // TODO : Remove extra line.
 
 import static com.atimi.audible.utils.IOS.scrollToText;
 
@@ -50,10 +50,10 @@ public class LibraryScreenIOS extends BaseScreen {
     public void tapAudiobookOverflowButton(final String audiobookName) {
         for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
             try {
-                MobileElement bookTitles = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name == \"metadata_titlegroup\""));
+                MobileElement bookTitles = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name == \"metadata_titlegroup\"")); // TODO: Update the variable 'bookTitles' as 'bookTitle'.
                 String bookTitle = bookTitles.getText();
                 if (bookTitle.equals(audiobookName)) {
-                    MobileElement overflow = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name CONTAINS \"accessory_button_detail_\""));
+                    MobileElement overflow = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name CONTAINS \"accessory_button_detail_\"")); // TODO: Update the variable 'overflow' as 'overflowButton'.
                     overflow.click();
                     break;
                 }
@@ -77,7 +77,7 @@ public class LibraryScreenIOS extends BaseScreen {
      */
     public List<String> getListOfOverflowMenuOptions() {
         ArrayList<String> audiobookOverflowMenuOptions = new ArrayList<>();
-        for(final MobileElement option : libraryScreenObject.getOverflowMenuOptions()) {
+        for(final MobileElement option : libraryScreenObject.getOverflowMenuOptions()) { // TODO: Update the 'option' variable as 'overflowMenuOption'.
             String optionName = option.getAttribute("name");
             audiobookOverflowMenuOptions.add(optionName);
         }
@@ -102,7 +102,7 @@ public class LibraryScreenIOS extends BaseScreen {
     public Set<String> getVisibleAudiobooksDetails() {
         Set<String> visibleAudiobooksDetails = new HashSet<>();
         for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
-            MobileElement bookTitles = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name == \"metadata_titlegroup\""));
+            MobileElement bookTitles = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name == \"metadata_titlegroup\"")); // TODO: Update the variable name as 'bookTitle'.
             String bookTitle = bookTitles.getText();
             MobileElement author = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name == \"metadata_author\""));
             String authorName = author.getText();

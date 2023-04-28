@@ -7,7 +7,7 @@ import io.appium.java_client.MobileElement;
 /**
  * This is 'Android' class.
  */
-public class Android {
+public class Android { // TODO : Update the class name as 'AndroidUtils'.
 
     /**
      * Scroll to text.

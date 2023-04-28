@@ -7,7 +7,7 @@ import java.util.HashMap;
 /**
  * This is 'IOS' class.
  */
-public class IOS {
+public class IOS { // TODO : Update the class name as 'IOSUtils'.
 
     /**
      * Scroll to text.

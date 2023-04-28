@@ -93,7 +93,7 @@ public class LibraryScreenAndroid extends BaseScreen {
         ArrayList<String> visibleAudiobookTitles = new ArrayList<>();
         for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
             try {
-                MobileElement bookTitles = audiobookCell.findElement(By.id("com.audible.application:id/title"));
+                MobileElement bookTitles = audiobookCell.findElement(By.id("com.audible.application:id/title")); // TODO : Update the variable name as 'bookTitle'.
                 String bookTitle = bookTitles.getText();
                 visibleAudiobookTitles.add(bookTitle);
             } catch (final NoSuchElementException exception) {
