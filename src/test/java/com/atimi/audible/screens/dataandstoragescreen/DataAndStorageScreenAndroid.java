@@ -4,7 +4,7 @@ import com.atimi.audible.BaseScreen;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import static com.atimi.audible.utils.Android.scrollToText;
+import static com.atimi.audible.utils.AndroidUtils.scrollToText;
 
 /**
  * This is 'DataAndStorageScreenAndroid' class.

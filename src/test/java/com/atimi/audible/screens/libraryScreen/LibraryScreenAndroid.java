@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import static com.atimi.audible.utils.Android.scrollToText;
+import static com.atimi.audible.utils.AndroidUtils.scrollToText;
 
 /**
  * This is 'LibraryScreen' class.
@@ -42,9 +42,9 @@ public class LibraryScreenAndroid extends BaseScreen {
     public void tapAudiobookOverflowButton(final String audiobookName) {
         for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
             try {
-                MobileElement bookTitles = audiobookCell.findElement(By.id("com.audible.application:id/title"));
-                String bookTitle = bookTitles.getText();
-                if (bookTitle.equals(audiobookName)) {
+                MobileElement bookTitle = audiobookCell.findElement(By.id("com.audible.application:id/title"));
+                String audiobookTitle = bookTitle.getText();
+                if (audiobookTitle.equals(audiobookName)) {
                     MobileElement overflow = audiobookCell.findElement(By.id("com.audible.application:id/overflow_btn"));
                     overflow.click();
                     break;
@@ -93,9 +93,9 @@ public class LibraryScreenAndroid extends BaseScreen {
         ArrayList<String> visibleAudiobookTitles = new ArrayList<>();
         for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
             try {
-                MobileElement bookTitles = audiobookCell.findElement(By.id("com.audible.application:id/title")); // TODO : Update the variable name as 'bookTitle'.
-                String bookTitle = bookTitles.getText();
-                visibleAudiobookTitles.add(bookTitle);
+                MobileElement bookTitle = audiobookCell.findElement(By.id("com.audible.application:id/title"));
+                String audiobookTitle = bookTitle.getText();
+                visibleAudiobookTitles.add(audiobookTitle);
             } catch (final NoSuchElementException exception) {
                 exception.getMessage();
             }
@@ -110,8 +110,8 @@ public class LibraryScreenAndroid extends BaseScreen {
      */
     public List<String> getAllVisibleAudiobookAuthors() {
         ArrayList<String> visibleAudiobookAuthorNames = new ArrayList<>();
-        for (final MobileElement mobileElement : libraryScreenObject.getAudiobookCells()) {
-            MobileElement author = mobileElement.findElement(By.id("com.audible.application:id/author_text_view"));
+        for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
+            MobileElement author = audiobookCell.findElement(By.id("com.audible.application:id/author_text_view"));
             String authorName = author.getText();
             visibleAudiobookAuthorNames.add(authorName);
         }
@@ -125,12 +125,12 @@ public class LibraryScreenAndroid extends BaseScreen {
      */
     public Set<String> getVisibleAudiobooksDetails() {
         Set<String> visibleAudiobooksDetails = new HashSet<>();
-        for (final MobileElement mobileElement : libraryScreenObject.getAudiobookCells()) {
-            MobileElement bookTitles = mobileElement.findElement(By.id("com.audible.application:id/title"));
-            String bookTitle = bookTitles.getText();
-            MobileElement author = mobileElement.findElement(By.id("com.audible.application:id/author_text_view"));
+        for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
+            MobileElement bookTitle = audiobookCell.findElement(By.id("com.audible.application:id/title"));
+            String audiobookTitle = bookTitle.getText();
+            MobileElement author = audiobookCell.findElement(By.id("com.audible.application:id/author_text_view"));
             String authorName = author.getText();
-            visibleAudiobooksDetails.add(String.format("\nBook title: %s, Author: %s", bookTitle, authorName));
+            visibleAudiobooksDetails.add(String.format("\nBook title: %s, Author: %s", audiobookTitle, authorName));
         }
         return visibleAudiobooksDetails;
     }

@@ -15,10 +15,10 @@ import java.util.Set;
 public class LibraryScreenTest extends IOSTestBase {
 
     /**
-     * Tests the library tab.
+     * Tests the library audiobook overflow button.
      */
     @Test
-    public void testLibrary() { // TODO: Update the test method name as 'testLibraryAudiobookOverflowButton'
+    public void testLibraryAudiobookOverflowButton() {
         getSignInScreen().login("reddeppapc1@gmail.com", "Reddeppa@3");
         getHomeScreen().waitForScreenToLoad();
         getHomeScreen().tapMenuTab(MenuTabs.LIBRARY.getTabsValue());
@@ -70,8 +70,7 @@ public class LibraryScreenTest extends IOSTestBase {
         Assert.assertEquals(getLibraryScreen().getAllVisibleAudiobookTitles(), expectedAudiobookTitles, "Audiobooks title are not matched.");
         List<String> expectedAudiobookAuthorNames = Arrays.asList("By Neil Pasricha", "By Mary Pilon", "By Sebastian Fitzek", "By Nalini Singh", "By Jane Fonda", "By Donald Katz", "By Donald Katz");
         Assert.assertEquals(getLibraryScreen().getAllVisibleAudiobookAuthors(), expectedAudiobookAuthorNames, "Audiobooks author name are not matched.");
-    } // TODO: Remove extra line.
-
+    }
 
     /**
      * Tests the count of all audiobook titles.

@@ -1,13 +1,13 @@
 package com.atimi.audible.utils;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import java.util.HashMap;
 
 /**
- * This is 'Android' class.
+ * This is 'IOSUtils' class.
  */
-public class Android { // TODO : Update the class name as 'AndroidUtils'.
+public class IOSUtils {
 
     /**
      * Scroll to text.
@@ -16,7 +16,9 @@ public class Android { // TODO : Update the class name as 'AndroidUtils'.
      * @param text text
      */
     public static void scrollToText(final AppiumDriver<MobileElement> driver, final String text) {
-       driver.findElement(MobileBy.AndroidUIAutomator("new UiScrollable("
-                + "new UiSelector().scrollable(true)).scrollIntoView(" + "new UiSelector().text(\"" + text + "\"));"));
+        HashMap<String, Object> scrollObject = new HashMap<>();
+        scrollObject.put("direction", "down");
+        scrollObject.put("value", text);
+        driver.executeScript("mobile: scroll", scrollObject);
     }
 }

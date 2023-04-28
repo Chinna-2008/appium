@@ -11,9 +11,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors; // TODO : Remove extra line.
-
-import static com.atimi.audible.utils.IOS.scrollToText;
+import java.util.stream.Collectors;
+import static com.atimi.audible.utils.IOSUtils.scrollToText;
 
 /**
  * This is 'LibraryScreenIOS' class.
@@ -50,11 +49,11 @@ public class LibraryScreenIOS extends BaseScreen {
     public void tapAudiobookOverflowButton(final String audiobookName) {
         for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
             try {
-                MobileElement bookTitles = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name == \"metadata_titlegroup\"")); // TODO: Update the variable 'bookTitles' as 'bookTitle'.
-                String bookTitle = bookTitles.getText();
-                if (bookTitle.equals(audiobookName)) {
-                    MobileElement overflow = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name CONTAINS \"accessory_button_detail_\"")); // TODO: Update the variable 'overflow' as 'overflowButton'.
-                    overflow.click();
+                MobileElement bookTitle = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name == \"metadata_titlegroup\""));
+                String bookTitleName = bookTitle.getText();
+                if (bookTitleName.equals(audiobookName)) {
+                    MobileElement overflowButton = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name CONTAINS \"accessory_button_detail_\""));
+                    overflowButton.click();
                     break;
                 }
             } catch (final NoSuchElementException exception) {
@@ -77,9 +76,9 @@ public class LibraryScreenIOS extends BaseScreen {
      */
     public List<String> getListOfOverflowMenuOptions() {
         ArrayList<String> audiobookOverflowMenuOptions = new ArrayList<>();
-        for(final MobileElement option : libraryScreenObject.getOverflowMenuOptions()) { // TODO: Update the 'option' variable as 'overflowMenuOption'.
-            String optionName = option.getAttribute("name");
-            audiobookOverflowMenuOptions.add(optionName);
+        for(final MobileElement overflowMenuOption : libraryScreenObject.getOverflowMenuOptions()) {
+            String overflowOptionName = overflowMenuOption.getAttribute("name");
+            audiobookOverflowMenuOptions.add(overflowOptionName);
         }
         return audiobookOverflowMenuOptions;
     }
@@ -102,11 +101,11 @@ public class LibraryScreenIOS extends BaseScreen {
     public Set<String> getVisibleAudiobooksDetails() {
         Set<String> visibleAudiobooksDetails = new HashSet<>();
         for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
-            MobileElement bookTitles = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name == \"metadata_titlegroup\"")); // TODO: Update the variable name as 'bookTitle'.
-            String bookTitle = bookTitles.getText();
+            MobileElement bookTitle = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name == \"metadata_titlegroup\""));
+            String audiobookTitle = bookTitle.getText();
             MobileElement author = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name == \"metadata_author\""));
             String authorName = author.getText();
-            visibleAudiobooksDetails.add(String.format("\nBook title: %s, Author: %s.", bookTitle, authorName));
+            visibleAudiobooksDetails.add(String.format("\nBook title: %s, Author: %s.", audiobookTitle, authorName));
         }
         return visibleAudiobooksDetails;
     }
@@ -120,9 +119,9 @@ public class LibraryScreenIOS extends BaseScreen {
         ArrayList<String> visibleAudiobookTitles = new ArrayList<>();
         for (final MobileElement audiobookCell : libraryScreenObject.getAudiobookCells()) {
             try {
-                MobileElement bookTitles = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name == \"metadata_titlegroup\""));
-                String bookTitle = bookTitles.getText();
-                visibleAudiobookTitles.add(bookTitle);
+                MobileElement bookTitle = audiobookCell.findElement(MobileBy.iOSNsPredicateString("name == \"metadata_titlegroup\""));
+                String audiobookTitle = bookTitle.getText();
+                visibleAudiobookTitles.add(audiobookTitle);
             } catch (final NoSuchElementException exception) {
                 exception.getMessage();
             }
@@ -181,10 +180,10 @@ public class LibraryScreenIOS extends BaseScreen {
      * @param overflowMenuOptionText overflow menu option text
      */
     public void tapAudiobookOverflowMenuOption(final String overflowMenuOptionText) {
-        for (final MobileElement option : libraryScreenObject.getOverflowMenuOptions()) {
-            String optionName = option.getAttribute("value");
+        for (final MobileElement overflowMenuOption : libraryScreenObject.getOverflowMenuOptions()) {
+            String optionName = overflowMenuOption.getAttribute("value");
             if (optionName.equals(overflowMenuOptionText)) {
-                option.click();
+                overflowMenuOption.click();
                 break;
             }
         }
